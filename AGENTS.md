@@ -24,12 +24,29 @@ voice  Voice | AssetRef
 
 conflating all writing into one house voice. 'Make it punchy' is not an axis. Voice register, claim density, and structural template are.
 
-## Axes
+## Axes (the voice contract)
 
-writing-pipeline axes: voice, register, density, claim-density, evidence-density, MMM-load, SNR-load, structural-template, banned-terms, source-discipline, fact-check, audience-fit, length-target, publish-target.
+A voice is a named writing style, characterized by:
 
-The schema is in the pipeline source (`tools/sheet.py`). Axes are the
-contract; vibe is not.
+| Axis | Type | Values |
+|---|---|---|
+| name | string | unique voice id (e.g. "lean", "gritty", "lyric", "didactic") |
+| sentence_rhythm | enum | `{periodic, loose, short_shock, mixed, paragraph_block}` |
+| vocabulary_register | enum | `{standard_english, vernacular, learned, archaic, modern_slang, technical}` |
+| imagery_density | enum | `{low, medium, high, very_high}` |
+| tense_default | enum | `{past, present, mixed, future_conditional}` |
+| pov_default | enum | `{third_omniscient, first_close, second, multi_pov, free_indirect}` |
+| humor_mode | enum | `{satiric, dry, slapstick, absurdist, black, none}` |
+| notices | string[] | what this voice pays attention to (physical_detail, social_power, moral_choice, the_joke, the_seam, body_weight, consequence, atmosphere) |
+| refuses | string[] | what this voice never does (sentimentality, vulgarity, slapstick, preach, metafiction, narrator_wink, plot_mechanics) |
+| example_sentence | string | one sentence that captures the voice |
+| voice_id | string | sha256 of canonical(axes), 16 hex chars |
+| commit_asset | enum | `{gate, allow, forbid}` |
+
+The schema is the source of truth in `tools/voice.py`. Shipped voices
+are the 4 listed in `voice.VOICES` (lean / gritty / lyric / didactic).
+Adding a voice = adding a dict to `VOICES` + recomputing its voice_id
++ writing a test for its gate behavior.
 
 ## Surface
 
