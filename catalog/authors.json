@@ -1,0 +1,3309 @@
+[
+  {
+    "name": "Aesop",
+    "born": -620,
+    "died": -564,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q43423",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Aesop's Fables",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 5, claimed ~50 million+",
+        "claimed_sales_m": 50.0,
+        "intake_rank": 5,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Alessandro Manzoni",
+    "born": 1785,
+    "died": 1873,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q1064",
+    "note": "",
+    "works": [
+      {
+        "title": "The Betrothed",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 95, claimed ~20 million+",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 95,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Alexander Pushkin",
+    "born": 1799,
+    "died": 1837,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q7200",
+    "note": "",
+    "works": [
+      {
+        "title": "Eugene Onegin",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 92, claimed ~10 million+",
+        "claimed_sales_m": 10.0,
+        "intake_rank": 92,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Alexandre Dumas",
+    "born": 1802,
+    "died": 1870,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q38337",
+    "note": "",
+    "works": [
+      {
+        "title": "The Count of Monte Cristo",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 84, claimed ~100 million+",
+        "claimed_sales_m": 100.0,
+        "intake_rank": 84,
+        "intake_section": ""
+      },
+      {
+        "title": "The Three Musketeers",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 85, claimed ~40 million+",
+        "claimed_sales_m": 40.0,
+        "intake_rank": 85,
+        "intake_section": ""
+      },
+      {
+        "title": "The Man in the Iron Mask",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 135, claimed ~15 million+",
+        "claimed_sales_m": 15.0,
+        "intake_rank": 135,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Alexandre Dumas fils",
+    "born": 1824,
+    "died": 1895,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q169150",
+    "note": "",
+    "works": [
+      {
+        "title": "La Dame aux Camélias",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 150, claimed ~8 million+",
+        "claimed_sales_m": 8.0,
+        "intake_rank": 150,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Ann Radcliffe",
+    "born": 1764,
+    "died": 1823,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q231944",
+    "note": "",
+    "works": [
+      {
+        "title": "The Mysteries of Udolpho",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 30, claimed ~3 million+",
+        "claimed_sales_m": 3.0,
+        "intake_rank": 30,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Anna Sewell",
+    "born": 1820,
+    "died": 1878,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q258741",
+    "note": "",
+    "works": [
+      {
+        "title": "Black Beauty",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 58, claimed 50 million",
+        "claimed_sales_m": 50.0,
+        "intake_rank": 58,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Anne Brontë",
+    "born": 1820,
+    "died": 1849,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q44520",
+    "note": "",
+    "works": [
+      {
+        "title": "The Tenant of Wildfell Hall",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 37, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 37,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Anthony Hope",
+    "born": 1863,
+    "died": 1933,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q457287",
+    "note": "",
+    "works": [
+      {
+        "title": "The Prisoner of Zenda",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 114, claimed ~8 million+",
+        "claimed_sales_m": 8.0,
+        "intake_rank": 114,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Anthony Trollope",
+    "born": 1815,
+    "died": 1882,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q318399",
+    "note": "",
+    "works": [
+      {
+        "title": "Barchester Towers",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 55, claimed ~3 million+",
+        "claimed_sales_m": 3.0,
+        "intake_rank": 55,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Anton Chekhov",
+    "born": 1860,
+    "died": 1904,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q5685",
+    "note": "",
+    "works": [
+      {
+        "title": "Selected Stories",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 83, claimed ~8 million+",
+        "claimed_sales_m": 8.0,
+        "intake_rank": 83,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Apuleius",
+    "born": 125,
+    "died": 170,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q170512",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "The Golden Ass",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 8, claimed ~3 million+",
+        "claimed_sales_m": 3.0,
+        "intake_rank": 8,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Arthur Conan Doyle",
+    "born": 1859,
+    "died": 1930,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q35610",
+    "note": "",
+    "works": [
+      {
+        "title": "The Adventures of Sherlock Holmes",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 50, claimed 60 million",
+        "claimed_sales_m": 60.0,
+        "intake_rank": 50,
+        "intake_section": ""
+      },
+      {
+        "title": "The Hound of the Baskervilles",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 51, claimed ~30 million+",
+        "claimed_sales_m": 30.0,
+        "intake_rank": 51,
+        "intake_section": ""
+      },
+      {
+        "title": "The Lost World",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 136, claimed ~8 million+",
+        "claimed_sales_m": 8.0,
+        "intake_rank": 136,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Baroness Emma Orczy",
+    "born": 1865,
+    "died": 1947,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q234530",
+    "note": "[no wikidata hit] [no wikidata hit] [no wikidata hit]",
+    "works": [
+      {
+        "title": "The Scarlet Pimpernel",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 137, claimed ~10 million+",
+        "claimed_sales_m": 10.0,
+        "intake_rank": 137,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Beatrix Potter",
+    "born": 1866,
+    "died": 1943,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q214565",
+    "note": "",
+    "works": [
+      {
+        "title": "The Tale of Peter Rabbit",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 103, claimed 45 million",
+        "claimed_sales_m": 45.0,
+        "intake_rank": 103,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Booth Tarkington",
+    "born": 1869,
+    "died": 1946,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q893138",
+    "note": "",
+    "works": [
+      {
+        "title": "Penrod",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 74, claimed ~3 million+",
+        "claimed_sales_m": 3.0,
+        "intake_rank": 74,
+        "intake_section": ""
+      },
+      {
+        "title": "Alice Adams",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 115, claimed ~3 million+",
+        "claimed_sales_m": 3.0,
+        "intake_rank": 115,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Bram Stoker",
+    "born": 1847,
+    "died": 1912,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q36184",
+    "note": "",
+    "works": [
+      {
+        "title": "Dracula",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 49, claimed ~100 million+",
+        "claimed_sales_m": 100.0,
+        "intake_rank": 49,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Cao Xueqin",
+    "born": 1724,
+    "died": 1763,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q182874",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Dream of the Red Chamber",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 100, claimed 100 million",
+        "claimed_sales_m": 100.0,
+        "intake_rank": 100,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Carlo Collodi",
+    "born": 1826,
+    "died": 1890,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q199588",
+    "note": "",
+    "works": [
+      {
+        "title": "The Adventures of Pinocchio",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 94, claimed 35 million",
+        "claimed_sales_m": 35.0,
+        "intake_rank": 94,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Charles Dickens",
+    "born": 1812,
+    "died": 1870,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q5686",
+    "note": "",
+    "works": [
+      {
+        "title": "A Tale of Two Cities",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 38, claimed 200 million+",
+        "claimed_sales_m": 200.0,
+        "intake_rank": 38,
+        "intake_section": ""
+      },
+      {
+        "title": "Great Expectations",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 39, claimed ~40 million+",
+        "claimed_sales_m": 40.0,
+        "intake_rank": 39,
+        "intake_section": ""
+      },
+      {
+        "title": "Oliver Twist",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 40, claimed ~30 million+",
+        "claimed_sales_m": 30.0,
+        "intake_rank": 40,
+        "intake_section": ""
+      },
+      {
+        "title": "A Christmas Carol",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 41, claimed ~30 million+",
+        "claimed_sales_m": 30.0,
+        "intake_rank": 41,
+        "intake_section": ""
+      },
+      {
+        "title": "David Copperfield",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 42, claimed ~25 million+",
+        "claimed_sales_m": 25.0,
+        "intake_rank": 42,
+        "intake_section": ""
+      },
+      {
+        "title": "Bleak House",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 43, claimed ~15 million+",
+        "claimed_sales_m": 15.0,
+        "intake_rank": 43,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Charles Kingsley",
+    "born": 1819,
+    "died": 1875,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q353238",
+    "note": "[HTTPError]",
+    "works": [
+      {
+        "title": "The Water-Babies",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 144, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 144,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Charlotte Brontë",
+    "born": 1816,
+    "died": 1855,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q127332",
+    "note": "",
+    "works": [
+      {
+        "title": "Jane Eyre",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 35, claimed ~40 million+",
+        "claimed_sales_m": 40.0,
+        "intake_rank": 35,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "D. H. Lawrence",
+    "born": 1885,
+    "died": 1930,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q34970",
+    "note": "",
+    "works": [
+      {
+        "title": "Lady Chatterley's Lover",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 123, claimed ~20 million+",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 123,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Daniel Defoe",
+    "born": 1660,
+    "died": 1731,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q40946",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Robinson Crusoe",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 21, claimed ~100 million+",
+        "claimed_sales_m": 100.0,
+        "intake_rank": 21,
+        "intake_section": "18th Century"
+      }
+    ]
+  },
+  {
+    "name": "Dante Alighieri",
+    "born": 1265,
+    "died": 1321,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q1067",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "The Divine Comedy",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 11, claimed ~20 million+",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 11,
+        "intake_section": "Medieval & Renaissance"
+      }
+    ]
+  },
+  {
+    "name": "E. M. Forster",
+    "born": 1879,
+    "died": 1970,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q189119",
+    "note": "",
+    "works": [
+      {
+        "title": "A Room with a View",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 108, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 108,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "E. Nesbit",
+    "born": 1858,
+    "died": 1924,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q231708",
+    "note": "",
+    "works": [
+      {
+        "title": "Five Children and It",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 125, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 125,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Edgar Allan Poe",
+    "born": 1809,
+    "died": 1849,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q16867",
+    "note": "",
+    "works": [
+      {
+        "title": "Tales of Mystery and Imagination",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 67, claimed ~20 million+",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 67,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Edgar Rice Burroughs",
+    "born": 1875,
+    "died": 1950,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q148234",
+    "note": "",
+    "works": [
+      {
+        "title": "Tarzan of the Apes",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 111, claimed ~20 million+",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 111,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Edith Wharton",
+    "born": 1862,
+    "died": 1937,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q276032",
+    "note": "",
+    "works": [
+      {
+        "title": "The Age of Innocence",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 107, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 107,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Emily Brontë",
+    "born": 1818,
+    "died": 1848,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q80137",
+    "note": "",
+    "works": [
+      {
+        "title": "Wuthering Heights",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 36, claimed ~30 million+",
+        "claimed_sales_m": 30.0,
+        "intake_rank": 36,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Euripides",
+    "born": -480,
+    "died": -406,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q48305",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Medea",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 7, claimed ~8 million+",
+        "claimed_sales_m": 8.0,
+        "intake_rank": 7,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "F. Scott Fitzgerald",
+    "born": 1896,
+    "died": 1940,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q93354",
+    "note": "",
+    "works": [
+      {
+        "title": "The Great Gatsby",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 118, claimed 30 million",
+        "claimed_sales_m": 30.0,
+        "intake_rank": 118,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Frances Hodgson Burnett",
+    "born": 1849,
+    "died": 1924,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q276028",
+    "note": "",
+    "works": [
+      {
+        "title": "The Secret Garden",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 138, claimed ~15 million+",
+        "claimed_sales_m": 15.0,
+        "intake_rank": 138,
+        "intake_section": ""
+      },
+      {
+        "title": "A Little Princess",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 139, claimed ~8 million+",
+        "claimed_sales_m": 8.0,
+        "intake_rank": 139,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Franz Kafka",
+    "born": 1883,
+    "died": 1924,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q905",
+    "note": "",
+    "works": [
+      {
+        "title": "The Trial",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 120, claimed ~10 million+",
+        "claimed_sales_m": 10.0,
+        "intake_rank": 120,
+        "intake_section": ""
+      },
+      {
+        "title": "The Metamorphosis",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 121, claimed ~10 million+",
+        "claimed_sales_m": 10.0,
+        "intake_rank": 121,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "François Rabelais",
+    "born": 1494,
+    "died": 1553,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q131018",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Gargantua and Pantagruel",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 15, claimed ~4 million+",
+        "claimed_sales_m": 4.0,
+        "intake_rank": 15,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Fyodor Dostoevsky",
+    "born": 1821,
+    "died": 1881,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q991",
+    "note": "",
+    "works": [
+      {
+        "title": "Crime and Punishment",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 78, claimed ~25 million+",
+        "claimed_sales_m": 25.0,
+        "intake_rank": 78,
+        "intake_section": ""
+      },
+      {
+        "title": "The Brothers Karamazov",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 79, claimed ~20 million+",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 79,
+        "intake_section": ""
+      },
+      {
+        "title": "The Idiot",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 80, claimed ~10 million+",
+        "claimed_sales_m": 10.0,
+        "intake_rank": 80,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Geoffrey Chaucer",
+    "born": 1343,
+    "died": 1400,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q5683",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "The Canterbury Tales",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 12, claimed ~10 million+",
+        "claimed_sales_m": 10.0,
+        "intake_rank": 12,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "George Eliot",
+    "born": 1819,
+    "died": 1880,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q131333",
+    "note": "",
+    "works": [
+      {
+        "title": "Middlemarch",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 54, claimed ~10 million+",
+        "claimed_sales_m": 10.0,
+        "intake_rank": 54,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "George MacDonald",
+    "born": 1824,
+    "died": 1905,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q368519",
+    "note": "",
+    "works": [
+      {
+        "title": "The Princess and the Goblin",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 143, claimed ~3 million+",
+        "claimed_sales_m": 3.0,
+        "intake_rank": 143,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Giovanni Boccaccio",
+    "born": 1313,
+    "died": 1375,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q1402",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "The Decameron",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 13, claimed ~8 million+",
+        "claimed_sales_m": 8.0,
+        "intake_rank": 13,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Gustave Flaubert",
+    "born": 1821,
+    "died": 1880,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q43444",
+    "note": "",
+    "works": [
+      {
+        "title": "Madame Bovary",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 88, claimed ~20 million+",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 88,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Guy de Maupassant",
+    "born": 1850,
+    "died": 1893,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q9327",
+    "note": "",
+    "works": [
+      {
+        "title": "Bel-Ami",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 149, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 149,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "H. Rider Haggard",
+    "born": 1856,
+    "died": 1925,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q237196",
+    "note": "",
+    "works": [
+      {
+        "title": "She",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 112, claimed 83 million",
+        "claimed_sales_m": 83.0,
+        "intake_rank": 112,
+        "intake_section": ""
+      },
+      {
+        "title": "King Solomon's Mines",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 113, claimed ~20 million+",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 113,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "born": 1811,
+    "died": 1896,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q102513",
+    "note": "",
+    "works": [
+      {
+        "title": "Uncle Tom's Cabin",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 66, claimed ~30 million+",
+        "claimed_sales_m": 30.0,
+        "intake_rank": 66,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Hector Malot",
+    "born": 1830,
+    "died": 1907,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q315003",
+    "note": "",
+    "works": [
+      {
+        "title": "Nobody's Boy (Sans Famille)",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 141, claimed ~8 million+",
+        "claimed_sales_m": 8.0,
+        "intake_rank": 141,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Henry Fielding",
+    "born": 1707,
+    "died": 1754,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q34190",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Tom Jones",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 25, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 25,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Henry James",
+    "born": 1843,
+    "died": 1916,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q170509",
+    "note": "",
+    "works": [
+      {
+        "title": "The Portrait of a Lady",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 72, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 72,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Herman Melville",
+    "born": 1819,
+    "died": 1891,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q4985",
+    "note": "",
+    "works": [
+      {
+        "title": "Moby-Dick",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 64, claimed ~20 million+",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 64,
+        "intake_section": ""
+      },
+      {
+        "title": "Billy Budd",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 147, claimed ~3 million+",
+        "claimed_sales_m": 3.0,
+        "intake_rank": 147,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Homer",
+    "born": -900,
+    "died": -800,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q6691",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "The Odyssey",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 2, claimed ~20 million+",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 2,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Honoré de Balzac",
+    "born": 1799,
+    "died": 1850,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q9711",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Père Goriot",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 91, claimed ~8 million+",
+        "claimed_sales_m": 8.0,
+        "intake_rank": 91,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Ivan Goncharov",
+    "born": 1812,
+    "died": 1891,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q189665",
+    "note": "[no dates None-None] [no dates None-None] [no dates None-None]",
+    "works": [
+      {
+        "title": "Oblomov",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 148, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 148,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Ivan Turgenev",
+    "born": 1818,
+    "died": 1883,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q42831",
+    "note": "",
+    "works": [
+      {
+        "title": "Fathers and Sons",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 82, claimed ~8 million+",
+        "claimed_sales_m": 8.0,
+        "intake_rank": 82,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "J. M. Barrie",
+    "born": 1860,
+    "died": 1937,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q81796",
+    "note": "",
+    "works": [
+      {
+        "title": "Peter and Wendy",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 102, claimed ~20 million+",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 102,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Jack London",
+    "born": 1876,
+    "died": 1916,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q45765",
+    "note": "",
+    "works": [
+      {
+        "title": "The Call of the Wild",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 105, claimed ~20 million+",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 105,
+        "intake_section": ""
+      },
+      {
+        "title": "White Fang",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 106, claimed ~10 million+",
+        "claimed_sales_m": 10.0,
+        "intake_rank": 106,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Jacques-Henri Bernardin de Saint-Pierre",
+    "born": 1737,
+    "died": 1814,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q361976",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Paul et Virginie",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 29, claimed 25 million",
+        "claimed_sales_m": 25.0,
+        "intake_rank": 29,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "James Joyce",
+    "born": 1882,
+    "died": 1941,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q6882",
+    "note": "",
+    "works": [
+      {
+        "title": "Ulysses",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 119, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 119,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Jane Austen",
+    "born": 1775,
+    "died": 1817,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q36322",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Pride and Prejudice",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 31, claimed 20 million",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 31,
+        "intake_section": "19th Century — British"
+      },
+      {
+        "title": "Sense and Sensibility",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 32, claimed ~10 million+",
+        "claimed_sales_m": 10.0,
+        "intake_rank": 32,
+        "intake_section": ""
+      },
+      {
+        "title": "Emma",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 33, claimed ~10 million+",
+        "claimed_sales_m": 10.0,
+        "intake_rank": 33,
+        "intake_section": ""
+      },
+      {
+        "title": "Persuasion",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 34, claimed ~8 million+",
+        "claimed_sales_m": 8.0,
+        "intake_rank": 34,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Jaroslav Hašek",
+    "born": 1883,
+    "died": 1923,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q2754",
+    "note": "",
+    "works": [
+      {
+        "title": "The Good Soldier Švejk",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 129, claimed 20 million (printed)",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 129,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Johann David Wyss",
+    "born": 1743,
+    "died": 1818,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q115822",
+    "note": "[HTTPError]",
+    "works": [
+      {
+        "title": "The Swiss Family Robinson",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 131, claimed ~15 million+",
+        "claimed_sales_m": 15.0,
+        "intake_rank": 131,
+        "intake_section": "Rounding Out the Canon"
+      }
+    ]
+  },
+  {
+    "name": "Johann Wolfgang von Goethe",
+    "born": 1749,
+    "died": 1832,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q5879",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "The Sorrows of Young Werther",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 27, claimed ~15 million+",
+        "claimed_sales_m": 15.0,
+        "intake_rank": 27,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Johanna Spyri",
+    "born": 1827,
+    "died": 1901,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q123053",
+    "note": "",
+    "works": [
+      {
+        "title": "Heidi",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 93, claimed 50 million",
+        "claimed_sales_m": 50.0,
+        "intake_rank": 93,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "John Bunyan",
+    "born": 1628,
+    "died": 1688,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q108206",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "The Pilgrim's Progress",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 20, claimed ~250 million (widely claimed, contested)",
+        "claimed_sales_m": 250.0,
+        "intake_rank": 20,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Jonathan Swift",
+    "born": 1667,
+    "died": 1745,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q41166",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Gulliver's Travels",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 22, claimed ~30 million+",
+        "claimed_sales_m": 30.0,
+        "intake_rank": 22,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Joseph Conrad",
+    "born": 1857,
+    "died": 1924,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q82925",
+    "note": "",
+    "works": [
+      {
+        "title": "Heart of Darkness",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 109, claimed ~10 million+",
+        "claimed_sales_m": 10.0,
+        "intake_rank": 109,
+        "intake_section": ""
+      },
+      {
+        "title": "Lord Jim",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 110, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 110,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Jules Verne",
+    "born": 1828,
+    "died": 1905,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q33977",
+    "note": "",
+    "works": [
+      {
+        "title": "Twenty Thousand Leagues Under the Sea",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 96, claimed 60 million",
+        "claimed_sales_m": 60.0,
+        "intake_rank": 96,
+        "intake_section": ""
+      },
+      {
+        "title": "Around the World in Eighty Days",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 97, claimed ~30 million+",
+        "claimed_sales_m": 30.0,
+        "intake_rank": 97,
+        "intake_section": ""
+      },
+      {
+        "title": "Journey to the Center of the Earth",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 98, claimed ~20 million+",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 98,
+        "intake_section": ""
+      },
+      {
+        "title": "The Mysterious Island",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 142, claimed ~10 million+",
+        "claimed_sales_m": 10.0,
+        "intake_rank": 142,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Kate Chopin",
+    "born": 1850,
+    "died": 1904,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q230476",
+    "note": "",
+    "works": [
+      {
+        "title": "The Awakening",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 70, claimed ~3 million+",
+        "claimed_sales_m": 3.0,
+        "intake_rank": 70,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Kenneth Grahame",
+    "born": 1859,
+    "died": 1932,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q314897",
+    "note": "",
+    "works": [
+      {
+        "title": "The Wind in the Willows",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 101, claimed 25 million",
+        "claimed_sales_m": 25.0,
+        "intake_rank": 101,
+        "intake_section": "Early 20th Century"
+      }
+    ]
+  },
+  {
+    "name": "Knut Hamsun",
+    "born": 1859,
+    "died": 1952,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q40826",
+    "note": "",
+    "works": [
+      {
+        "title": "Hunger",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 127, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 127,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "L. Frank Baum",
+    "born": 1856,
+    "died": 1919,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q207544",
+    "note": "",
+    "works": [
+      {
+        "title": "The Wonderful Wizard of Oz",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 69, claimed ~15 million+",
+        "claimed_sales_m": 15.0,
+        "intake_rank": 69,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Laurence Sterne",
+    "born": 1713,
+    "died": 1768,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q218960",
+    "note": "",
+    "works": [
+      {
+        "title": "Tristram Shandy",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 26, claimed ~3 million+",
+        "claimed_sales_m": 3.0,
+        "intake_rank": 26,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Leo Tolstoy",
+    "born": 1828,
+    "died": 1910,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q7243",
+    "note": "",
+    "works": [
+      {
+        "title": "War and Peace",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 76, claimed 36 million (Russia alone)",
+        "claimed_sales_m": 36.0,
+        "intake_rank": 76,
+        "intake_section": "19th Century — Russian & European"
+      },
+      {
+        "title": "Anna Karenina",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 77, claimed ~30 million+",
+        "claimed_sales_m": 30.0,
+        "intake_rank": 77,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Lewis Carroll",
+    "born": 1832,
+    "died": 1898,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q38082",
+    "note": "",
+    "works": [
+      {
+        "title": "Alice's Adventures in Wonderland",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 47, claimed 100 million",
+        "claimed_sales_m": 100.0,
+        "intake_rank": 47,
+        "intake_section": ""
+      },
+      {
+        "title": "Through the Looking-Glass",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 48, claimed ~20 million+",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 48,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Longus",
+    "born": 200,
+    "died": 200,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q314949",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Daphnis and Chloe",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 10, claimed ~2 million+",
+        "claimed_sales_m": 2.0,
+        "intake_rank": 10,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Louisa May Alcott",
+    "born": 1832,
+    "died": 1888,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q185696",
+    "note": "",
+    "works": [
+      {
+        "title": "Little Women",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 65, claimed ~50 million+",
+        "claimed_sales_m": 50.0,
+        "intake_rank": 65,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Lucy Maud Montgomery",
+    "born": 1874,
+    "died": 1942,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q273034",
+    "note": "",
+    "works": [
+      {
+        "title": "Anne of Green Gables",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 104, claimed 50 million",
+        "claimed_sales_m": 50.0,
+        "intake_rank": 104,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Marcel Proust",
+    "born": 1871,
+    "died": 1922,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q7199",
+    "note": "",
+    "works": [
+      {
+        "title": "Swann's Way",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 122, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 122,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Mark Twain",
+    "born": 1835,
+    "died": 1910,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q7245",
+    "note": "",
+    "works": [
+      {
+        "title": "Adventures of Huckleberry Finn",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 61, claimed 20 million",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 61,
+        "intake_section": "19th Century — American"
+      },
+      {
+        "title": "The Adventures of Tom Sawyer",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 62, claimed ~20 million+",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 62,
+        "intake_section": ""
+      },
+      {
+        "title": "The Prince and the Pauper",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 73, claimed ~8 million+",
+        "claimed_sales_m": 8.0,
+        "intake_rank": 73,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Mary Shelley",
+    "born": 1797,
+    "died": 1851,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q47152",
+    "note": "",
+    "works": [
+      {
+        "title": "Frankenstein",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 44, claimed ~45 million+",
+        "claimed_sales_m": 45.0,
+        "intake_rank": 44,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Miguel de Cervantes",
+    "born": 1547,
+    "died": 1616,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q5682",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Don Quixote",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 16, claimed ~500 million",
+        "claimed_sales_m": 500.0,
+        "intake_rank": 16,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Nathaniel Hawthorne",
+    "born": 1804,
+    "died": 1864,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q69339",
+    "note": "",
+    "works": [
+      {
+        "title": "The Scarlet Letter",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 63, claimed ~15 million+",
+        "claimed_sales_m": 15.0,
+        "intake_rank": 63,
+        "intake_section": ""
+      },
+      {
+        "title": "The House of the Seven Gables",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 146, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 146,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Nikolai Gogol",
+    "born": 1809,
+    "died": 1852,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q43718",
+    "note": "",
+    "works": [
+      {
+        "title": "Dead Souls",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 81, claimed ~8 million+",
+        "claimed_sales_m": 8.0,
+        "intake_rank": 81,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "O. Henry",
+    "born": 1862,
+    "died": 1910,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q172788",
+    "note": "",
+    "works": [
+      {
+        "title": "The Four Million",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 75, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 75,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Oscar Wilde",
+    "born": 1854,
+    "died": 1900,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q30875",
+    "note": "",
+    "works": [
+      {
+        "title": "The Picture of Dorian Gray",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 60, claimed ~20 million+",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 60,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Ovid",
+    "born": -43,
+    "died": 17,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q7198",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Metamorphoses",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 4, claimed ~10 million+",
+        "claimed_sales_m": 10.0,
+        "intake_rank": 4,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Petronius",
+    "born": 27,
+    "died": 66,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q47180",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Satyricon",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 9, claimed ~3 million+",
+        "claimed_sales_m": 3.0,
+        "intake_rank": 9,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Pierre Choderlos de Laclos",
+    "born": 1741,
+    "died": 1803,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q212476",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Les Liaisons Dangereuses",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 28, claimed ~8 million+",
+        "claimed_sales_m": 8.0,
+        "intake_rank": 28,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Robert Louis Stevenson",
+    "born": 1850,
+    "died": 1894,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q1512",
+    "note": "",
+    "works": [
+      {
+        "title": "Treasure Island",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 45, claimed ~40 million+",
+        "claimed_sales_m": 40.0,
+        "intake_rank": 45,
+        "intake_section": ""
+      },
+      {
+        "title": "Dr Jekyll and Mr Hyde",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 46, claimed ~30 million+",
+        "claimed_sales_m": 30.0,
+        "intake_rank": 46,
+        "intake_section": ""
+      },
+      {
+        "title": "Kidnapped",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 134, claimed ~15 million+",
+        "claimed_sales_m": 15.0,
+        "intake_rank": 134,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Rudyard Kipling",
+    "born": 1865,
+    "died": 1936,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q34743",
+    "note": "",
+    "works": [
+      {
+        "title": "The Jungle Book",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 59, claimed ~20 million+",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 59,
+        "intake_section": ""
+      },
+      {
+        "title": "Just So Stories",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 133, claimed ~10 million+",
+        "claimed_sales_m": 10.0,
+        "intake_rank": 133,
+        "intake_section": ""
+      },
+      {
+        "title": "Kim",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 132, claimed ~8 million+",
+        "claimed_sales_m": 8.0,
+        "intake_rank": 132,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Samuel Richardson",
+    "born": 1689,
+    "died": 1761,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q295941",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Pamela",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 24, claimed ~3 million+",
+        "claimed_sales_m": 3.0,
+        "intake_rank": 24,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Selma Lagerlöf",
+    "born": 1858,
+    "died": 1940,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q44519",
+    "note": "",
+    "works": [
+      {
+        "title": "The Wonderful Adventures of Nils",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 126, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 126,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Sinclair Lewis",
+    "born": 1885,
+    "died": 1951,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q123469",
+    "note": "",
+    "works": [
+      {
+        "title": "Main Street",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 116, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 116,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Sir Thomas Malory",
+    "born": 1405,
+    "died": 1471,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q309907",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Le Morte d'Arthur",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 14, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 14,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Sophocles",
+    "born": -496,
+    "died": -406,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q7235",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Oedipus Rex",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 6, claimed ~10 million+",
+        "claimed_sales_m": 10.0,
+        "intake_rank": 6,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Stendhal",
+    "born": 1783,
+    "died": 1842,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q502",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "The Red and the Black",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 90, claimed ~8 million+",
+        "claimed_sales_m": 8.0,
+        "intake_rank": 90,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Stephen Crane",
+    "born": 1871,
+    "died": 1900,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q206534",
+    "note": "",
+    "works": [
+      {
+        "title": "The Red Badge of Courage",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 71, claimed ~10 million+",
+        "claimed_sales_m": 10.0,
+        "intake_rank": 71,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Susan Coolidge",
+    "born": 1835,
+    "died": 1905,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q2915918",
+    "note": "",
+    "works": [
+      {
+        "title": "What Katy Did",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 140, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 140,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Thomas Hardy",
+    "born": 1840,
+    "died": 1928,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q132805",
+    "note": "",
+    "works": [
+      {
+        "title": "Tess of the d'Urbervilles",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 52, claimed ~15 million+",
+        "claimed_sales_m": 15.0,
+        "intake_rank": 52,
+        "intake_section": ""
+      },
+      {
+        "title": "Far from the Madding Crowd",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 53, claimed ~10 million+",
+        "claimed_sales_m": 10.0,
+        "intake_rank": 53,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Thomas Mann",
+    "born": 1875,
+    "died": 1955,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q37030",
+    "note": "",
+    "works": [
+      {
+        "title": "Buddenbrooks",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 128, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 128,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Victor Hugo",
+    "born": 1802,
+    "died": 1885,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q535",
+    "note": "",
+    "works": [
+      {
+        "title": "Les Misérables",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 86, claimed ~30 million+",
+        "claimed_sales_m": 30.0,
+        "intake_rank": 86,
+        "intake_section": ""
+      },
+      {
+        "title": "The Hunchback of Notre-Dame",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 87, claimed ~20 million+",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 87,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Virgil",
+    "born": -70,
+    "died": -19,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q1398",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "The Aeneid",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 3, claimed ~15 million+",
+        "claimed_sales_m": 15.0,
+        "intake_rank": 3,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Virginia Woolf",
+    "born": 1882,
+    "died": 1941,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q40909",
+    "note": "",
+    "works": [
+      {
+        "title": "Mrs Dalloway",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 124, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 124,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Voltaire",
+    "born": 1694,
+    "died": 1778,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q9068",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Candide",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 23, claimed ~20 million+",
+        "claimed_sales_m": 20.0,
+        "intake_rank": 23,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Washington Irving",
+    "born": 1783,
+    "died": 1859,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q181667",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "The Legend of Sleepy Hollow",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 68, claimed ~8 million+",
+        "claimed_sales_m": 8.0,
+        "intake_rank": 68,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Wilkie Collins",
+    "born": 1824,
+    "died": 1889,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q210740",
+    "note": "",
+    "works": [
+      {
+        "title": "The Woman in White",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 56, claimed ~8 million+",
+        "claimed_sales_m": 8.0,
+        "intake_rank": 56,
+        "intake_section": ""
+      },
+      {
+        "title": "The Moonstone",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 57, claimed ~8 million+",
+        "claimed_sales_m": 8.0,
+        "intake_rank": 57,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Willa Cather",
+    "born": 1873,
+    "died": 1947,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q229480",
+    "note": "",
+    "works": [
+      {
+        "title": "My Ántonia",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 117, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 117,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "William Makepeace Thackeray",
+    "born": 1811,
+    "died": 1863,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q167768",
+    "note": "",
+    "works": [
+      {
+        "title": "Vanity Fair",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 145, claimed ~10 million+",
+        "claimed_sales_m": 10.0,
+        "intake_rank": 145,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "William Shakespeare",
+    "born": 1564,
+    "died": 1616,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q692",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Hamlet",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 17, claimed ~40 million+",
+        "claimed_sales_m": 40.0,
+        "intake_rank": 17,
+        "intake_section": ""
+      },
+      {
+        "title": "Romeo and Juliet",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 18, claimed ~40 million+",
+        "claimed_sales_m": 40.0,
+        "intake_rank": 18,
+        "intake_section": ""
+      },
+      {
+        "title": "Macbeth",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 19, claimed ~30 million+",
+        "claimed_sales_m": 30.0,
+        "intake_rank": 19,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Wu Cheng'en",
+    "born": 1500,
+    "died": 1582,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q228889",
+    "note": "ancient; catalogued as a voice source but outside the 1800-1910 build window",
+    "works": [
+      {
+        "title": "Journey to the West",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 99, claimed ~100 million+",
+        "claimed_sales_m": 100.0,
+        "intake_rank": 99,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Zane Grey",
+    "born": 1872,
+    "died": 1939,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q146763",
+    "note": "",
+    "works": [
+      {
+        "title": "Riders of the Purple Sage",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 130, claimed ~5 million+",
+        "claimed_sales_m": 5.0,
+        "intake_rank": 130,
+        "intake_section": ""
+      }
+    ]
+  },
+  {
+    "name": "Émile Zola",
+    "born": 1840,
+    "died": 1902,
+    "nationality": "us",
+    "verified": true,
+    "source": "wikidata Q504",
+    "note": "",
+    "works": [
+      {
+        "title": "Germinal",
+        "year": null,
+        "kind": "",
+        "license": "public-domain",
+        "source_url": "",
+        "durability": [],
+        "evergreen": false,
+        "adapt_as_myth": false,
+        "note": "intake rank 89, claimed ~10 million+",
+        "claimed_sales_m": 10.0,
+        "intake_rank": 89,
+        "intake_section": ""
+      }
+    ]
+  }
+]
