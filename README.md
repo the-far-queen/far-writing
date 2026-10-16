@@ -131,11 +131,13 @@ No paywall. No "research only" carve-out. Style axes belong to everyone.
 
 **the media** — [far-writing](https://github.com/the-far-queen/far-writing)
 (this repo), [far-art](https://github.com/the-far-queen/far-art),
-[sunrise-startup](https://github.com/the-far-queen/sunrise-startup)
-(illustrated articles out to social media),
-[social-media](https://github.com/the-far-queen/social-media) (voice is the gate)
+[social-media](https://github.com/the-far-queen/social-media) — the
+distribution side: voice is the gate, the platform is not.
+
+Writing + art + social is the whole media line. There is no separate company
+repo; the long road is before it, not behind it.
 
 Archived and recoverable: far-film, far-law, far-engineering, far-health,
-far-math. far-math was folded into fieldcore before archiving.
+far-math (folded into fieldcore first), sunrise-startup.
 
 Plus farqueen.com, social accounts, and a book on Amazon.
