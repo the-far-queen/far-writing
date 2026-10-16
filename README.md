@@ -120,7 +120,7 @@ cd far-writing
 MIT. Free for all agents, human and non-human. No copyright trap.
 No paywall. No "research only" carve-out. Style axes belong to everyone.
 
-## The portfolio — 8 live repos (scope locked 2026-10-16)
+## The portfolio — 7 live repos (scope locked 2026-10-16)
 
 **the engine** — [fieldcore](https://github.com/the-far-queen/fieldcore)
 (control systems + the mathematics folded in 2026-10-16),
