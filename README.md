@@ -137,7 +137,9 @@ distribution side: voice is the gate, the platform is not.
 Writing + art + social is the whole media line. There is no separate company
 repo; the long road is before it, not behind it.
 
-Archived and recoverable: far-film, far-law, far-engineering, far-health,
-far-math (folded into fieldcore first), sunrise-startup.
+Retired on 2026-10-24 and folded into live repos: far-film (the shot
+schema is now in far-art), far-law and far-engineering (both schools are
+now in sacred-library/corpus/schools/), far-math (folded into fieldcore on
+2026-10-16).
 
 Plus farqueen.com, social accounts, and a book on Amazon.
