@@ -124,15 +124,29 @@ def _cache_key(sparql: str, tag: str) -> str:
     return "sparql_%s_%s.json" % (tag, h)
 
 
-def query(sparql: str, tag: str, timeout: int = 420) -> str:
-    """run the query, with a cache keyed by the query's own text."""
+def query(sparql: str, tag: str, timeout: int = 420,
+          attempts: int = 5) -> str:
+    """run the query, with a cache keyed by the query's own text.
+
+    **AND `attempts=1` IS WHAT THE CALLER USES WHEN A RATE LIMIT IS
+    EXPECTED.** MEASURED 2026-10-31: the tool retried the SPARQL
+    endpoint five times -- about four minutes per author -- and then
+    fell back to the Wikipedia API, which was answering 200 the whole
+    time. **A RATE LIMIT IS NOT A TRANSIENT ERROR TO BE RETRIED IN
+    PLACE; it is a signal to use the other route.**
+
+    **AND A FAILED QUERY IS NOT CACHED.** MEASURED: a 503 stored as an
+    empty answer would say "these titles resolve to nothing" -- a
+    claim the endpoint never made -- and it would be cached forever,
+    so a temporary rate limit would become permanent.
+    """
     path = os.path.join(CACHE, _cache_key(sparql, tag))
     if os.path.isfile(path):
         with open(path, encoding="utf-8") as fh:
             return fh.read()
     url = ENDPOINT + "?" + urllib.parse.urlencode(
         {"query": sparql, "format": "json"})
-    for attempt in range(5):
+    for attempt in range(attempts):
         try:
             req = urllib.request.Request(url, headers={
                 "User-Agent": UA,
@@ -154,6 +168,17 @@ def query(sparql: str, tag: str, timeout: int = 420) -> str:
                   % (tag, attempt + 1, exc.code, body[:200]))
             if exc.code == 400:
                 return ""
+            # A 503 IS A RATE LIMIT, NOT A BAD QUERY. MEASURED
+            # 2026-10-31: after the heavy title-resolution run the
+            # endpoint answered 503 for every call, and the short
+            # backoff kept hitting it. So a 503 gets the LONG wait,
+            # and a successful call leaves a gap behind it so the
+            # next one is not the one that trips the limit.
+            if exc.code in (429, 503):
+                time.sleep(30 + attempt * 45)
+            else:
+                time.sleep(10 + attempt * 15)
+            continue
         except Exception as exc:  # noqa: BLE001
             print("  %s attempt %d: %s" % (tag, attempt + 1, exc))
         time.sleep(10 + attempt * 15)

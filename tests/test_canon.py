@@ -365,13 +365,41 @@ def t_C14_the_three_measures_are_three():
             assert dl != ra, "a reach count was written into the " \
                              "downloads field"
 
-    # AND THE REACH COUNT IS NEVER INVENTED: a work with no measurement
-    # carries None, not zero. A zero is a claim that nothing was made
-    # from it, which is not what "not measured" means.
-    for w in works:
-        if not getattr(w, "reach_adaptations", None):
-            assert getattr(w, "reach_adaptations", None) is None, \
-                "an unmeasured reach count was written as a number"
+    # AND A REACH COUNT IS EITHER MEASURED OR ABSENT -- and now the
+    # ZERO IS MEASURED, which is why this check changed.
+    #
+    # MEASURED 2026-10-31: the flood query that qualified the authors
+    # starts from the ADAPTATION (?adapt (wdt:P144|wdt:P1441) ?work),
+    # so it enumerates adaptations and never saw a work with none --
+    # and a zero written for such a work was a claim the query had not
+    # made. The first fix made every unmeasured count None.
+    #
+    # **BUT THEN THE WORKS OF THE AUTHORS WE HOLD WERE ENUMERATED** --
+    # every work of the 260 authors, with its adaptation count, 15,512
+    # rows of which 14,137 are a MEASURED zero. So the zero is real
+    # now, and the check is the other way round: a count must be
+    # either a real number the measurement produced, or absent.
+    #
+    # So: every reach count in the catalog must be findable in the
+    # measurement, and no count may be a number the table does not
+    # hold.
+    import expand_works as ew
+    exhaustive = ew.load_exhaustive()
+    flood = ew.load_flood_counts()
+    if exhaustive or flood:
+        for w in works:
+            ra = getattr(w, "reach_adaptations", None)
+            if ra is None:
+                continue
+            key = ew.norm(getattr(w, "title", ""))
+            known = exhaustive.get(key, flood.get(key))
+            assert known is not None, (
+                "%r carries a reach count of %s and the measurement does "
+                "not hold it -- a count that was not measured"
+                % (getattr(w, "title", ""), ra))
+            assert known == ra, (
+                "%r carries a reach count of %s but the measurement says "
+                "%s" % (getattr(w, "title", ""), ra, known))
 
 
 def main():

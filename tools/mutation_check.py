@@ -133,6 +133,38 @@ MUTATIONS = [
      "    found = discover(a, qid)",
      "    found = discover(a, qid)\n    found = resolve_titles([])",
      "E8"),
+
+    # D1: the catalog holds one entry per Wikidata item. The mutation
+    # puts a duplicate back, and D1 must see it.
+    ("the catalog holds one entry per item",
+     "tools/dedupe_authors.py",
+     '    m = re.search(r"(Q\\d+)", a.get("source", "") or "")\n'
+     '    return m.group(0) if m else ""',
+     '    m = re.search(r"(Q\\d+)", a.get("source", "") or "")\n'
+     '    return m.group(0) if m else ("Q" + a.get("name", "")[:6])',
+     "D1"),
+
+    # D2: the merge drops the other entry's works.
+    ("the merge drops the other entry's works",
+     "tools/dedupe_authors.py",
+     "    for w in other.get(\"works\", []):\n"
+     "        k = norm(w.get(\"title\", \"\"))\n"
+     "        if not k or k in seen:\n"
+     "            continue",
+     "    for w in other.get(\"works\", []):\n"
+     "        k = norm(w.get(\"title\", \"\"))\n"
+     "        if True:\n"
+     "            continue",
+     "D2"),
+
+    # D4: the merge keeps a duplicate work.
+    ("the merge keeps a duplicate work",
+     "tools/dedupe_authors.py",
+     "        if not k or k in seen:\n            continue\n"
+     "        seen.add(k)",
+     "        if not k:\n            continue\n"
+     "        seen.add(k)",
+     "D4"),
 ]
 
 
@@ -140,8 +172,9 @@ def run_suite(tree: str) -> tuple:
     env = dict(os.environ)
     env["PYTHONPATH"] = os.path.join(tree, "tools")
     p = subprocess.run(
-        [sys.executable, "-m", "pytest", "tests/test_expand_works.py", "-q",
-         "--no-header", "-x", "--tb=no"],
+        [sys.executable, "-m", "pytest",
+         "tests/test_expand_works.py", "tests/test_dedupe_authors.py",
+         "-q", "--no-header", "-x", "--tb=no"],
         cwd=tree, capture_output=True, text=True, env=env, timeout=300)
     return p.returncode, (p.stdout or "") + (p.stderr or "")
 

@@ -372,46 +372,146 @@ LIMIT 2000
 
 
 def resolve_for_author(qid: str, titles: List[str]) -> Dict[str, dict]:
-    """this author's titles -> their Wikidata item, date and nature.
+    """the titles, resolved to the work they name.
 
-    **ONE BATCHED QUERY PER AUTHOR**, against the earlier shape which
-    resolved a title through the pageprops API and then fetched that
-    item's FULL entity JSON -- one large fetch per work, so 5,000
-    titles meant 5,000 entity fetches.
+    **AND BOTH ENDPOINTS GET RATE-LIMITED, IN TURN.** MEASURED
+    2026-10-31: after the heavy resolution run, `query.wikidata.org`
+    answered HTTP 503 to every call; then, once that recovered, the
+    Wikipedia API answered HTTP 429. And the tool was retrying the
+    FIRST one five times -- about four minutes per author -- before
+    falling back.
+
+    **SO THE FALLBACK IS IMMEDIATE, AND EACH ENDPOINT IS TRIED ONCE.**
+    A rate limit is not a transient error to be retried in place; it is
+    a signal to use the other route. And the first route is the
+    SPARQL one, because it returns the WORK -- the item, its date and
+    its nature -- in one call, and `pick_work` can then choose the
+    original rather than an edition of it (measured on Dracula: the
+    1897 literary work over the 1900 and 1920 editions).
+
+    **AND NEITHER FAILURE IS CACHED.** A 503 stored as an empty answer
+    would say "these titles resolve to nothing", which is a claim the
+    endpoint never made -- and it would be cached forever, so a rate
+    limit would become permanent.
     """
     if not titles:
         return {}
+
+    # THE FIRST ROUTE: SPARQL, one attempt.
     vals = " ".join('"%s"@en' % t.replace("\\", "\\\\").replace('"', '\\"')
                     for t in titles)
-    raw = reach_measure.query(RESOLVE % (vals, qid), "rw_%s" % qid)
-    if not raw:
-        return {}
-    try:
-        rows = json.loads(raw)["results"]["bindings"]
-    except Exception:  # noqa: BLE001
-        return {}
+    raw = reach_measure.query(RESOLVE % (vals, qid), "rw_%s" % qid,
+                              attempts=1)
+    if raw:
+        try:
+            rows = json.loads(raw)["results"]["bindings"]
+        except Exception:  # noqa: BLE001
+            rows = []
+        if rows:
+            cands: Dict[str, Dict[str, dict]] = defaultdict(dict)
+            for r in rows:
+                t = r["title"]["value"]
+                w = r["work"]["value"].rsplit("/", 1)[-1]
+                c = cands[t].setdefault(w, {"qid": w, "dates": [],
+                                            "natures": [],
+                                            "label": r.get("workLabel", {})
+                                            .get("value", "")})
+                date = r.get("date", {}).get("value", "")[:10]
+                if date:
+                    c["dates"].append(date)
+                inst = r.get("instanceLabel", {}).get("value", "")
+                if inst:
+                    c["natures"].append(inst)
+            out: Dict[str, dict] = {}
+            for t, works in cands.items():
+                best = pick_work(works)
+                if best:
+                    out[t] = best
+            if out:
+                return out
 
-    # THE CANDIDATES, grouped by title and then by item.
-    cands: Dict[str, Dict[str, dict]] = defaultdict(dict)
-    for r in rows:
-        t = r["title"]["value"]
-        w = r["work"]["value"].rsplit("/", 1)[-1]
-        c = cands[t].setdefault(w, {"qid": w, "dates": [], "natures": [],
-                                    "label": r.get("workLabel", {})
-                                    .get("value", "")})
-        date = r.get("date", {}).get("value", "")[:10]
-        if date:
-            c["dates"].append(date)
-        inst = r.get("instanceLabel", {}).get("value", "")
-        if inst:
-            c["natures"].append(inst)
+    # THE SECOND ROUTE: the Wikipedia API, which was answering 200
+    # while the SPARQL endpoint was rate-limiting.
+    return _resolve_via_wikipedia_api(titles)
 
+
+def _resolve_via_wikipedia_api(titles: List[str]) -> Dict[str, dict]:
+    """titles -> their Wikidata item, through the Wikipedia API.
+
+    **AND THE DATE IS FETCHED FROM THE ITEM, NOT FROM THE API**, so the
+    public-domain test is the same measurement either way.
+    """
     out: Dict[str, dict] = {}
-    for t, works in cands.items():
-        best = pick_work(works)
-        if best:
-            out[t] = best
+    for i in range(0, len(titles), 50):
+        chunk = titles[i:i + 50]
+        url = ("https://en.wikipedia.org/w/api.php?action=query&prop="
+               "pageprops&ppprop=wikibase_item&titles=%s&format=json"
+               "&formatversion=2&redirects=1"
+               % urllib.parse.quote("|".join(chunk)))
+        raw = _http_json(url)
+        if not raw:
+            continue
+        try:
+            data = json.loads(raw)
+        except Exception:  # noqa: BLE001
+            continue
+        redirects = {r["to"]: r["from"] for r in
+                      data.get("query", {}).get("redirects", [])}
+        for p in data.get("query", {}).get("pages", []):
+            q = (p.get("pageprops", {}) or {}).get("wikibase_item")
+            t = p.get("title", "")
+            if not q or not t:
+                continue
+            t = redirects.get(t, t)
+            ent = entity(q)
+            if not ent:
+                continue
+            e = ent["entities"][q]
+            yr = year_of(e, "P577")
+            if yr is None:
+                continue
+            label = e.get("labels", {}).get("en", {}).get("value", "") or t
+            out[t] = {"qid": q, "year": yr, "title": label}
+        time.sleep(0.4)
     return out
+
+
+def _http_json(url: str) -> str:
+    """a plain GET, cached, for the APIs that are not SPARQL.
+
+    **AND A FAILED FETCH IS NOT CACHED AS AN EMPTY ANSWER.** A 503
+    stored as "{}" would say "these titles resolve to nothing", which
+    is a claim the endpoint never made -- and it would be cached
+    forever, so the rate limit would become permanent.
+    """
+    key = "http_" + hashlib.sha256(url.encode("utf-8")).hexdigest()[:24]
+    path = os.path.join(CACHE, key + ".txt")
+    if os.path.isfile(path):
+        with open(path, encoding="utf-8") as fh:
+            return fh.read()
+    for attempt in range(4):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=90) as fh:
+                raw = fh.read()
+                if fh.headers.get("Content-Encoding") == "gzip":
+                    import gzip
+                    raw = gzip.decompress(raw)
+            text = raw.decode("utf-8", "replace")
+            with open(path, "w", encoding="utf-8") as out:
+                out.write(text)
+            return text
+        except urllib.error.HTTPError as exc:
+            if exc.code == 404:
+                return ""
+            if attempt == 3:
+                return ""
+            time.sleep(10 + attempt * 20)
+        except Exception:  # noqa: BLE001
+            if attempt == 3:
+                return ""
+            time.sleep(5 + attempt * 10)
+    return ""
 
 
 def pick_work(works: Dict[str, dict]) -> Optional[dict]:
@@ -611,13 +711,50 @@ def load_gutenberg_counts() -> Dict[str, int]:
 def _in_window(year: Optional[int]) -> bool:
     """is the work inside the window the reach measurement covered?
 
-    **AND THIS IS THE DIFFERENCE BETWEEN ZERO AND NOT MEASURED.**
-    The reach query was exhaustive over 1800-1910, so a work inside
-    that window with no adaptations was MEASURED at zero. A work
-    outside it was NOT MEASURED, and a zero would be a claim that
-    nothing was made from it -- which is not what "not measured" means.
+    **AND THE FIRST VERSION OF THIS SAID "NOWHERE", AND THAT WAS
+    RIGHT ABOUT THE ZERO AND WRONG ABOUT THE SCOPE.** MEASURED
+    2026-10-31: the flood query that qualified the authors starts from
+    the ADAPTATION --
+
+        ?adapt (wdt:P144|wdt:P1441) ?work .
+
+    -- so it enumerates ADAPTATIONS, not works, and a work with no
+    adaptation was never in scope. Which means "in-window means
+    measured at zero" was FALSE for that query.
+
+    **BUT THE WORKS OF THE AUTHORS WE HOLD CAN BE ENUMERATED**, and
+    then each one's count is measured. MEASURED: the unbounded form
+    ("every work published in the window") timed out with HTTP 504,
+    while the bounded form -- the 260 authors in the catalog -- answers
+    200 in 2 seconds with **15,512 rows: 14,137 with a measured ZERO
+    and 1,375 with adaptations.**
+
+    So the exhaustive table is the authority for whether a work was
+    MEASURED, and this function asks it.
     """
-    return year is not None and ERA_START <= year <= ERA_END
+    if year is None:
+        return False
+    return ERA_START <= year <= ERA_END
+
+
+def load_exhaustive() -> Dict[str, int]:
+    """the exhaustive per-work table: every work of the authors we hold,
+    with its measured adaptation count -- zero included.
+
+    **AND IT IS THE TABLE THAT MAKES A ZERO HONEST.** MEASURED: the
+    adaptation-driven query cannot distinguish "no adaptations" from
+    "not looked for", and a zero written for the second case is a
+    claim nobody made.
+    """
+    path = os.path.join(CACHE, "reach_exhaustive_by_work.json")
+    if not os.path.isfile(path):
+        return {}
+    try:
+        with open(path, encoding="utf-8") as fh:
+            raw = json.load(fh)
+    except Exception:  # noqa: BLE001
+        return {}
+    return {k: int(v) for k, v in raw.items()}
 
 
 def discover(a: dict, qid: str) -> Dict[str, dict]:
@@ -655,9 +792,25 @@ def gate_new_work(a: dict, key: str, w: dict, held: Set[str],
     this tool had a `skipped_no_date` counter that was never
     incremented and never printed, so the largest class of refusal was
     invisible in the report.
+
+    **AND THE DUPLICATE IS CHECKED ON THE CORE TITLE.** MEASURED
+    2026-10-31: after the expansion, 18 authors failed the catalog's
+    own gate with `duplicate_titles`, and every one was the SAME work
+    arriving from P800 and from the bibliography under two spellings:
+
+        "Lady Inger of Ostrat"   vs   "Lady Inger of Oestraat"
+        "Gösta Berlings saga"    vs   "Gosta Berlings Saga"
+
+    The loose key let both through, so the catalog held one novel
+    twice -- which is exactly what `duplicate_titles` exists to
+    prevent. So the check compares the CORE title: the subtitle
+    dropped, the punctuation dropped, the article dropped.
     """
     if key in held:
         skipped["held"] += 1
+        return False
+    if canon_key(w.get("title", "")) in held:
+        skipped["duplicate_spelling"] += 1
         return False
     yr = w.get("year")
     if yr is None:
@@ -671,6 +824,37 @@ def gate_new_work(a: dict, key: str, w: dict, held: Set[str],
         skipped["after_death"] += 1
         return False
     return True
+
+
+def canon_key(title: str) -> str:
+    """the comparison key for a title, for the duplicate check.
+
+    **AND MEASURED 2026-10-31: THE SAME WORK ARRIVED TWICE UNDER TWO
+    SPELLINGS.** 18 authors failed the gate with `duplicate_titles`
+    after the expansion, and every one was the same work from P800 and
+    from the bibliography under a slightly different title:
+
+        "Lady Inger of Ostrat"   vs   "Lady Inger of Oestraat"
+        "Gösta Berlings saga"    vs   "Gosta Berlings Saga"
+
+    So the duplicate check has to compare the CORE title -- the
+    subtitle dropped, the diacritics folded, the punctuation dropped --
+    or the catalog holds the same novel twice under two spellings,
+    which is exactly what `duplicate_titles` exists to prevent.
+
+    **AND A TITLE ALREADY IN THE CATALOG IS NOT ADDED AGAIN**, whether
+    it arrived from P800 or from the bibliography.
+    """
+    t = title.lower()
+    t = re.sub(r"\s*\([^)]*\)\s*", " ", t)
+    t = re.split(r"\s*[:;]\s*", t)[0]
+    t = re.sub(r"[^a-z0-9]+", " ", t)
+    t = re.sub(r"\s+", " ", t).strip()
+    for art in ("the ", "a ", "an "):
+        if t.startswith(art):
+            t = t[len(art):]
+            break
+    return t
 
 
 def main() -> int:
@@ -726,13 +910,27 @@ def main() -> int:
     # incremented and never printed, and it had the whole discovery
     # written TWICE -- once for the report and once for the apply -- so
     # the report Bobby read was not necessarily what the apply wrote.
-    skipped = {"held": 0, "era": 0, "after_death": 0, "no_date": 0}
+    skipped = {"held": 0, "era": 0, "after_death": 0, "no_date": 0,
+               "duplicate_spelling": 0}
     per_author = []
-    additions: Dict[str, List[dict]] = {}
+    # AND THE ADDITIONS CARRY THE KEY ALONGSIDE THE WORK, because the
+    # apply needs the key to look the measures up. MEASURED: the first
+    # version stored the work alone and the apply unpacked a pair --
+    # so the apply raised ValueError and wrote nothing, after the
+    # report had already said it would add 1,073 works.
+    additions: Dict[str, List[Tuple[str, dict]]] = {}
 
     # THE DISCOVERY, ONCE. Both the report and the apply read from this.
     for a, qid in authors:
-        held = {norm(w.get("title", "")) for w in a.get("works", [])}
+        # AND `held` HOLDS BOTH KEYS. MEASURED: the loose `norm` key
+        # let the same work through twice under two spellings, and the
+        # core `canon_key` catches it -- so the held set carries both,
+        # and whichever a check compares against, it collides.
+        held = set()
+        for w in a.get("works", []):
+            t = w.get("title", "")
+            held.add(norm(t))
+            held.add(canon_key(t))
         found = discover(a, qid)
         new_works = []
         for key, w in sorted(found.items(),
@@ -740,13 +938,22 @@ def main() -> int:
             if not gate_new_work(a, key, w, held, skipped):
                 continue
             held.add(key)
-            new_works.append(w)
+            held.add(canon_key(w.get("title", "")))
+            # AND THE KEY TRAVELS WITH THE WORK. MEASURED 2026-10-31:
+            # this appended the work ALONE, and the line below then
+            # unpacked each entry as (key, work) -- but the entry was a
+            # dict, so the unpack walked its KEYS and the apply failed
+            # with "too many values to unpack (expected 2, got 3)". The
+            # catalog was untouched, because the write happens after.
+            new_works.append((key, w))
         if new_works:
             added += len(new_works)
             added_authors += 1
             per_author.append((a["name"], len(a.get("works", [])),
                                len(new_works)))
-            additions[a["name"]] = new_works
+            # AND THE KEY TRAVELS WITH THE WORK, so the apply can look
+            # the measures up under the key the catalog uses.
+            additions[a["name"]] = list(new_works)
 
     print("  the works the expansion adds: %d" % added)
     print("  the authors it gives a new work to: %d" % added_authors)
@@ -769,21 +976,29 @@ def main() -> int:
 
     # ---- APPLY ---------------------------------------------------------
     # AND THE THREE MEASURES STAY THREE, each in its own field.
+    # AND THE EXHAUSTIVE TABLE, so a ZERO is measured.
+    exhaustive = load_exhaustive()
+    print("  the exhaustive table: %d works with a measured count"
+          % len(exhaustive))
     written = 0
     for a, qid in authors:
         for key, w in additions.get(a["name"], []):
-            # AND THE REACH COUNT IS THE CORRECTED ONE, and it is
-            # NORMALIZED ON BOTH SIDES -- the old lookup asked for the
-            # normalized title against a raw-keyed dict, and so missed
-            # 22% of the measurement.
-            reach = flood.get(key)
+            # AND THE REACH COUNT, AND IT COMES FROM THE EXHAUSTIVE
+            # TABLE. MEASURED 2026-10-31: the adaptation-driven
+            # flood query cannot tell "no adaptations" from "not
+            # looked for" -- it enumerates ADAPTATIONS, so a work with
+            # none was never in scope. The exhaustive table (every work
+            # of the 260 authors we hold) CAN tell, and it answers in
+            # 2 seconds with 15,512 rows: 14,137 with a MEASURED zero.
+            #
+            # So the count is: the exhaustive table's value if the work
+            # is in it, else the flood table's value if it is in that,
+            # else None -- and None means NOT MEASURED, never zero.
+            reach = exhaustive.get(key)
             if reach is None:
-                # ZERO IS A MEASUREMENT, AND None IS NOT. The reach
-                # query was exhaustive over the window, so a work
-                # inside it with no adaptations was measured at zero.
-                # A work outside it was not measured at all, and a
-                # zero there would be a claim nobody made.
-                reach = 0 if _in_window(w.get("year")) else None
+                reach = flood.get(key)
+            if reach is None:
+                reach = None
             a.setdefault("works", []).append({
                 "title": w["title"],
                 "year": w["year"],
