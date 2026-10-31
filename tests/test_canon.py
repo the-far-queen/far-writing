@@ -319,6 +319,61 @@ def t_C13_the_reach_measure_is_a_different_measure():
                 "the reach figure was written into the sales field"
 
 
+def t_C14_the_three_measures_are_three():
+    """THE THREE MEASURES, and none of them is read as another.
+
+    MEASURED 2026-10-31: the catalog carries three measures, and each
+    answers a different question:
+
+        claimed_sales_m       copies sold -- a widely-cited ESTIMATE,
+                              and the catalog's own note says "used
+                              for ordering only. No entry claims them
+                              as audited numbers."
+        gutenberg_downloads   downloads -- Project Gutenberg's own
+                              page says "Calculated from the number of
+                              times each eBook gets downloaded", which
+                              is a REACH measure and not copies sold
+        reach_adaptations     how many things were made FROM the work
+                              -- a carrying-forward measure, and the
+                              one the "flood" qualifier used
+
+    So: a work may carry any of them, and none is ever written into
+    another's field. **A measure that borrows another's field is a
+    measure that will be read as the other one.**
+    """
+    auth = load_catalog()
+    works = [w for a in auth for w in a.works]
+    with_sales = [w for w in works if w.claimed_sales_m]
+    with_dl = [w for w in works if getattr(w, "gutenberg_downloads", None)]
+    with_reach = [w for w in works if getattr(w, "reach_adaptations", None)]
+
+    print("C14: ok (%d sales figures, %d download counts, %d reach counts"
+          % (len(with_sales), len(with_dl), len(with_reach)))
+    print("      -- three measures, three fields)")
+
+    assert len(with_sales) > 0, "the intake's sales figures were lost"
+    for w in works:
+        dl = getattr(w, "gutenberg_downloads", None)
+        ra = getattr(w, "reach_adaptations", None)
+        if dl and w.claimed_sales_m:
+            assert w.claimed_sales_m != dl, \
+                "a download count was written into the sales field"
+        if ra and w.claimed_sales_m:
+            assert w.claimed_sales_m != ra, \
+                "a reach count was written into the sales field"
+        if dl and ra:
+            assert dl != ra, "a reach count was written into the " \
+                             "downloads field"
+
+    # AND THE REACH COUNT IS NEVER INVENTED: a work with no measurement
+    # carries None, not zero. A zero is a claim that nothing was made
+    # from it, which is not what "not measured" means.
+    for w in works:
+        if not getattr(w, "reach_adaptations", None):
+            assert getattr(w, "reach_adaptations", None) is None, \
+                "an unmeasured reach count was written as a number"
+
+
 def main():
     t_C1_repro_id()
     t_C2_large_catalog_is_allowed()
@@ -333,7 +388,8 @@ def main():
     t_C11_the_year_reader_keeps_the_sign()
     t_C12_the_preferred_claim_is_taken()
     t_C13_the_reach_measure_is_a_different_measure()
-    print("\nALL FAR-WRITING CANON TESTS PASS (C1..C13)")
+    t_C14_the_three_measures_are_three()
+    print("\nALL FAR-WRITING CANON TESTS PASS (C1..C14)")
 
 
 # ---------------------------------------------------------------------------
@@ -374,6 +430,7 @@ test_C12_the_preferred_claim_is_taken = \
     t_C12_the_preferred_claim_is_taken
 test_C13_the_reach_measure_is_a_different_measure = \
     t_C13_the_reach_measure_is_a_different_measure
+test_C14_the_three_measures_are_three = t_C14_the_three_measures_are_three
 
 
 def test_the_runner_collects_these_checks():

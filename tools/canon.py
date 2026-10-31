@@ -93,6 +93,20 @@ class Work:
     gutenberg_downloads: Optional[int] = None
     #: the Gutenberg ebook id, so the number can be re-checked.
     gutenberg_ebook_id: Optional[str] = None
+    # THE REACH COUNT, and it is a THIRD measure.
+    #
+    # MEASURED 2026-10-31: how many things were made FROM this work --
+    # a film, a TV series, a stage production, a game. Wikidata records
+    # it as the "based on" claim, and the flood measurement found
+    # 13,259 such rows across the window.
+    #
+    # **AND IT IS NOT A SALES FIGURE AND NOT A DOWNLOAD COUNT.** Three
+    # measures, three fields, and none is read as another:
+    #   claimed_sales_m       copies sold, widely-cited estimate
+    #   gutenberg_downloads   downloads -- a reach measure
+    #   reach_adaptations     things made from it -- a carrying-forward
+    #                         measure
+    reach_adaptations: Optional[int] = None
     intake_rank: Optional[int] = None
     intake_section: str = ""
 
