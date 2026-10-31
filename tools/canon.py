@@ -75,6 +75,24 @@ class Work:
     # provenance from the intake. sales figures are Grok's widely-cited
     # estimates, not audited numbers — kept, but never treated as fact.
     claimed_sales_m: Optional[float] = None
+    # THE REACH MEASURE, and it is a DIFFERENT measure from the sales
+    # figure above.
+    #
+    # MEASURED 2026-10-31: Project Gutenberg publishes a per-book and
+    # per-author ranking by DOWNLOADS, and its own page says how it is
+    # calculated: "Calculated from the number of times each eBook gets
+    # downloaded." **A download count is a reach measure, NOT copies
+    # sold** — so it lives in its own field and is never read as a
+    # sales figure.
+    #
+    # It exists because the sales figure does not: MEASURED, the
+    # intake's public-domain list holds 141 entries and ALL of them
+    # are already in the catalog, so an author's SECOND book has no
+    # sales figure anywhere in the intake. The reach ranking is what
+    # supplies it.
+    gutenberg_downloads: Optional[int] = None
+    #: the Gutenberg ebook id, so the number can be re-checked.
+    gutenberg_ebook_id: Optional[str] = None
     intake_rank: Optional[int] = None
     intake_section: str = ""
 

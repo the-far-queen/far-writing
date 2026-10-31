@@ -1,0 +1,12 @@
+# THE CACHE, and it is not committed.
+#
+# MEASURED 2026-10-31: `catalog/gutenberg/wikicache/` holds 60 MB of
+# Wikipedia and Wikidata entity JSON -- 1,065 files fetched during the
+# reach build. It is a CACHE: it makes the build reproducible without
+# re-fetching, and it is regenerable from the tools that produced it.
+#
+# 60 MB of scraped third-party JSON does not belong in a repository,
+# and the catalog's own `kind`/`license` fields are where the PROVENANCE
+# belongs, not a copy of the corpus.
+wikicache/
+top.html

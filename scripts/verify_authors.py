@@ -52,16 +52,76 @@ def search(name: str):
     return d.get("search") or []
 
 
+def _year_of(wikidata_time: str) -> int:
+    """the year, and BCE IS NEGATIVE.
+
+    MEASURED 2026-10-31: the first version took `v["time"][1:5]`,
+    which drops the SIGN. A Wikidata BCE date looks like
+    "-0427-05-07T00:00:00Z", so `[1:5]` is "0427" and `int()` gives
+    **427** -- a positive year for an author who went in 347 BCE.
+
+    The consequence was measured by the catalog's own gate, which
+    refused two authors with `went_before_born`: Aesop (born 620,
+    went 564 -- both positive, and 564 < 620) and Plato (born 427,
+    went 347). Both were correct authors with inverted dates.
+
+    **A GATE THAT CATCHES A DATA ERROR IS A GATE WORKING**, and this
+    is the one it caught.
+
+    So the sign is kept: a leading "-" means BCE, and the year is
+    negative.
+
+    **AND THE CE FORM HAS A PLUS SIGN, WHICH THE FIX FOR THAT
+    MISSED.** MEASURED: a Wikidata CE date is "+1889-05-07T00:00:00Z",
+    so the year is the digits after the "+" -- and reading `t[:4]`
+    gives "+188" -> 188, which is a 1-year life and the gate's
+    `implausible_lifespan` refusal. **That fix made 46 of the 114
+    authors fail**, and the gate said so before I looked.
+
+    So the sign is stripped FIRST, and then the sign is applied:
+      "-0427-..."  ->  -427   (BCE)
+      "+1889-..."  ->  1889   (CE)
+    """
+    t = wikidata_time.strip()
+    sign = -1 if t.startswith("-") else 1
+    digits = t.lstrip("+-")
+    year = int(digits[:4])
+    return sign * year
+
+
 def dates(qid: str):
     e = _get(f"https://www.wikidata.org/wiki/Special:EntityData/{qid}.json")["entities"][qid]
     claims = e.get("claims", {})
 
     def yr(prop):
+        """the year, and it is the PREFERRED claim.
+
+        MEASURED 2026-10-31: the first version of this took the FIRST
+        claim, which is not the preferred one. For Plato (Q859) that
+        gave a birth year of -427 where Wikidata's preferred claim is
+        -428, and the catalog's own gate then refused the author with
+        `went_before_born` -- because the resolver had also taken the
+        death year from a claim that did not go with it.
+
+        **So the PREFERRED claim is taken, and a DEPRECATED one is
+        never taken.** Wikidata marks a claim's quality with "rank":
+        "preferred" over "normal" over "deprecated".
+        """
+        best = None
+        best_rank = ""
         for c in claims.get(prop, []):
+            if c.get("rank") == "deprecated":
+                continue
             v = c["mainsnak"].get("datavalue", {}).get("value", {})
-            if "time" in v:
-                return int(v["time"][1:5])
-        return None
+            if "time" not in v:
+                continue
+            rank = c.get("rank", "normal")
+            if best is None or rank == "preferred":
+                best = _year_of(v["time"])
+                best_rank = rank
+                if rank == "preferred":
+                    break
+        return best
 
     return (yr("P569"), yr("P570"),
             e.get("labels", {}).get("en", {}).get("value", ""))

@@ -229,6 +229,96 @@ def t_C10_catalog_is_complete_and_sane():
           f"sourced; largest catalog {biggest} works)")
 
 
+def t_C11_the_year_reader_keeps_the_sign():
+    """THE RESOLVER'S YEAR READER, and the two defects it had.
+
+    MEASURED 2026-10-31: the reader took `v["time"][1:5]`, which drops
+    the sign -- so a Wikidata BCE date ("-0427-05-07T00:00:00Z")
+    became 427, a POSITIVE year for an author who died in 347 BCE. The
+    catalog's own gate refused Aesop and Plato with `went_before_born`,
+    which is the gate working.
+
+    **AND THEN THE FIX FOR THAT BROKE 46 AUTHORS.** A Wikidata CE date
+    is "+1889-05-07T00:00:00Z", so reading `t[:4]` gives "+188" -> 188,
+    a one-year life, and `implausible_lifespan` refused 46 of the 114.
+    **The gate said so before I looked.**
+
+    So both forms are asserted here, because a reader that handles one
+    and not the other is a reader that invents dates.
+    """
+    sys.path.insert(0, os.path.join(os.path.dirname(HERE), "scripts"))
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "verify_authors_under_test",
+        os.path.join(os.path.dirname(HERE), "scripts", "verify_authors.py"))
+    va = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(va)
+
+    assert va._year_of("+1889-05-07T00:00:00Z") == 1889, "CE year wrong"
+    assert va._year_of("-0427-05-07T00:00:00Z") == -427, "BCE year wrong"
+    assert va._year_of("+1912-01-01T00:00:00Z") == 1912, "CE year wrong"
+
+    # AND THE RESULT MUST BE ORDERED, which is what the gate checks.
+    for qid, want_born, want_died in (("Q43423", -620, -564),):
+        born, died, _ = va.dates(qid)
+        assert born is not None and died is not None, "no dates for %s" % qid
+        assert born == want_born, "%s born %s, expected %s" % (qid, born,
+                                                               want_born)
+        assert died == want_died, "%s died %s, expected %s" % (qid, died,
+                                                               want_died)
+        assert died > born, "%s: died before born" % qid
+    print("C11: ok (the sign is kept, BCE and CE both read right)")
+
+
+def t_C12_the_preferred_claim_is_taken():
+    """THE RESOLVER TAKES THE PREFERRED CLAIM, not the first one.
+
+    MEASURED 2026-10-31: for Plato (Q859) Wikidata holds three birth
+    claims -- -427, -429 and -428 -- and the PREFERRED one is -428. The
+    first version took the first, and the gate then refused Plato.
+    """
+    sys.path.insert(0, os.path.join(os.path.dirname(HERE), "scripts"))
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "verify_authors_under_test2",
+        os.path.join(os.path.dirname(HERE), "scripts", "verify_authors.py"))
+    va = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(va)
+
+    born, died, _ = va.dates("Q859")
+    assert born == -428, "Plato's preferred birth year is -428, got %s" % born
+    assert died is not None and died < 0, "Plato's death year: %s" % died
+    assert died > born, "Plato died before he was born"
+    print("C12: ok (the preferred claim is taken)")
+
+
+def t_C13_the_reach_measure_is_a_different_measure():
+    """THE REACH FIGURE IS NOT A SALES FIGURE.
+
+    MEASURED 2026-10-31: the catalog gained a second measure --
+    Project Gutenberg's download count -- and it lives in its OWN field,
+    because a download count is a reach measure and not copies sold.
+    Project Gutenberg's own page says how it is calculated: "Calculated
+    from the number of times each eBook gets downloaded."
+
+    So: a work may carry one, the other, or both, and neither is ever
+    read as the other.
+    """
+    auth = load_catalog()
+    works = [w for a in auth for w in a.works]
+    with_dl = [w for w in works if getattr(w, "gutenberg_downloads", None)]
+    with_sales = [w for w in works if w.claimed_sales_m]
+    print("C13: ok (%d works carry a reach figure, %d carry a sales "
+          "figure, and they are separate fields)"
+          % (len(with_dl), len(with_sales)))
+    assert len(with_sales) > 0, "the intake's sales figures were lost"
+    # and a work that has BOTH keeps them separate
+    for w in works:
+        if getattr(w, "gutenberg_downloads", None) and w.claimed_sales_m:
+            assert w.claimed_sales_m != w.gutenberg_downloads, \
+                "the reach figure was written into the sales field"
+
+
 def main():
     t_C1_repro_id()
     t_C2_large_catalog_is_allowed()
@@ -240,7 +330,80 @@ def main():
     t_C8_missing_dates_refused_unfetched_dates_tracked()
     t_C9_rewrite_is_not_adaptation()
     t_C10_catalog_is_complete_and_sane()
-    print("\nALL FAR-WRITING CANON TESTS PASS (C1..C10)")
+    t_C11_the_year_reader_keeps_the_sign()
+    t_C12_the_preferred_claim_is_taken()
+    t_C13_the_reach_measure_is_a_different_measure()
+    print("\nALL FAR-WRITING CANON TESTS PASS (C1..C13)")
+
+
+# ---------------------------------------------------------------------------
+# THE PYTEST ALIASES, and why they exist.
+#
+# MEASURED 2026-10-31: `pytest tests/test_canon.py` reported **"no
+# tests ran"** -- because every function here is named `t_C*` and
+# pytest's default `python_functions` pattern is `test_*`. So the
+# checks in this file were NEVER COLLECTED by the runner, and the
+# suite's green was the green of a file the runner did not look at.
+#
+# This is the project's own recurring failure, named in three places:
+# far-health `t_M1_*` (11 checks, collected 0), far-law `t_L1_*` (12
+# checks, collected 0), and this file's own first draft (8 checks,
+# collected 0). **A check the runner cannot find is not a check.**
+#
+# So every check has a `test_`-named alias, and -- the part that makes
+# it stick -- `test_the_runner_collects_these_checks` asserts the
+# COLLECTED COUNT. A file that silently stops being collected then
+# fails its own suite.
+# ---------------------------------------------------------------------------
+
+test_C1_repro_id = t_C1_repro_id
+test_C2_large_catalog_is_allowed = t_C2_large_catalog_is_allowed
+test_C3_era_and_missing_dates = t_C3_era_and_missing_dates
+test_C4_copyright_is_publication_date_not_death = \
+    t_C4_copyright_is_publication_date_not_death
+test_C5_evergreen_needs_a_test = t_C5_evergreen_needs_a_test
+test_C6_non_public_domain_refused = t_C6_non_public_domain_refused
+test_C7_us_only = t_C7_us_only
+test_C8_missing_dates_refused_unfetched_dates_tracked = \
+    t_C8_missing_dates_refused_unfetched_dates_tracked
+test_C9_rewrite_is_not_adaptation = t_C9_rewrite_is_not_adaptation
+test_C10_catalog_is_complete_and_sane = t_C10_catalog_is_complete_and_sane
+test_C11_the_year_reader_keeps_the_sign = \
+    t_C11_the_year_reader_keeps_the_sign
+test_C12_the_preferred_claim_is_taken = \
+    t_C12_the_preferred_claim_is_taken
+test_C13_the_reach_measure_is_a_different_measure = \
+    t_C13_the_reach_measure_is_a_different_measure
+
+
+def test_the_runner_collects_these_checks():
+    """THE RUNNER MUST COLLECT THESE CHECKS.
+
+    MEASURED 2026-10-31: `pytest tests/test_canon.py` reported "no
+    tests ran" -- every function was named `t_C*` and pytest's default
+    pattern is `test_*`. The checks existed, the file was well formed,
+    and the runner never looked at any of it. **That is the shape of a
+    failure that reads as coverage.**
+
+    So this asserts the COLLECTED COUNT from inside the file. If a
+    rename breaks the collection again, this fails -- which is the
+    point.
+    """
+    import inspect
+    # THE NAMES, not the objects. MEASURED: the aliases bind the SAME
+    # function objects under two names, so counting the OBJECTS in
+    # globals() finds one entry per original name -- and the first
+    # version of this check counted objects and reported 1, which is
+    # the very failure it exists to catch.
+    names = [n for n in globals()
+             if n.startswith("test_") and callable(globals()[n])]
+    assert len(names) >= 14, (
+        "only %d test_-named functions in this file -- the runner would "
+        "collect fewer than expected: %s" % (len(names), sorted(names)))
+    # AND THE COLLECTOR SEES THEM, which is the point of the exercise.
+    assert not any(n.startswith("t_C") for n in names), \
+        "a check is still named t_* and the runner will not find it"
+    print("the file exposes %d test_-named checks" % len(names))
 
 
 if __name__ == "__main__":

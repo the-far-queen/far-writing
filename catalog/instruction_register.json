@@ -1,0 +1,73 @@
+{
+ "version": "1.0.0",
+ "added": "2026-10-31",
+ "rule": "A work in this file is IN COPYRIGHT: it may be read and measured, and never adapted. What crosses into our work is the FORM -- how it teaches, how it is structured, how it is pitched -- and never the protected text. This is the same line the catalog's gate draws between a myth told in the style of a classic and borrowed protected prose.",
+ "works": [
+  {
+   "title": "Think and Grow Rich",
+   "author": "Napoleon Hill",
+   "year": 1937,
+   "kind": "self-help",
+   "studied_as": "self-help",
+   "study_guide": "how a method is named so it can be cited back",
+   "license": "other",
+   "adapt_as_myth": false,
+   "note": "desire, faith, autosuggestion, persistence -- a method presented as a set of NAMED principles"
+  },
+  {
+   "title": "How to Win Friends and Influence People",
+   "author": "Dale Carnegie",
+   "year": 1936,
+   "kind": "self-help",
+   "studied_as": "self-help",
+   "study_guide": "how a reader is taught a skill as a series of situations rather than a theory",
+   "license": "other",
+   "adapt_as_myth": false,
+   "note": "the business register's founding text; how to read people and be read back"
+  },
+  {
+   "title": "How to Pick Up Girls",
+   "author": "David DeAngelis",
+   "year": 1990,
+   "kind": "self-help",
+   "studied_as": "self-help",
+   "study_guide": "the frame that makes an uncomfortable subject approachable, and what that frame costs",
+   "license": "other",
+   "adapt_as_myth": false,
+   "note": "the register's most discussed title and the one that provokes the most; a STUDY of the form, not an endorsement of it"
+  },
+  {
+   "title": "Men Are from Mars, Women Are from Venus",
+   "author": "John Gray",
+   "year": 1992,
+   "kind": "self-help",
+   "studied_as": "self-help",
+   "study_guide": "how a metaphor can hold a claim that would not survive being stated plainly",
+   "license": "other",
+   "adapt_as_myth": false,
+   "note": "the type-cast as a frame; a study of how a METAPHOR carries an argument"
+  },
+  {
+   "title": "Rich Dad Poor Dad",
+   "author": "Robert T. Kiyosaki",
+   "year": 1997,
+   "kind": "self-help",
+   "studied_as": "self-help",
+   "study_guide": "the two-teacher frame, which sets two incompatible worlds side by side",
+   "license": "other",
+   "adapt_as_myth": false,
+   "note": "the financial register; the two-teachers frame"
+  },
+  {
+   "title": "Grey's Anatomy",
+   "author": "Shonda Rhimes",
+   "year": 2005,
+   "kind": "medical-drama",
+   "studied_as": "medical-drama",
+   "study_guide": "the case as a unit: a problem, a differential, and a decision, inside a fixed running time",
+   "license": "other",
+   "adapt_as_myth": false,
+   "note": "the episodic case as a TEACHING structure -- the anatomy lesson and the case, one per episode, with a study guide per season"
+  }
+ ]
+}
