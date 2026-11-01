@@ -172,6 +172,59 @@ def _exhaustive_counts() -> dict:
     return {str(k): int(v) for k, v in raw.items()}
 
 
+def _raw_book_rows() -> list:
+    """the book's raw anchor rows, from the cached page.
+
+    **AND THE ROWS ARE DEDUPED, AND THE FIRST OCCURRENCE WINS.** The
+    page holds the top list three times over -- once for last week,
+    once for last month, once for all time -- so the same ebook id
+    appears up to 3 times with 3 different counts. MEASURED: 300 raw
+    rows, 115 distinct ids, and 99 of those ids carry different
+    counts on their repeats.
+
+    So the fixture holds the FIRST occurrence of each id, which is the
+    "last 30 days" column -- the same one `parse_books()` takes, since
+    it also keeps the first occurrence. MEASURED: the first-occurrence
+    rows parse to exactly the 115 books the committed fixture already
+    holds, title for title and count for count, 0 differences.
+    """
+    page = os.path.join(GUT_DIR, "top.html")
+    if not os.path.isfile(page):
+        return []
+    import gutenberg_ranks
+    with open(page, encoding="utf-8") as fh:
+        html = fh.read()
+    rows = []
+    seen = set()
+    for eid, anchor, dl in gutenberg_ranks.BOOK_ROW.findall(html):
+        if eid in seen:
+            continue
+        seen.add(eid)
+        rows.append({"ebook_id": eid, "anchor": anchor, "downloads": dl})
+    return rows
+
+
+def _raw_author_rows() -> list:
+    """the author's raw rows, from the cached page.
+
+    Same rule as the books: the first occurrence of each name wins.
+    """
+    page = os.path.join(GUT_DIR, "top.html")
+    if not os.path.isfile(page):
+        return []
+    import gutenberg_ranks
+    with open(page, encoding="utf-8") as fh:
+        html = fh.read()
+    rows = []
+    seen = set()
+    for name, dl in gutenberg_ranks.AUTHOR_ROW.findall(html):
+        if name in seen:
+            continue
+        seen.add(name)
+        rows.append({"author": name, "downloads": dl})
+    return rows
+
+
 def build() -> int:
     import gutenberg_ranks
     import reach_measure as rm
@@ -199,13 +252,36 @@ def build() -> int:
     # 2. THE GUTENBERG BOOKS. The parser runs over the cached page, and
     #    the RESULT is what the checks need -- the title, the author
     #    and the download count, already split.
+    #
+    #    **AND WHAT IS COMMITTED IS THE RAW ROW, NOT THE SPLIT PAIR.**
+    #    MEASURED 2026-11-01: the first version of this fixture held
+    #    the books already split into title and author. That made the
+    #    loader able to hand them back without calling the splitter at
+    #    all, and the E2 mutation -- "the Gutenberg title keeps its
+    #    author" -- then stayed GREEN: the check could not see a change
+    #    to code that nothing on the default path called.
+    #
+    #    A fixture that holds the ANSWER cannot check the answer. So
+    #    the fixture holds the measurement as it was OBSERVED -- the
+    #    anchor text and the count -- and the parse is the loader's
+    #    job. The raw rows come from the cached page, and the page is
+    #    the only place they exist, so this is the one build step that
+    #    genuinely needs the cache.
     books, authors = gutenberg_ranks.load()
+    page_rows = _raw_book_rows()
+    page_authors = _raw_author_rows()
+    if not page_rows or not page_authors:
+        print("  the cached page is not there -- the raw rows cannot be "
+              "derived (run tools/gutenberg_ranks.py --fetch)")
+        return 1
     _write("gutenberg_books.json", {
         "_provenance": dict(PROVENANCE["gutenberg_books.json"],
                             derived=DERIVED,
-                            books=len(books)),
-        "books": [b.to_dict() for b in books],
-        "authors": [a.to_dict() for a in authors],
+                            books=len(books),
+                            authors=len(authors),
+                            raw_rows=len(page_rows)),
+        "books": page_rows,
+        "authors": page_authors,
     })
 
     # 3. THE OLD ROW COUNTS, which E3 compares against.

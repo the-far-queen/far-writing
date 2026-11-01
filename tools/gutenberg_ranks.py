@@ -136,7 +136,25 @@ AUTHOR_ROW = re.compile(
 #: A TITLE AND ITS AUTHOR. The page writes "Title by Author", and the
 #: split is on the LAST " by " -- because a title can contain one
 #: ("The Castle by O. Henry" is fine, but "Billy by the Sea" is not).
-TITLE_AUTHOR = re.compile(r"^(.*?)\s+by\s+(.*)$")
+#:
+#: **AND THE REGEX NOW MATCHES THE CONTRACT IT STATES.** MEASURED
+#: 2026-11-01: the pattern was `^(.*?)\s+by\s+(.*)$` -- a LAZY first
+#: group, so it split on the FIRST " by " while the comment above
+#: promised the LAST one. MEASURED on the two cases that tell them
+#: apart:
+#:
+#:     "Billy by the Sea by Jack London"
+#:         the lazy pattern   -> ("Billy", "the Sea by Jack London")
+#:         the greedy pattern -> ("Billy by the Sea", "Jack London")
+#:
+#: **AND THE PAGE ITSELF DID NOT CATCH IT.** MEASURED: of the 115
+#: distinct book rows on the cached page, 0 hold a second " by ", so
+#: both patterns split every row identically -- 0 rows differ. The
+#: defect was invisible in the data and visible only in the contract.
+#: A title of the catalog's own carries a " by " ("Poems by Currer,
+#: Ellis, and Acton Bell"), so the shape is real; it just is not on
+#: this page yet.
+TITLE_AUTHOR = re.compile(r"^(.*)\s+by\s+(.*)$")
 
 
 @dataclass
@@ -197,29 +215,66 @@ def split_title_author(text: str) -> Tuple[str, str]:
     return m.group(1).strip(), m.group(2).strip()
 
 
-def parse_books(html: str) -> List[BookRank]:
+def parse_book_rows(rows) -> List[BookRank]:
+    """the books, from the RAW rows.
+
+    **AND THE ROWS ARE THE RAW ANCHOR TEXT, NOT A SPLIT PAIR.** The
+    split happens HERE, so it happens on every path -- the cached page
+    and the committed fixture alike.
+
+    **AND THIS EXISTS BECAUSE THE FIXTURE MADE THE SPLIT UNREACHABLE.**
+    MEASURED 2026-11-01: the committed fixture held the books already
+    split into title and author, so `load()` could hand them back
+    without calling the splitter at all. The E2 mutation -- "the
+    Gutenberg title keeps its author" -- then stayed GREEN: the check
+    could not see the change, because nothing on the default path
+    called the code it was about. MEASURED, with the mutation applied
+    to a copy of the tree: the check passed with the fixture present
+    and failed with the fixture taken away.
+
+    So the fixture holds the RAW ROWS, and the parse is the loader's
+    job. The measurement is committed; the reading of it is not.
+    """
     out: List[BookRank] = []
     seen = set()
-    for eid, title, dl in BOOK_ROW.findall(html):
-        t, a = split_title_author(title)
+    for eid, anchor, dl in rows:
+        t, a = split_title_author(anchor)
         if not t or eid in seen:
             continue
         seen.add(eid)
         out.append(BookRank(ebook_id=eid, title=t, author=a,
-                            downloads=int(dl.replace(",", ""))))
+                            downloads=int(str(dl).replace(",", ""))))
     return out
 
 
-def parse_authors(html: str) -> List[AuthorRank]:
+def parse_author_rows(rows) -> List[AuthorRank]:
+    """the authors, from the RAW rows.
+
+    **AND THE ROWS ARE 3-WIDE, LIKE THE BOOK ROWS.** The book's row is
+    (id, anchor, count); the author's is (name, name, count) -- the
+    name stands in for both the key and the text, because the page's
+    author anchor holds nothing but the name and the count.
+    """
     out: List[AuthorRank] = []
     seen = set()
-    for name, dl in AUTHOR_ROW.findall(html):
+    for name, _text, dl in rows:
         n = clean(name)
         if not n or n in seen:
             continue
         seen.add(n)
-        out.append(AuthorRank(author=n, downloads=int(dl.replace(",", ""))))
+        out.append(AuthorRank(author=n, downloads=int(str(dl).replace(",", ""))))
     return out
+
+
+def parse_books(html: str) -> List[BookRank]:
+    """the books, from a page."""
+    return parse_book_rows(BOOK_ROW.findall(html))
+
+
+def parse_authors(html: str) -> List[AuthorRank]:
+    """the authors, from a page."""
+    return parse_author_rows([(n, n, dl)
+                              for n, dl in AUTHOR_ROW.findall(html)])
 
 
 def load() -> Tuple[List[BookRank], List[AuthorRank]]:
@@ -245,6 +300,20 @@ def load() -> Tuple[List[BookRank], List[AuthorRank]]:
     **SO THE ORDER IS: the fixture first, then the cache, and the
     fetch ONLY when the caller asks for it.** Nothing here reaches
     the network by default.
+
+    **AND THE FIXTURE HOLDS THE RAW ROWS, NOT THE PARSED BOOKS.**
+    MEASURED 2026-11-01, and this is the defect that the fixture
+    commit introduced into its own fix: the fixture held the books
+    already split into title and author, so this function could hand
+    them back without calling `split_title_author()` at all. The E2
+    mutation -- "the Gutenberg title keeps its author" -- then stayed
+    GREEN, because the check could not see a change to code that
+    nothing on this path called.
+
+    A fixture that holds the ANSWER is a fixture that cannot check
+    the answer. So the fixture holds the raw rows -- the anchor text
+    and the count -- and the parse happens here, on every path, so
+    the parser is always exercised and always measurable.
     """
     fixed = load_fixture()
     if fixed is not None:
@@ -262,7 +331,10 @@ def load() -> Tuple[List[BookRank], List[AuthorRank]]:
 
 
 def load_fixture() -> Optional[Tuple[List[BookRank], List[AuthorRank]]]:
-    """the committed measurement, or None if it is not there."""
+    """the committed measurement, or None if it is not there.
+
+    **AND THE ROWS ARE PARSED HERE, NOT STORED SPLIT.** See `load()`.
+    """
     if not os.path.isfile(FIXTURE):
         return None
     try:
@@ -270,14 +342,48 @@ def load_fixture() -> Optional[Tuple[List[BookRank], List[AuthorRank]]]:
             data = json.load(fh)
     except Exception:  # noqa: BLE001
         return None
-    books = [BookRank(b.get("ebook_id", ""), b.get("title", ""),
-                      b.get("author", ""), int(b.get("downloads", 0)))
-             for b in data.get("books", [])]
-    authors = [AuthorRank(a.get("author", ""), int(a.get("downloads", 0)))
-               for a in data.get("authors", [])]
+    books = parse_book_rows(_rows(data, "books"))
+    authors = parse_author_rows(_rows(data, "authors"))
     if not books:
         return None
     return books, authors
+
+
+def _rows(data: dict, key: str):
+    """the raw rows of a fixture section.
+
+    **AND THE OLD FORM IS STILL READ, SO THE FIXTURE CAN BE MIGRATED
+    WITHOUT A FLAG DAY.** MEASURED: the fixture that shipped on
+    2026-11-01 held the books already split, as
+    `{"ebook_id", "title", "author", "downloads"}`. The new form holds
+    the raw rows, as `{"ebook_id", "anchor", "downloads"}`. A reader
+    that understands both is what makes the change safe: the fixture
+    can be rebuilt by the tool that owns it, and the old file keeps
+    working until it does.
+    """
+    rows = []
+    for entry in (data.get(key) or []):
+        if "anchor" in entry:
+            rows.append((entry.get("ebook_id", ""),
+                         entry.get("anchor", ""),
+                         entry.get("downloads", 0)))
+        elif key == "authors":
+            rows.append((entry.get("author", ""),
+                         entry.get("author", ""),
+                         entry.get("downloads", 0)))
+        else:
+            # THE OLD, PRE-SPLIT FORM: the anchor is rebuilt from the
+            # pair, so the parse still runs and the splitter is still
+            # exercised. It is a lossy rebuild -- the author's own " by "
+            # cannot be told from the separator's -- but it is enough to
+            # keep the check meaningful, and the rebuild is rebuilt from
+            # the page by `tools/build_fixtures.py` at the next build.
+            title = entry.get("title", "")
+            author = entry.get("author", "")
+            anchor = title + (" by " + author if author else "")
+            rows.append((entry.get("ebook_id", ""), anchor,
+                         entry.get("downloads", 0)))
+    return rows
 
 
 def main() -> int:
