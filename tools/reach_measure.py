@@ -207,6 +207,35 @@ def reach_key(label: str) -> str:
     return norm(label)
 
 
+#: THE COMMITTED FIXTURES. **THE CACHE IS A RUNTIME ARTIFACT AND IS
+#: GITIGNORED**, so a fresh clone has no `wikicache/` -- and MEASURED
+#: 2026-11-01, a fresh clone ran 4 of the checks and FAILED on them,
+#: because they read the cache. So the reader falls back to the
+#: PROJECT'S OWN MEASUREMENT, which is committed:
+#:
+#:     catalog/fixtures/reach_by_work.json
+#:     catalog/fixtures/reach_by_author.json
+#:
+#: The cache holds 178 MB of scraped third-party JSON; the fixture
+#: holds the numbers this repo computed from it, with the provenance
+#: that made them. The reader prefers the cache (it is newer) and
+#: falls back to the fixture (it is always there).
+FIXTURES = os.path.join(CATALOG_DIR, "fixtures")
+
+
+def _fixture_counts(name: str) -> Dict[str, int]:
+    """the committed measurement, or {} if it is not there."""
+    path = os.path.join(FIXTURES, name)
+    if not os.path.isfile(path):
+        return {}
+    try:
+        with open(path, encoding="utf-8") as fh:
+            data = json.load(fh)
+    except Exception:  # noqa: BLE001
+        return {}
+    return {str(k): int(v) for k, v in (data.get("counts") or {}).items()}
+
+
 def write_reach_table(by_work_counts: Dict[str, int], path: str = "") -> str:
     """write the per-work reach table, keyed by `reach_key`."""
     path = path or os.path.join(CACHE, "reach_by_work.json")
@@ -217,9 +246,18 @@ def write_reach_table(by_work_counts: Dict[str, int], path: str = "") -> str:
 
 
 def read_reach_table(path: str = "") -> Dict[str, int]:
-    """read the per-work reach table, keyed by `reach_key`."""
+    """read the per-work reach table, keyed by `reach_key`.
+
+    **AND THE COMMITTED FIXTURE IS THE FALLBACK.** MEASURED
+    2026-11-01: the cache is gitignored, so a fresh clone had no reach
+    table and 4 of the checks failed on it. The fixture is the same
+    measurement, committed.
+    """
     path = path or os.path.join(CACHE, "reach_by_work.json")
     if not os.path.isfile(path):
+        fixed = _fixture_counts("reach_by_work.json")
+        if fixed:
+            return {reach_key(k): int(v) for k, v in fixed.items()}
         return {}
     with open(path, encoding="utf-8") as fh:
         raw = json.load(fh)
@@ -238,7 +276,7 @@ def load_reach_raw() -> Dict[str, int]:
     """
     path = os.path.join(CACHE, "reach_by_work.json")
     if not os.path.isfile(path):
-        return {}
+        return _fixture_counts("reach_by_work.json")
     with open(path, encoding="utf-8") as fh:
         raw = json.load(fh)
     return {k: int(v) for k, v in raw.items()}
@@ -263,7 +301,7 @@ def load_author_reach() -> Dict[str, int]:
     """the per-author adaptation totals, from the CORRECTED measurement."""
     path = os.path.join(CACHE, "reach_by_author.json")
     if not os.path.isfile(path):
-        return {}
+        return _fixture_counts("reach_by_author.json")
     with open(path, encoding="utf-8") as fh:
         raw = json.load(fh)
     return {k: int(v) for k, v in raw.items()}

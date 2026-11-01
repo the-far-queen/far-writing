@@ -1,0 +1,1148 @@
+{
+ "_provenance": {
+  "made_by": "tools/gutenberg_ranks.py, from the Gutenberg top page",
+  "measures": "the download count of the 115 top books",
+  "source_url": "https://www.gutenberg.org/browse/scores/top",
+  "note": "a DOWNLOAD count -- a reach measure, not copies sold",
+  "derived": "2026-10-31",
+  "books": 115
+ },
+ "books": [
+  {
+   "ebook_id": "84",
+   "title": "Frankenstein; or, The modern Prometheus",
+   "author": "Mary Wollstonecraft Shelley",
+   "downloads": 7904
+  },
+  {
+   "ebook_id": "1342",
+   "title": "Pride and Prejudice",
+   "author": "Jane Austen",
+   "downloads": 7546
+  },
+  {
+   "ebook_id": "2701",
+   "title": "Moby Dick; Or, The Whale",
+   "author": "Herman Melville",
+   "downloads": 5887
+  },
+  {
+   "ebook_id": "11",
+   "title": "Alice's Adventures in Wonderland",
+   "author": "Lewis Carroll",
+   "downloads": 5108
+  },
+  {
+   "ebook_id": "1661",
+   "title": "The Adventures of Sherlock Holmes",
+   "author": "Arthur Conan Doyle",
+   "downloads": 3653
+  },
+  {
+   "ebook_id": "345",
+   "title": "Dracula",
+   "author": "Bram Stoker",
+   "downloads": 3283
+  },
+  {
+   "ebook_id": "1513",
+   "title": "Romeo and Juliet",
+   "author": "William Shakespeare",
+   "downloads": 3070
+  },
+  {
+   "ebook_id": "41",
+   "title": "The Legend of Sleepy Hollow",
+   "author": "Washington Irving",
+   "downloads": 2838
+  },
+  {
+   "ebook_id": "100",
+   "title": "The Complete Works of William Shakespeare",
+   "author": "William Shakespeare",
+   "downloads": 2540
+  },
+  {
+   "ebook_id": "145",
+   "title": "Middlemarch",
+   "author": "George Eliot",
+   "downloads": 2517
+  },
+  {
+   "ebook_id": "98",
+   "title": "A Tale of Two Cities",
+   "author": "Charles Dickens",
+   "downloads": 2481
+  },
+  {
+   "ebook_id": "43",
+   "title": "The strange case of Dr. Jekyll and Mr. Hyde",
+   "author": "Robert Louis Stevenson",
+   "downloads": 2436
+  },
+  {
+   "ebook_id": "174",
+   "title": "The Picture of Dorian Gray",
+   "author": "Oscar Wilde",
+   "downloads": 2299
+  },
+  {
+   "ebook_id": "64317",
+   "title": "The Great Gatsby",
+   "author": "F. Scott Fitzgerald",
+   "downloads": 2282
+  },
+  {
+   "ebook_id": "22789",
+   "title": "On the Duties of the Clergy",
+   "author": "Bishop of Milan Saint Ambrose",
+   "downloads": 2142
+  },
+  {
+   "ebook_id": "1952",
+   "title": "The Yellow Wallpaper",
+   "author": "Charlotte Perkins Gilman",
+   "downloads": 2099
+  },
+  {
+   "ebook_id": "205",
+   "title": "Walden, and On The Duty Of Civil Disobedience",
+   "author": "Henry David Thoreau",
+   "downloads": 2093
+  },
+  {
+   "ebook_id": "2554",
+   "title": "Crime and Punishment",
+   "author": "Fyodor Dostoyevsky",
+   "downloads": 2071
+  },
+  {
+   "ebook_id": "1232",
+   "title": "The Prince",
+   "author": "Niccolò Machiavelli",
+   "downloads": 2045
+  },
+  {
+   "ebook_id": "1260",
+   "title": "Jane Eyre: An Autobiography",
+   "author": "Charlotte Brontë",
+   "downloads": 2040
+  },
+  {
+   "ebook_id": "2641",
+   "title": "A Room with a View",
+   "author": "E. M. Forster",
+   "downloads": 1999
+  },
+  {
+   "ebook_id": "37106",
+   "title": "Little Women; Or, Meg, Jo, Beth, and Amy",
+   "author": "Louisa May Alcott",
+   "downloads": 1937
+  },
+  {
+   "ebook_id": "5200",
+   "title": "Metamorphosis",
+   "author": "Franz Kafka",
+   "downloads": 1912
+  },
+  {
+   "ebook_id": "2680",
+   "title": "Meditations",
+   "author": "Emperor of Rome Marcus Aurelius",
+   "downloads": 1878
+  },
+  {
+   "ebook_id": "26471",
+   "title": "Spoon River Anthology",
+   "author": "Edgar Lee Masters",
+   "downloads": 1874
+  },
+  {
+   "ebook_id": "1184",
+   "title": "The Count of Monte Cristo",
+   "author": "Alexandre Dumas and Auguste Maquet",
+   "downloads": 1844
+  },
+  {
+   "ebook_id": "67979",
+   "title": "The Blue Castle: a novel",
+   "author": "L. M. Montgomery",
+   "downloads": 1781
+  },
+  {
+   "ebook_id": "1400",
+   "title": "Great Expectations",
+   "author": "Charles Dickens",
+   "downloads": 1719
+  },
+  {
+   "ebook_id": "16389",
+   "title": "The Enchanted April",
+   "author": "Elizabeth Von Arnim",
+   "downloads": 1687
+  },
+  {
+   "ebook_id": "1727",
+   "title": "The Odyssey",
+   "author": "Homer",
+   "downloads": 1675
+  },
+  {
+   "ebook_id": "1080",
+   "title": "A Modest Proposal",
+   "author": "Jonathan Swift",
+   "downloads": 1669
+  },
+  {
+   "ebook_id": "844",
+   "title": "The Importance of Being Earnest: A Trivial Comedy for Serious People",
+   "author": "Oscar Wilde",
+   "downloads": 1668
+  },
+  {
+   "ebook_id": "74",
+   "title": "The Adventures of Tom Sawyer, Complete",
+   "author": "Mark Twain",
+   "downloads": 1637
+  },
+  {
+   "ebook_id": "2600",
+   "title": "War and Peace",
+   "author": "graf Leo Tolstoy",
+   "downloads": 1630
+  },
+  {
+   "ebook_id": "394",
+   "title": "Cranford",
+   "author": "Elizabeth Cleghorn Gaskell",
+   "downloads": 1607
+  },
+  {
+   "ebook_id": "79877",
+   "title": "Seven pillars of wisdom :",
+   "author": "T. E. Lawrence",
+   "downloads": 1538
+  },
+  {
+   "ebook_id": "25344",
+   "title": "The Scarlet Letter",
+   "author": "Nathaniel Hawthorne",
+   "downloads": 1528
+  },
+  {
+   "ebook_id": "2160",
+   "title": "The Expedition of Humphry Clinker",
+   "author": "T. Smollett",
+   "downloads": 1524
+  },
+  {
+   "ebook_id": "768",
+   "title": "Wuthering Heights",
+   "author": "Emily Brontë",
+   "downloads": 1516
+  },
+  {
+   "ebook_id": "76",
+   "title": "Adventures of Huckleberry Finn",
+   "author": "Mark Twain",
+   "downloads": 1505
+  },
+  {
+   "ebook_id": "6593",
+   "title": "History of Tom Jones, a Foundling",
+   "author": "Henry Fielding",
+   "downloads": 1504
+  },
+  {
+   "ebook_id": "46",
+   "title": "A Christmas Carol in Prose; Being a Ghost Story of Christmas",
+   "author": "Charles Dickens",
+   "downloads": 1497
+  },
+  {
+   "ebook_id": "6761",
+   "title": "The Adventures of Ferdinand Count Fathom — Complete",
+   "author": "T. Smollett",
+   "downloads": 1497
+  },
+  {
+   "ebook_id": "1259",
+   "title": "Twenty years after",
+   "author": "Alexandre Dumas and Auguste Maquet",
+   "downloads": 1489
+  },
+  {
+   "ebook_id": "4085",
+   "title": "The Adventures of Roderick Random",
+   "author": "T. Smollett",
+   "downloads": 1471
+  },
+  {
+   "ebook_id": "2542",
+   "title": "A Doll's House : a play",
+   "author": "Henrik Ibsen",
+   "downloads": 1452
+  },
+  {
+   "ebook_id": "3207",
+   "title": "Leviathan",
+   "author": "Thomas Hobbes",
+   "downloads": 1427
+  },
+  {
+   "ebook_id": "5197",
+   "title": "My Life — Volume 1",
+   "author": "Richard Wagner",
+   "downloads": 1414
+  },
+  {
+   "ebook_id": "35",
+   "title": "The Time Machine",
+   "author": "H. G. Wells",
+   "downloads": 1398
+  },
+  {
+   "ebook_id": "4300",
+   "title": "Ulysses",
+   "author": "James Joyce",
+   "downloads": 1396
+  },
+  {
+   "ebook_id": "23",
+   "title": "Narrative of the Life of Frederick Douglass, an American Slave",
+   "author": "Frederick Douglass",
+   "downloads": 1393
+  },
+  {
+   "ebook_id": "16328",
+   "title": "Beowulf: An Anglo-Saxon Epic Poem",
+   "author": "",
+   "downloads": 1365
+  },
+  {
+   "ebook_id": "26296",
+   "title": "Les mille et une nuits, tome premier",
+   "author": "",
+   "downloads": 1354
+  },
+  {
+   "ebook_id": "1998",
+   "title": "Thus Spake Zarathustra: A Book for All and None",
+   "author": "Friedrich Wilhelm Nietzsche",
+   "downloads": 1353
+  },
+  {
+   "ebook_id": "45",
+   "title": "Anne of Green Gables",
+   "author": "L. M. Montgomery",
+   "downloads": 1353
+  },
+  {
+   "ebook_id": "55",
+   "title": "The Wonderful Wizard of Oz",
+   "author": "L. Frank Baum",
+   "downloads": 1345
+  },
+  {
+   "ebook_id": "120",
+   "title": "Treasure Island",
+   "author": "Robert Louis Stevenson",
+   "downloads": 1315
+  },
+  {
+   "ebook_id": "22452",
+   "title": "Howards End",
+   "author": "E. M. Forster",
+   "downloads": 1292
+  },
+  {
+   "ebook_id": "3296",
+   "title": "The Confessions of St. Augustine",
+   "author": "Saint of Hippo Augustine",
+   "downloads": 1280
+  },
+  {
+   "ebook_id": "2591",
+   "title": "Grimms' Fairy Tales",
+   "author": "Jacob Grimm and Wilhelm Grimm",
+   "downloads": 1224
+  },
+  {
+   "ebook_id": "8492",
+   "title": "The King in Yellow",
+   "author": "Robert W. Chambers",
+   "downloads": 1210
+  },
+  {
+   "ebook_id": "28942",
+   "title": "The Junior Classics, Volume 1: Fairy and wonder tales",
+   "author": "William Allan Neilson",
+   "downloads": 1182
+  },
+  {
+   "ebook_id": "1497",
+   "title": "The Republic",
+   "author": "Plato",
+   "downloads": 1177
+  },
+  {
+   "ebook_id": "45188",
+   "title": "The International Development of China",
+   "author": "Yat-sen Sun",
+   "downloads": 1169
+  },
+  {
+   "ebook_id": "10",
+   "title": "The King James Version of the Bible",
+   "author": "",
+   "downloads": 1147
+  },
+  {
+   "ebook_id": "28054",
+   "title": "The Brothers Karamazov",
+   "author": "Fyodor Dostoyevsky",
+   "downloads": 1146
+  },
+  {
+   "ebook_id": "158",
+   "title": "Emma",
+   "author": "Jane Austen",
+   "downloads": 1127
+  },
+  {
+   "ebook_id": "36",
+   "title": "The war of the worlds",
+   "author": "H. G. Wells",
+   "downloads": 1096
+  },
+  {
+   "ebook_id": "28247",
+   "title": "A Popular History of Astronomy During the Nineteenth Century",
+   "author": "Agnes M. Clerke",
+   "downloads": 1094
+  },
+  {
+   "ebook_id": "26225",
+   "title": "Fifteen Thousand Useful Phrases",
+   "author": "Grenville Kleiser",
+   "downloads": 1091
+  },
+  {
+   "ebook_id": "2852",
+   "title": "The Hound of the Baskervilles",
+   "author": "Arthur Conan Doyle",
+   "downloads": 1091
+  },
+  {
+   "ebook_id": "829",
+   "title": "Gulliver's Travels into Several Remote Nations of the World",
+   "author": "Jonathan Swift",
+   "downloads": 1082
+  },
+  {
+   "ebook_id": "161",
+   "title": "Sense and Sensibility",
+   "author": "Jane Austen",
+   "downloads": 1077
+  },
+  {
+   "ebook_id": "408",
+   "title": "The Souls of Black Folk",
+   "author": "W. E. B. Du Bois",
+   "downloads": 1070
+  },
+  {
+   "ebook_id": "20968",
+   "title": "Three Hundred Tang Poems, Volume 1",
+   "author": "Various",
+   "downloads": 1067
+  },
+  {
+   "ebook_id": "219",
+   "title": "Heart of Darkness",
+   "author": "Joseph Conrad",
+   "downloads": 1046
+  },
+  {
+   "ebook_id": "3300",
+   "title": "An Inquiry into the Nature and Causes of the Wealth of Nations",
+   "author": "Adam Smith",
+   "downloads": 1042
+  },
+  {
+   "ebook_id": "132",
+   "title": "The Art of War",
+   "author": "active 6th century B.C. Sunzi",
+   "downloads": 1038
+  },
+  {
+   "ebook_id": "4363",
+   "title": "Beyond Good and Evil",
+   "author": "Friedrich Wilhelm Nietzsche",
+   "downloads": 1038
+  },
+  {
+   "ebook_id": "34901",
+   "title": "On Liberty",
+   "author": "John Stuart Mill",
+   "downloads": 1038
+  },
+  {
+   "ebook_id": "47790",
+   "title": "The Works of William Cowper",
+   "author": "William Cowper",
+   "downloads": 1027
+  },
+  {
+   "ebook_id": "135",
+   "title": "Les Misérables",
+   "author": "Victor Hugo",
+   "downloads": 1025
+  },
+  {
+   "ebook_id": "514",
+   "title": "Little Women",
+   "author": "Louisa May Alcott",
+   "downloads": 1017
+  },
+  {
+   "ebook_id": "7370",
+   "title": "Second Treatise of Government",
+   "author": "John Locke",
+   "downloads": 1014
+  },
+  {
+   "ebook_id": "16",
+   "title": "Peter Pan :",
+   "author": "J. M. Barrie",
+   "downloads": 1003
+  },
+  {
+   "ebook_id": "8800",
+   "title": "The divine comedy",
+   "author": "Dante Alighieri",
+   "downloads": 991
+  },
+  {
+   "ebook_id": "1228",
+   "title": "On the Origin of Species By Means of Natural Selection",
+   "author": "Charles Darwin",
+   "downloads": 987
+  },
+  {
+   "ebook_id": "2148",
+   "title": "The Works of Edgar Allan Poe — Volume 2",
+   "author": "Edgar Allan Poe",
+   "downloads": 974
+  },
+  {
+   "ebook_id": "20203",
+   "title": "Autobiography of Benjamin Franklin",
+   "author": "Benjamin Franklin",
+   "downloads": 966
+  },
+  {
+   "ebook_id": "2000",
+   "title": "Don Quijote",
+   "author": "Miguel de Cervantes Saavedra",
+   "downloads": 958
+  },
+  {
+   "ebook_id": "47476",
+   "title": "Poems of American History",
+   "author": "",
+   "downloads": 942
+  },
+  {
+   "ebook_id": "5740",
+   "title": "Tractatus Logico-Philosophicus",
+   "author": "Ludwig Wittgenstein",
+   "downloads": 942
+  },
+  {
+   "ebook_id": "67098",
+   "title": "Winnie-the-Pooh",
+   "author": "A. A. Milne",
+   "downloads": 913
+  },
+  {
+   "ebook_id": "42324",
+   "title": "Frankenstein; or, The modern Prometheus",
+   "author": "Mary Wollstonecraft Shelley",
+   "downloads": 908
+  },
+  {
+   "ebook_id": "20050",
+   "title": "Märchen der Gebrüder Grimm 1",
+   "author": "Jacob Grimm and Wilhelm Grimm",
+   "downloads": 898
+  },
+  {
+   "ebook_id": "41445",
+   "title": "Frankenstein; or, The modern Prometheus",
+   "author": "Mary Wollstonecraft Shelley",
+   "downloads": 891
+  },
+  {
+   "ebook_id": "36034",
+   "title": "White nights, and other stories",
+   "author": "Fyodor Dostoyevsky",
+   "downloads": 891
+  },
+  {
+   "ebook_id": "26468",
+   "title": "The Middle Temple Murder",
+   "author": "J. S. Fletcher",
+   "downloads": 885
+  },
+  {
+   "ebook_id": "21181",
+   "title": "Villette",
+   "author": "Charlotte Brontë",
+   "downloads": 873
+  },
+  {
+   "ebook_id": "244",
+   "title": "A Study in Scarlet",
+   "author": "Arthur Conan Doyle",
+   "downloads": 866
+  },
+  {
+   "ebook_id": "37683",
+   "title": "Chambers's Twentieth Century Dictionary (part 1 of 4: A-D)",
+   "author": "",
+   "downloads": 19979
+  },
+  {
+   "ebook_id": "49008",
+   "title": "The Works of William Shakespeare [Cambridge Edition] [Vol. 8 of 9]",
+   "author": "William Shakespeare",
+   "downloads": 11160
+  },
+  {
+   "ebook_id": "61985",
+   "title": "Harrods for Everything",
+   "author": "Harrods Ltd.",
+   "downloads": 7854
+  },
+  {
+   "ebook_id": "12342",
+   "title": "The Nuttall encyclopædia :",
+   "author": "P. Austin Nuttall",
+   "downloads": 6638
+  },
+  {
+   "ebook_id": "27827",
+   "title": "The Kama Sutra of Vatsyayana",
+   "author": "Vatsyayana",
+   "downloads": 6204
+  },
+  {
+   "ebook_id": "20738",
+   "title": "Diccionario Ingles-Español-Tagalog",
+   "author": "Sofronio G. Calderón",
+   "downloads": 6153
+  },
+  {
+   "ebook_id": "996",
+   "title": "Don Quixote",
+   "author": "Miguel de Cervantes Saavedra",
+   "downloads": 5846
+  },
+  {
+   "ebook_id": "1399",
+   "title": "Anna Karenina",
+   "author": "graf Leo Tolstoy",
+   "downloads": 5706
+  },
+  {
+   "ebook_id": "10007",
+   "title": "Carmilla",
+   "author": "Joseph Sheridan Le Fanu",
+   "downloads": 5669
+  },
+  {
+   "ebook_id": "33283",
+   "title": "Calculus Made Easy",
+   "author": "Silvanus P. Thompson",
+   "downloads": 5481
+  },
+  {
+   "ebook_id": "45109",
+   "title": "The Enchiridion",
+   "author": "Epictetus",
+   "downloads": 5406
+  },
+  {
+   "ebook_id": "12",
+   "title": "Through the Looking-Glass",
+   "author": "Lewis Carroll",
+   "downloads": 5384
+  },
+  {
+   "ebook_id": "2814",
+   "title": "Dubliners",
+   "author": "James Joyce",
+   "downloads": 5277
+  },
+  {
+   "ebook_id": "49297",
+   "title": "The Works of William Shakespeare [Cambridge Edition] [Vol. 5 of 9]",
+   "author": "William Shakespeare",
+   "downloads": 37501
+  },
+  {
+   "ebook_id": "62383",
+   "title": "A Biblia Sagrada, Contendo o Velho e o Novo Testamento",
+   "author": "",
+   "downloads": 24153
+  }
+ ],
+ "authors": [
+  {
+   "author": "Shakespeare, William",
+   "downloads": 18238
+  },
+  {
+   "author": "Dickens, Charles",
+   "downloads": 17918
+  },
+  {
+   "author": "Austen, Jane",
+   "downloads": 16316
+  },
+  {
+   "author": "Twain, Mark",
+   "downloads": 15649
+  },
+  {
+   "author": "Doyle, Arthur Conan",
+   "downloads": 12265
+  },
+  {
+   "author": "Shelley, Mary Wollstonecraft",
+   "downloads": 11015
+  },
+  {
+   "author": "Stevenson, Robert Louis",
+   "downloads": 9530
+  },
+  {
+   "author": "Wilde, Oscar",
+   "downloads": 8946
+  },
+  {
+   "author": "Baum, L. Frank (Lyman Frank)",
+   "downloads": 8545
+  },
+  {
+   "author": "Melville, Herman",
+   "downloads": 8504
+  },
+  {
+   "author": "Wells, H. G. (Herbert George)",
+   "downloads": 8469
+  },
+  {
+   "author": "Carroll, Lewis",
+   "downloads": 8453
+  },
+  {
+   "author": "Widger, David",
+   "downloads": 8316
+  },
+  {
+   "author": "Verne, Jules",
+   "downloads": 8209
+  },
+  {
+   "author": "Dumas, Alexandre",
+   "downloads": 8011
+  },
+  {
+   "author": "Garnett, Constance",
+   "downloads": 7814
+  },
+  {
+   "author": "Dostoyevsky, Fyodor",
+   "downloads": 7784
+  },
+  {
+   "author": "Montgomery, L. M. (Lucy Maud)",
+   "downloads": 7426
+  },
+  {
+   "author": "Nietzsche, Friedrich Wilhelm",
+   "downloads": 7309
+  },
+  {
+   "author": "Tolstoy, Leo, graf",
+   "downloads": 6577
+  },
+  {
+   "author": "Plato",
+   "downloads": 6380
+  },
+  {
+   "author": "Alcott, Louisa May",
+   "downloads": 6012
+  },
+  {
+   "author": "Chesterton, G. K. (Gilbert Keith)",
+   "downloads": 6002
+  },
+  {
+   "author": "Poe, Edgar Allan",
+   "downloads": 5881
+  },
+  {
+   "author": "Lang, Andrew",
+   "downloads": 5823
+  },
+  {
+   "author": "James, Henry",
+   "downloads": 5680
+  },
+  {
+   "author": "Jowett, Benjamin",
+   "downloads": 5679
+  },
+  {
+   "author": "Maquet, Auguste",
+   "downloads": 5477
+  },
+  {
+   "author": "Aesop",
+   "downloads": 5448
+  },
+  {
+   "author": "Smollett, T. (Tobias)",
+   "downloads": 5347
+  },
+  {
+   "author": "Doré, Gustave",
+   "downloads": 5253
+  },
+  {
+   "author": "Homer",
+   "downloads": 5155
+  },
+  {
+   "author": "Hawthorne, Nathaniel",
+   "downloads": 5107
+  },
+  {
+   "author": "Balzac, Honoré de",
+   "downloads": 4894
+  },
+  {
+   "author": "Irving, Washington",
+   "downloads": 4879
+  },
+  {
+   "author": "Stoker, Bram",
+   "downloads": 4777
+  },
+  {
+   "author": "Burroughs, Edgar Rice",
+   "downloads": 4708
+  },
+  {
+   "author": "Kipling, Rudyard",
+   "downloads": 4672
+  },
+  {
+   "author": "London, Jack",
+   "downloads": 4639
+  },
+  {
+   "author": "Darwin, Charles",
+   "downloads": 4631
+  },
+  {
+   "author": "Cervantes Saavedra, Miguel de",
+   "downloads": 4565
+  },
+  {
+   "author": "Conrad, Joseph",
+   "downloads": 4522
+  },
+  {
+   "author": "Swift, Jonathan",
+   "downloads": 4484
+  },
+  {
+   "author": "Grimm, Wilhelm",
+   "downloads": 4308
+  },
+  {
+   "author": "Grimm, Jacob",
+   "downloads": 4308
+  },
+  {
+   "author": "Dante Alighieri",
+   "downloads": 4266
+  },
+  {
+   "author": "Eliot, George",
+   "downloads": 4237
+  },
+  {
+   "author": "Forster, E. M. (Edward Morgan)",
+   "downloads": 4153
+  },
+  {
+   "author": "Brontë, Charlotte",
+   "downloads": 4122
+  },
+  {
+   "author": "Hugo, Victor",
+   "downloads": 4076
+  },
+  {
+   "author": "Goethe, Johann Wolfgang von",
+   "downloads": 4074
+  },
+  {
+   "author": "Scott, Walter",
+   "downloads": 3870
+  },
+  {
+   "author": "Burnett, Frances Hodgson",
+   "downloads": 3850
+  },
+  {
+   "author": "Thoreau, Henry David",
+   "downloads": 3784
+  },
+  {
+   "author": "Alger, Horatio, Jr.",
+   "downloads": 3779
+  },
+  {
+   "author": "Hardy, Thomas",
+   "downloads": 3778
+  },
+  {
+   "author": "Defoe, Daniel",
+   "downloads": 3620
+  },
+  {
+   "author": "Haggard, H. Rider (Henry Rider)",
+   "downloads": 3484
+  },
+  {
+   "author": "Chekhov, Anton Pavlovich",
+   "downloads": 3468
+  },
+  {
+   "author": "Lytton, Edward Bulwer Lytton, Baron",
+   "downloads": 3438
+  },
+  {
+   "author": "Trollope, Anthony",
+   "downloads": 3432
+  },
+  {
+   "author": "Ibsen, Henrik",
+   "downloads": 3324
+  },
+  {
+   "author": "Wharton, Edith",
+   "downloads": 3295
+  },
+  {
+   "author": "Butler, Samuel",
+   "downloads": 3294
+  },
+  {
+   "author": "Maupassant, Guy de",
+   "downloads": 3276
+  },
+  {
+   "author": "Ballantyne, R. M. (Robert Michael)",
+   "downloads": 3258
+  },
+  {
+   "author": "Burton, Richard Francis, Sir",
+   "downloads": 3244
+  },
+  {
+   "author": "Freud, Sigmund",
+   "downloads": 3230
+  },
+  {
+   "author": "Kafka, Franz",
+   "downloads": 3215
+  },
+  {
+   "author": "Shaw, Bernard",
+   "downloads": 3145
+  },
+  {
+   "author": "Ebers, Georg",
+   "downloads": 3112
+  },
+  {
+   "author": "Morley, Henry",
+   "downloads": 3108
+  },
+  {
+   "author": "Merrill, Frank T.",
+   "downloads": 3087
+  },
+  {
+   "author": "Macaulay, Thomas Babington Macaulay, Baron",
+   "downloads": 3044
+  },
+  {
+   "author": "Kant, Immanuel",
+   "downloads": 3013
+  },
+  {
+   "author": "Howells, William Dean",
+   "downloads": 2992
+  },
+  {
+   "author": "Fitzgerald, F. Scott (Francis Scott)",
+   "downloads": 2982
+  },
+  {
+   "author": "Machiavelli, Niccolò",
+   "downloads": 2977
+  },
+  {
+   "author": "Maude, Aylmer",
+   "downloads": 2911
+  },
+  {
+   "author": "Voltaire",
+   "downloads": 2908
+  },
+  {
+   "author": "Ormsby, John",
+   "downloads": 2859
+  },
+  {
+   "author": "Levy, Oscar",
+   "downloads": 2854
+  },
+  {
+   "author": "Jacobs, W. W. (William Wymark)",
+   "downloads": 2842
+  },
+  {
+   "author": "Joyce, James",
+   "downloads": 2831
+  },
+  {
+   "author": "Mill, John Stuart",
+   "downloads": 2813
+  },
+  {
+   "author": "Gaskell, Elizabeth Cleghorn",
+   "downloads": 2776
+  },
+  {
+   "author": "Leech, John",
+   "downloads": 2772
+  },
+  {
+   "author": "Chambers, Robert W. (Robert William)",
+   "downloads": 2765
+  },
+  {
+   "author": "Russell, Bertrand",
+   "downloads": 2729
+  },
+  {
+   "author": "Barrie, J. M. (James Matthew)",
+   "downloads": 2713
+  },
+  {
+   "author": "Marcus Aurelius, Emperor of Rome",
+   "downloads": 2712
+  },
+  {
+   "author": "Gilman, Charlotte Perkins",
+   "downloads": 2706
+  },
+  {
+   "author": "Wheatley, Henry B. (Henry Benjamin)",
+   "downloads": 2693
+  },
+  {
+   "author": "Maude, Louise",
+   "downloads": 2685
+  },
+  {
+   "author": "MacDonald, George",
+   "downloads": 2559
+  },
+  {
+   "author": "Zola, Émile",
+   "downloads": 2545
+  },
+  {
+   "author": "Emerson, Ralph Waldo",
+   "downloads": 2541
+  },
+  {
+   "author": "Vernon Jones, V. S. (Vernon Stanley)",
+   "downloads": 2519
+  },
+  {
+   "author": "Emshwiller, Ed",
+   "downloads": 2471
+  },
+  {
+   "author": "Bell, Clara",
+   "downloads": 2456
+  },
+  {
+   "author": "Sun, Yat-sen",
+   "downloads": 23639
+  },
+  {
+   "author": "Davidson, Thomas",
+   "downloads": 21120
+  },
+  {
+   "author": "Clark, William George",
+   "downloads": 18809
+  },
+  {
+   "author": "Rizal, José",
+   "downloads": 17244
+  },
+  {
+   "author": "Townsend, F. H. (Frederick Henry)",
+   "downloads": 16697
+  },
+  {
+   "author": "Wright, William Aldis",
+   "downloads": 16117
+  },
+  {
+   "author": "Bell, George",
+   "downloads": 15847
+  },
+  {
+   "author": "Henty, G. A. (George Alfred)",
+   "downloads": 83943
+  },
+  {
+   "author": "Ruskin, John",
+   "downloads": 77845
+  },
+  {
+   "author": "Christie, Agatha",
+   "downloads": 77061
+  },
+  {
+   "author": "Kingston, William Henry Giles",
+   "downloads": 76094
+  }
+ ]
+}

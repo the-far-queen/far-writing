@@ -100,6 +100,17 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CACHE_DIR = os.path.join(REPO, "catalog", "gutenberg")
 BOOKS_CACHE = os.path.join(CACHE_DIR, "top.html")
 
+#: THE COMMITTED FIXTURE. **THE PAGE IS GITIGNORED** --
+#: `catalog/gutenberg/.gitignore` excludes `top.html` -- and MEASURED
+#: 2026-11-01: a fresh clone had no page, and the checks that read the
+#: download counts FAILED there. So the loader falls back to the
+#: PARSED result, which is committed and carries its provenance.
+#:
+#: The page is 60 KB of HTML and the parsed books are 23 KB of JSON,
+#: and the parsed form is what the checks are about -- the title, the
+#: author, and the count, already split.
+FIXTURE = os.path.join(REPO, "catalog", "fixtures", "gutenberg_books.json")
+
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
       "far-writing-canon-gutenberg/1.0")
 
@@ -212,11 +223,61 @@ def parse_authors(html: str) -> List[AuthorRank]:
 
 
 def load() -> Tuple[List[BookRank], List[AuthorRank]]:
-    if not os.path.isfile(BOOKS_CACHE):
-        fetch(TOP_URL, BOOKS_CACHE)
-    with open(BOOKS_CACHE, encoding="utf-8") as fh:
-        html = fh.read()
-    return parse_books(html), parse_authors(html)
+    """the ranking, from the committed measurement.
+
+    **AND THE FIXTURE IS THE AUTHORITY, NOT THE CACHE.** MEASURED
+    2026-11-01, and this is the third defect in this family:
+
+    1. the cache is gitignored, so a fresh clone had no page at all;
+    2. the clone then FETCHED the page, and the live page is a MOVING
+       TARGET -- it had 306 book rows against the fixture's 115
+       parsed books, and 114 of the 115 fixture titles were absent from
+       it. So the clone's ranking was a DIFFERENT MEASUREMENT from the
+       working tree's, and the check that read it failed on two real
+       titles -- Villette and Howards End, both of which ARE in the
+       fixture.
+
+    So a check that reads a LIVE page is not reproducible, and a
+    check that is not reproducible is not a check. The committed
+    fixture is the measurement; the page is only how the measurement
+    was made.
+
+    **SO THE ORDER IS: the fixture first, then the cache, and the
+    fetch ONLY when the caller asks for it.** Nothing here reaches
+    the network by default.
+    """
+    fixed = load_fixture()
+    if fixed is not None:
+        return fixed
+
+    if os.path.isfile(BOOKS_CACHE):
+        with open(BOOKS_CACHE, encoding="utf-8") as fh:
+            html = fh.read()
+        return parse_books(html), parse_authors(html)
+
+    raise FileNotFoundError(
+        "neither the committed fixture (%s) nor the cached page (%s) is "
+        "there -- run tools/build_fixtures.py to derive the measurement"
+        % (FIXTURE, BOOKS_CACHE))
+
+
+def load_fixture() -> Optional[Tuple[List[BookRank], List[AuthorRank]]]:
+    """the committed measurement, or None if it is not there."""
+    if not os.path.isfile(FIXTURE):
+        return None
+    try:
+        with open(FIXTURE, encoding="utf-8") as fh:
+            data = json.load(fh)
+    except Exception:  # noqa: BLE001
+        return None
+    books = [BookRank(b.get("ebook_id", ""), b.get("title", ""),
+                      b.get("author", ""), int(b.get("downloads", 0)))
+             for b in data.get("books", [])]
+    authors = [AuthorRank(a.get("author", ""), int(a.get("downloads", 0)))
+               for a in data.get("authors", [])]
+    if not books:
+        return None
+    return books, authors
 
 
 def main() -> int:

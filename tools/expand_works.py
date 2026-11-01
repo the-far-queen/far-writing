@@ -745,10 +745,15 @@ def load_exhaustive() -> Dict[str, int]:
     adaptation-driven query cannot distinguish "no adaptations" from
     "not looked for", and a zero written for the second case is a
     claim nobody made.
+
+    **AND THE COMMITTED FIXTURE IS THE FALLBACK.** MEASURED
+    2026-11-01: the table lives in the gitignored wikicache, so a
+    fresh clone had none of it and C14 -- which checks every reach
+    count in the catalog against this table -- could not run there.
     """
     path = os.path.join(CACHE, "reach_exhaustive_by_work.json")
     if not os.path.isfile(path):
-        return {}
+        return reach_measure._fixture_counts("reach_exhaustive_by_work.json")
     try:
         with open(path, encoding="utf-8") as fh:
             raw = json.load(fh)

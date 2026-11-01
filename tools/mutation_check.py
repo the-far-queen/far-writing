@@ -225,15 +225,27 @@ def main() -> int:
         if os.path.isfile(top):
             shutil.copy2(top, os.path.join(cat, "gutenberg", "top.html"))
         # THE CACHE: the reach tables and the old SPARQL rows.
+        #
+        # **AND THE COMMITTED FIXTURES ARE COPIED TOO.** MEASURED
+        # 2026-11-01: the cache is gitignored, so a fresh clone had
+        # none of it and the checks that read it FAILED there -- 4 of
+        # 79. The fixtures are the same measurement, committed, and the
+        # harness needs them for the same reason the clone does.
         wc = os.path.join(cat, "gutenberg", "wikicache")
         os.makedirs(wc, exist_ok=True)
-        for fn in os.listdir(os.path.join(REPO, "catalog", "gutenberg",
-                                          "wikicache")):
-            if fn.startswith("sparql_adaptations") or \
-               fn in ("reach_by_work.json", "reach_by_author.json"):
-                shutil.copy2(os.path.join(REPO, "catalog", "gutenberg",
-                                          "wikicache", fn),
-                             os.path.join(wc, fn))
+        cache_dir = os.path.join(REPO, "catalog", "gutenberg", "wikicache")
+        if os.path.isdir(cache_dir):
+            for fn in os.listdir(cache_dir):
+                if fn.startswith("sparql_adaptations") or \
+                   fn in ("reach_by_work.json", "reach_by_author.json"):
+                    shutil.copy2(os.path.join(cache_dir, fn),
+                                 os.path.join(wc, fn))
+        # THE FIXTURES: copied whole, because they are small and they
+        # are what a clone has.
+        fix_src = os.path.join(REPO, "catalog", "fixtures")
+        if os.path.isdir(fix_src):
+            shutil.copytree(fix_src, os.path.join(cat, "fixtures"),
+                            ignore=shutil.ignore_patterns("__pycache__"))
         rc, out = run_suite(base)
         print("  the BASELINE: rc=%d" % rc)
         if rc != 0:

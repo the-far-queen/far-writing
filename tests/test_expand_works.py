@@ -35,6 +35,45 @@ def _catalog() -> list:
         return json.load(fh)
 
 
+def _old_counts() -> dict:
+    """the OLD row count per work label -- the join product.
+
+    **AND THE COMMITTED FIXTURE IS THE FALLBACK.** The SPARQL rows live
+    in the gitignored wikicache, so a fresh clone has none of them and
+    this check could not run there at all. MEASURED 2026-11-01: the
+    clone failed 4 of 79 checks for exactly this reason.
+
+    So: the cached rows if they are there, and the committed fixture
+    if they are not. The fixture is the same count, derived from those
+    rows, and it carries the provenance that made it.
+    """
+    import collections
+
+    old = collections.Counter()
+    if os.path.isdir(rm.CACHE):
+        for fn in os.listdir(rm.CACHE):
+            if not fn.startswith("sparql_adaptations"):
+                continue
+            try:
+                with open(os.path.join(rm.CACHE, fn), encoding="utf-8") as fh:
+                    data = json.load(fh)
+            except Exception:  # noqa: BLE001
+                continue
+            for r in data.get("results", {}).get("bindings", []):
+                t = r.get("workLabel", {}).get("value", "")
+                if t:
+                    old[t] += 1
+    if old:
+        return old
+
+    path = os.path.join(REPO, "catalog", "fixtures", "old_counts.json")
+    if not os.path.isfile(path):
+        return {}
+    with open(path, encoding="utf-8") as fh:
+        data = json.load(fh)
+    return {k: int(v) for k, v in (data.get("counts") or {}).items()}
+
+
 # ---------------------------------------------------------------------------
 # E1. THE TITLE KEY IS NORMALIZED ON BOTH SIDES.
 # ---------------------------------------------------------------------------
@@ -222,24 +261,17 @@ def t_E3_the_reach_count_counts_adaptations():
     """
     reach = rm.load_reach()
     raw = rm.load_reach_raw()
-    assert raw, "the OLD measurement is not on disk, so nothing can be "
-    # compared"
+    assert raw, "the OLD measurement is not on disk, so nothing can be " \
+                "compared"
 
     # THE OLD ROW COUNT, recounted from the cached rows.
-    import collections
-    old = collections.Counter()
-    for fn in os.listdir(rm.CACHE):
-        if not fn.startswith("sparql_adaptations"):
-            continue
-        try:
-            with open(os.path.join(rm.CACHE, fn), encoding="utf-8") as fh:
-                data = json.load(fh)
-        except Exception:  # noqa: BLE001
-            continue
-        for r in data.get("results", {}).get("bindings", []):
-            t = r.get("workLabel", {}).get("value", "")
-            if t:
-                old[t] += 1
+    #
+    # **AND THE COMMITTED FIXTURE IS THE FALLBACK.** MEASURED
+    # 2026-11-01: the SPARQL rows live in the gitignored wikicache, so
+    # a fresh clone had no old measurement and this check could not
+    # run there. The fixture holds the same counts, derived from those
+    # rows, with the provenance that made them.
+    old = _old_counts()
     assert old, "the old measurement has no rows"
 
     # THE WORKS WHERE THE OLD COUNT WAS A MULTIPLE -- those are the
