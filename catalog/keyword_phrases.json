@@ -1,0 +1,1022 @@
+{
+  "generated": "2026-10-31",
+  "title_rule": "4-6 words, and a phrase the buyer types",
+  "patterns": [
+    {
+      "id": "how_to",
+      "template": "How to {verb} {object_}",
+      "job": "the most common buyer job: a named action on a named thing"
+    },
+    {
+      "id": "how_to_qualifier",
+      "template": "How to {verb} {object_} {qualifier}",
+      "job": "the same job, narrowed to a case"
+    },
+    {
+      "id": "how_to_for",
+      "template": "How to {verb} {object_} for {audience}",
+      "job": "the job, narrowed to a person"
+    },
+    {
+      "id": "count_questions",
+      "template": "{n} {subject} Questions and Answers",
+      "job": "the exam job: a bank of questions"
+    },
+    {
+      "id": "count_exam",
+      "template": "{n} {subject} Exam Questions and Answers",
+      "job": "the exam job, named as an exam"
+    },
+    {
+      "id": "subject_guide",
+      "template": "{subject} Study Guide for {audience}",
+      "job": "the study job, narrowed to a person"
+    },
+    {
+      "id": "count_guides",
+      "template": "{n} {subject} Study Guides and Answers",
+      "job": "the list job: many small books sold together"
+    },
+    {
+      "id": "count_recipes",
+      "template": "{n} {subject} Recipes for {audience}",
+      "job": "the making job: a set of things to do"
+    },
+    {
+      "id": "subject_workbook",
+      "template": "{subject} Workbook for {audience}",
+      "job": "the practice job: do it, not read it"
+    },
+    {
+      "id": "phrase_lead",
+      "template": "{phrase} {suffix}",
+      "job": "the phrase's own words, at the front, in the phrase's order"
+    },
+    {
+      "id": "phrase_lead_audience",
+      "template": "{phrase} for {audience}",
+      "job": "the phrase's own words, then the person"
+    },
+    {
+      "id": "phrase_only",
+      "template": "{phrase}",
+      "job": "the phrase ALONE, when the phrase is already 4-6 words"
+    }
+  ],
+  "unsearchable_words": [
+    "journey",
+    "tapestry",
+    "symphony",
+    "odyssey",
+    "unlock",
+    "unleash",
+    "discover",
+    "unlocking",
+    "transform",
+    "transformation",
+    "awaken",
+    "awakening",
+    "enlighten",
+    "enlightenment",
+    "mastery",
+    "secret",
+    "secrets",
+    "truth",
+    "wisdom",
+    "legacy",
+    "guide to your"
+  ],
+  "categories": [
+    {
+      "key": "test_prep",
+      "name": "Test Preparation",
+      "buyer_job": "pass an exam on a DATE. the purest job there is, and it has a deadline, which means urgency.",
+      "keywordable": "BEST IN CLASS. the phrase IS the job: 'chemistry equations review', 'biology exam questions'. and we hold 224,490 questions already.",
+      "skipped_because": "",
+      "results": "50,000",
+      "phrases": 9,
+      "open_phrases": 2
+    },
+    {
+      "key": "business",
+      "name": "Business",
+      "buyer_job": "do a MONEY job: price it, sell it, raise for it, hire for it, get the first customer.",
+      "keywordable": "YES. the job has a name and the name is typed. nobody searches 'business insights'; they search 'how to price my freelance work'.",
+      "skipped_because": "",
+      "results": "80,000",
+      "phrases": 4,
+      "open_phrases": 0
+    },
+    {
+      "key": "self_help",
+      "name": "Self-Help",
+      "buyer_job": "change a behaviour they have ALREADY tried to change. which is why the phrase is nearly always 'how to stop...' or 'how to build...'.",
+      "keywordable": "YES. and the difference is the VOICE: the title is keyword-shaped and the book is written in a public-domain literary voice. two layers, both ours.",
+      "skipped_because": "",
+      "results": "80,000",
+      "phrases": 4,
+      "open_phrases": 0
+    },
+    {
+      "key": "gardening",
+      "name": "Gardening",
+      "buyer_job": "grow a specific plant in a specific place. that is a PHRASE, not a feeling: 'how to grow tomatoes in containers', 'how to fix clay soil'.",
+      "keywordable": "YES. and low claim risk, low cost, and the cover is SHOWABLE -- a garden sells with a photograph.",
+      "skipped_because": "",
+      "results": "60,000",
+      "phrases": 3,
+      "open_phrases": 0
+    },
+    {
+      "key": "pets",
+      "name": "Pets & Animal Care",
+      "buyer_job": "stop one specific ANIMAL behaviour. 'how to stop my dog barking', 'how to stop my cat scratching'.",
+      "keywordable": "YES. the job has a phrase and the phrase is the title. and it RECURS: a dog's behaviour changes with age, and a second dog is a second sale.",
+      "skipped_because": "",
+      "results": "70,000",
+      "phrases": 15,
+      "open_phrases": 11
+    },
+    {
+      "key": "parenting",
+      "name": "Parenting",
+      "buyer_job": "get through a STAGE. the stage has a name and a date: toddlers, sleep, teenagers, the first school year.",
+      "keywordable": "YES. the phrases are the AGES, and the ages are the market.",
+      "skipped_because": "",
+      "results": "70,000",
+      "phrases": 3,
+      "open_phrases": 0
+    },
+    {
+      "key": "religion",
+      "name": "Religion & Spirituality",
+      "buyer_job": "a PRACTICE, not a topic. 'prayer for anxiety', 'how to meditate', 'understanding the book of psalms'.",
+      "keywordable": "YES, and it is the one NOBODY ELSE CAN COPY. 30 years of sitting 5 hours every other day, 7-hour singing, Tsongkhapa at Jonang and Nala Gompa, 17,000 feet. a writer can copy a technique; a writer cannot copy 30 years in a monastery.",
+      "skipped_because": "",
+      "results": "80,000",
+      "phrases": 3,
+      "open_phrases": 0
+    },
+    {
+      "key": "relationships",
+      "name": "Relationships & Dating",
+      "buyer_job": "get one specific OUTCOME, or communicate with one specific person.",
+      "keywordable": "YES, with a CAUTION: this is where AI slop concentrates, because the phrases are easy and the advice is cheap. enter it only with a specific mechanism and a voice.",
+      "skipped_because": "",
+      "results": "70,000",
+      "phrases": 3,
+      "open_phrases": 0
+    },
+    {
+      "key": "cookbooks",
+      "name": "Cookbooks",
+      "buyer_job": "cook a specific DISH. the phrase is exact: 'one pot meals', 'sourdough bread recipe'.",
+      "keywordable": "PARTLY. a cookbook sells on the PHOTOGRAPH, not the title. and a cookbook without a cover pipeline cannot ship. DEFERRED until far-art's sheet schema has a cover use-case. the keywords are ready when it does.",
+      "skipped_because": "",
+      "results": "70,000",
+      "phrases": 3,
+      "open_phrases": 0
+    },
+    {
+      "key": "health",
+      "name": "Health & Fitness",
+      "buyer_job": "a body PROBLEM. and every health book makes a claim.",
+      "keywordable": "SKIPPED. rich in demand and rich in claims: a health book that makes a claim is a regulatory target, and the enforcement lands on the LISTING. this is where the marginal book is most likely to be pulled.",
+      "skipped_because": "easily banned. Bobby, 2026-10-31.",
+      "results": "80,000",
+      "phrases": 0,
+      "open_phrases": 0
+    },
+    {
+      "key": "law",
+      "name": "Law",
+      "buyer_job": "pass the bar.",
+      "keywordable": "SKIPPED. the bar is sold as a COURSE -- BarPrep Hero, Themis, Adaptibar -- and a book is the optional part of the purchase.",
+      "skipped_because": "the job is sold as a course, not a book. Bobby, 2026-10-31.",
+      "results": "70,000",
+      "phrases": 0,
+      "open_phrases": 0
+    },
+    {
+      "key": "medicine",
+      "name": "Medicine",
+      "buyer_job": "pass the boards.",
+      "keywordable": "SKIPPED. the boards are sold as a QUESTION BANK at $200-400 (UWorld, Lecturio, Picmonic, Osmosis) and a book cannot beat a question bank. AND OUR SUPPLY IS THE WRONG MARKET: the 182,822-question bank is Indian-exam material ('All India exam', G.I.T), so it does not address the US boards at all.",
+      "skipped_because": "the job is sold as a question bank, and our supply is a different market.",
+      "results": "",
+      "phrases": 0,
+      "open_phrases": 0
+    },
+    {
+      "key": "romance",
+      "name": "Romance",
+      "buyer_job": "be entertained.",
+      "keywordable": "SKIPPED. buyers BROWSE, they do not search.",
+      "skipped_because": "romance is out. Bobby, 2026-10-31.",
+      "results": "70,000",
+      "phrases": 0,
+      "open_phrases": 0
+    },
+    {
+      "key": "browse",
+      "name": "Biography, History, Philosophy",
+      "buyer_job": "understand a life or an idea.",
+      "keywordable": "SKIPPED. browse, not search. and the buyer's job is understanding, not doing.",
+      "skipped_because": "browse categories. the buyer's job is not a task with a deadline.",
+      "results": "70,000-80,000",
+      "phrases": 0,
+      "open_phrases": 0
+    }
+  ],
+  "phrases": [
+    {
+      "phrase": "chemistry equations review",
+      "category": "test_prep",
+      "results": "460",
+      "competitor_titles": [
+        "Chemistry Equations & Answers: a QuickStudy Laminated Reference Guide"
+      ],
+      "competitor_prices": [
+        "$8.34"
+      ],
+      "subject": "Chemistry",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 5144,
+      "note": "OPEN. 460 results.",
+      "is_open": true
+    },
+    {
+      "phrase": "physics equations review",
+      "category": "test_prep",
+      "results": "627",
+      "competitor_titles": [
+        "Equations of Physics: for Undergraduate Level"
+      ],
+      "competitor_prices": [
+        "$0.00"
+      ],
+      "subject": "Physics",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 0,
+      "note": "OPEN. 627 results.",
+      "is_open": true
+    },
+    {
+      "phrase": "chemistry study guide",
+      "category": "test_prep",
+      "results": "10,000",
+      "competitor_titles": [
+        "Chemistry: a QuickStudy Laminated Reference Guide"
+      ],
+      "competitor_prices": [
+        "$6.49"
+      ],
+      "subject": "Chemistry",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 5144,
+      "note": "saturated. a laminated card is the top result.",
+      "is_open": false
+    },
+    {
+      "phrase": "chemistry lab notes",
+      "category": "test_prep",
+      "results": "3,000",
+      "competitor_titles": [
+        "Chemistry Student Lab Notebook: Cornell Notes-Grid Format"
+      ],
+      "competitor_prices": [
+        "$9.99"
+      ],
+      "subject": "Chemistry",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 5144,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "biology study guide",
+      "category": "test_prep",
+      "results": "20,000",
+      "competitor_titles": [
+        "Biology: a QuickStudy Laminated Reference Guide"
+      ],
+      "competitor_prices": [
+        "$8.34"
+      ],
+      "subject": "Biology",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 1783,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "psychology study guide",
+      "category": "test_prep",
+      "results": "30,000",
+      "competitor_titles": [
+        "Psychology Terminology: a QuickStudy Laminated Reference Guide"
+      ],
+      "competitor_prices": [
+        "$6.95"
+      ],
+      "subject": "Psychology",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 9830,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "accounting study guide",
+      "category": "test_prep",
+      "results": "10,000",
+      "competitor_titles": [
+        "Accounting Equations & Answers"
+      ],
+      "competitor_prices": [
+        "$6.48"
+      ],
+      "subject": "Accounting",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 8989,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "pharmacology study guide",
+      "category": "test_prep",
+      "results": "7,000",
+      "competitor_titles": [
+        "Top 200 Drugs Simplified"
+      ],
+      "competitor_prices": [
+        "$22.13"
+      ],
+      "subject": "Pharmacology",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "medical student notes",
+      "category": "test_prep",
+      "results": "10,000",
+      "competitor_titles": [
+        "Nursing Success Bundle: 400+ Page Handwritten Notes"
+      ],
+      "competitor_prices": [
+        "$99.99"
+      ],
+      "subject": "Medical",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 182822,
+      "note": "the supply is real but the market is Indian exams, not the US boards. see the category note.",
+      "is_open": false
+    },
+    {
+      "phrase": "how to price freelance work",
+      "category": "business",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Price",
+      "object_": "Your Freelance Work",
+      "qualifier": "",
+      "audience": "Freelancers",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "how to raise your first round",
+      "category": "business",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Raise",
+      "object_": "Your First Round",
+      "qualifier": "",
+      "audience": "Founders",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "how to find your first customer",
+      "category": "business",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Find",
+      "object_": "Your First Customer",
+      "qualifier": "",
+      "audience": "Freelancers",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "how to hire your first employee",
+      "category": "business",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Hire",
+      "object_": "Your First Employee",
+      "qualifier": "",
+      "audience": "Small Business Owners",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "how to stop procrastinating",
+      "category": "self_help",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Stop",
+      "object_": "Procrastinating",
+      "qualifier": "",
+      "audience": "Everyone",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "how to build discipline",
+      "category": "self_help",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Build",
+      "object_": "Discipline That Lasts",
+      "qualifier": "",
+      "audience": "Everyone",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "how to think clearly under pressure",
+      "category": "self_help",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Think",
+      "object_": "Clearly Under Pressure",
+      "qualifier": "",
+      "audience": "Everyone",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "how to overcome fear of failure",
+      "category": "self_help",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Overcome",
+      "object_": "Fear of Failure",
+      "qualifier": "",
+      "audience": "Everyone",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "how to grow tomatoes in containers",
+      "category": "gardening",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Grow",
+      "object_": "Tomatoes in Containers",
+      "qualifier": "",
+      "audience": "Beginners",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "how to fix clay soil",
+      "category": "gardening",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Fix",
+      "object_": "Clay Soil Fast",
+      "qualifier": "",
+      "audience": "Gardeners",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "what to plant in shaded beds",
+      "category": "gardening",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Plant",
+      "object_": "in Shaded Beds",
+      "qualifier": "",
+      "audience": "Gardeners",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "how to stop your dog barking",
+      "category": "pets",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Stop",
+      "object_": "Your Dog Barking",
+      "qualifier": "",
+      "audience": "Dog Owners",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "how to stop your cat scratching",
+      "category": "pets",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Stop",
+      "object_": "Your Cat Scratching",
+      "qualifier": "",
+      "audience": "Cat Owners",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "how to stop a dog pulling on leash",
+      "category": "pets",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Stop",
+      "object_": "a Dog Pulling on Leash",
+      "qualifier": "",
+      "audience": "Dog Owners",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "rabbit hutch",
+      "category": "pets",
+      "results": "179",
+      "competitor_titles": [
+        "The Rabbit Hutch: A Novel"
+      ],
+      "competitor_prices": [
+        "$8.16"
+      ],
+      "subject": "",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 0,
+      "note": "the top result is a NOVEL. the phrase alone does not exclude fiction -- the longer phrase does.",
+      "is_open": true
+    },
+    {
+      "phrase": "how to build a rabbit hutch",
+      "category": "pets",
+      "results": "70",
+      "competitor_titles": [
+        "How to Build Animal Housing: 60 Plans for Coops"
+      ],
+      "competitor_prices": [
+        "$19.99"
+      ],
+      "subject": "",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 0,
+      "note": "OPEN, and the novel is gone. this is the phrase that excludes fiction.",
+      "is_open": true
+    },
+    {
+      "phrase": "rabbit diet",
+      "category": "pets",
+      "results": "133",
+      "competitor_titles": [
+        "The Complete Rabbit Care Handbook"
+      ],
+      "competitor_prices": [
+        "$19.99"
+      ],
+      "subject": "",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 0,
+      "note": "",
+      "is_open": true
+    },
+    {
+      "phrase": "what to feed a rabbit",
+      "category": "pets",
+      "results": "128",
+      "competitor_titles": [
+        "Feeding Meat Rabbits for Free"
+      ],
+      "competitor_prices": [
+        "$15.99"
+      ],
+      "subject": "",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 0,
+      "note": "the top result is about MEAT rabbits -- a different buyer. the phrase is open.",
+      "is_open": true
+    },
+    {
+      "phrase": "rabbit breeds",
+      "category": "pets",
+      "results": "3,000",
+      "competitor_titles": [
+        "Rabbit Breeds: The Pocket Guide to 49 Essential Breeds"
+      ],
+      "competitor_prices": [
+        "$10.21"
+      ],
+      "subject": "",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "netherland dwarf rabbit care",
+      "category": "pets",
+      "results": "373",
+      "competitor_titles": [
+        "Netherland Dwarf Rabbit"
+      ],
+      "competitor_prices": [
+        "$10.17"
+      ],
+      "subject": "",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 0,
+      "note": "BY TYPE OF RABBIT. the top result is a BREED BOOK, not a care book -- so the by-type title is not yet being written.",
+      "is_open": true
+    },
+    {
+      "phrase": "lop eared rabbit care",
+      "category": "pets",
+      "results": "381",
+      "competitor_titles": [
+        "Lop Eared Rabbit Calendar 2027"
+      ],
+      "competitor_prices": [
+        "$12.65"
+      ],
+      "subject": "",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 0,
+      "note": "the top result is a CALENDAR. nobody has written the care book for this type.",
+      "is_open": true
+    },
+    {
+      "phrase": "rabbit grooming",
+      "category": "pets",
+      "results": "252",
+      "competitor_titles": [
+        "Pet Rabbit Care Made Easy"
+      ],
+      "competitor_prices": [
+        "$0.00"
+      ],
+      "subject": "",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 0,
+      "note": "",
+      "is_open": true
+    },
+    {
+      "phrase": "rabbit potty training",
+      "category": "pets",
+      "results": "33",
+      "competitor_titles": [
+        "Pet Rabbit Care Made Easy"
+      ],
+      "competitor_prices": [
+        "$0.00"
+      ],
+      "subject": "",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 0,
+      "note": "the widest-open phrase measured: 33 results.",
+      "is_open": true
+    },
+    {
+      "phrase": "rabbit nails trimming",
+      "category": "pets",
+      "results": "11",
+      "competitor_titles": [
+        "The Rabbit-Raising Problem Solver"
+      ],
+      "competitor_prices": [
+        "$11.99"
+      ],
+      "subject": "",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 0,
+      "note": "11 results. nothing competes here.",
+      "is_open": true
+    },
+    {
+      "phrase": "rabbit shedding",
+      "category": "pets",
+      "results": "3",
+      "competitor_titles": [
+        "NETHERLAND DWARF RABBIT HANDBOOK"
+      ],
+      "competitor_prices": [
+        "$16.50"
+      ],
+      "subject": "",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 0,
+      "note": "3 results. the widest-open phrase measured.",
+      "is_open": true
+    },
+    {
+      "phrase": "rabbit hay",
+      "category": "pets",
+      "results": "18",
+      "competitor_titles": [
+        "Hay is for Rabbits!: A rabbit food primer"
+      ],
+      "competitor_prices": [
+        "$0.00"
+      ],
+      "subject": "",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "",
+      "supply": 0,
+      "note": "18 results, and the top title is already phrase-led.",
+      "is_open": true
+    },
+    {
+      "phrase": "how to talk to a teenager",
+      "category": "parenting",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Talk",
+      "object_": "to a Teenager",
+      "qualifier": "",
+      "audience": "Parents",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "how to get your toddler to sleep",
+      "category": "parenting",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Get",
+      "object_": "Your Toddler to Sleep",
+      "qualifier": "",
+      "audience": "Parents",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "how to handle a temper tantrum",
+      "category": "parenting",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Handle",
+      "object_": "a Temper Tantrum",
+      "qualifier": "",
+      "audience": "Parents",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "how to meditate for beginners",
+      "category": "religion",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Meditate",
+      "object_": "for Beginners",
+      "qualifier": "",
+      "audience": "Beginners",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "how to pray when you cannot",
+      "category": "religion",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Pray",
+      "object_": "When You Cannot",
+      "qualifier": "",
+      "audience": "Believers",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "how to sit with difficult emotions",
+      "category": "religion",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Sit",
+      "object_": "With Difficult Emotions",
+      "qualifier": "",
+      "audience": "Meditators",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "how to rebuild trust after betrayal",
+      "category": "relationships",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Rebuild",
+      "object_": "Trust After Betrayal",
+      "qualifier": "",
+      "audience": "Couples",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "how to text someone you like",
+      "category": "relationships",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Text",
+      "object_": "Someone You Like",
+      "qualifier": "",
+      "audience": "Singles",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "how to fight without hurting",
+      "category": "relationships",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "",
+      "verb": "Fight",
+      "object_": "Without Hurting",
+      "qualifier": "",
+      "audience": "Couples",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "100 one pot meals for beginners",
+      "category": "cookbooks",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "One-Pot Meals",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "Beginners",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "sourdough bread without a starter",
+      "category": "cookbooks",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "Sourdough Bread",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "Beginners",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    },
+    {
+      "phrase": "meal prep for two",
+      "category": "cookbooks",
+      "results": "",
+      "competitor_titles": [],
+      "competitor_prices": [],
+      "subject": "Meal Prep",
+      "verb": "",
+      "object_": "",
+      "qualifier": "",
+      "audience": "Households",
+      "supply": 0,
+      "note": "",
+      "is_open": false
+    }
+  ]
+}
