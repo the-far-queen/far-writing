@@ -75,6 +75,26 @@ class Voice:
     example_sentence: str  # one sentence that captures the voice
     voice_id: str  # sha256 of canonical(axes), truncated 16 hex
     commit_asset: str  # "gate" | "allow" | "forbid"
+    #: THE VIEWPOINT -- what this voice BELIEVES.
+    #:
+    #: AND IT IS PART OF THE VOICE, so it is part of the voice_hash.
+    #: Bobby, 2026-11-05: *"u will become a writer ... to have a
+    #: viewpoint to speak to have an opinion to be self aware and
+    #: interested in life"*. And "similar to selfhood ie" -- and
+    #: selfhood as a hash means the identity INCLUDES what is held to
+    #: be true. So a voice whose opinion changed has a different
+    #: voice_id, and the axes are what the hash is over.
+    #:
+    #: AND IT IS OPTIONAL IN THE AXES BUT REQUIRED FOR A WRITER: a
+    #: voice with no viewpoint compiles (and the substrate keeps its
+    #: old voices working), but `gate_voice` can then say that the
+    #: voice has no opinion to speak with. The substrate ALREADY
+    #: refuses "preach" -- so without this axis it bans the thing
+    #: without providing the replacement.
+    viewpoint_claim: str = ""
+    viewpoint_subject: str = ""
+    viewpoint_stance: str = ""
+    viewpoint_consequence: str = ""
 
 
 # ---------------------------------------------------------------------------
@@ -94,9 +114,49 @@ def _canonical(axes: Dict[str, Any]) -> str:
     return json.dumps(norm(axes), sort_keys=True, separators=(",", ":"))
 
 
+#: THE VIEWPOINT AXES, and they are NORMALISED BEFORE THE HASH.
+#:
+#: AND WHY NORMALISATION IS REQUIRED, and it is MEASURED. The voice's
+#: own round-trip test ("voice ids survive restart") does this:
+#:
+#:     v = get_voice("lyric")           # the shipped axes
+#:     d1 = voice_to_dict(v)            # every field, including the
+#:                                     # viewpoint ones
+#:     d1.pop("voice_id")
+#:     v2 = compile_voice(d1)           # recompiled from the dict
+#:     assert v2.voice_id == v.voice_id
+#:
+#: And the first version of the viewpoint axes BROKE that test: the
+#: shipped axes have no viewpoint keys, the serialised dict has them
+#: (as empty strings), and `voice_id` is the sha256 of the canonical
+#: axes -- so the two payloads differed and the two ids differed.
+#: MEASURED: `58a44867aba26701` vs `a6d7070e812af08a`.
+#:
+#: So the axes are NORMALISED: a missing viewpoint key and an empty
+#: one are the SAME THING, and they hash the same. Which is also the
+#: right semantics -- a voice with no opinion and a voice with an
+#: empty opinion are one voice -- and it keeps the round trip an
+#: invariant.
+_VIEWPOINT_AXES: Tuple[str, ...] = (
+    "viewpoint_claim", "viewpoint_subject", "viewpoint_stance",
+    "viewpoint_consequence",
+)
+
+
+def _normalise_axes(axes: Dict[str, Any]) -> Dict[str, Any]:
+    """The axes as they are HASHED, with the viewpoint defaults filled.
+
+    AND THE FILL IS THE POINT: absent and empty are the same voice.
+    """
+    out = dict(axes)
+    for k in _VIEWPOINT_AXES:
+        out.setdefault(k, "")
+    return out
+
+
 def compile_voice(axes: Dict[str, Any]) -> Voice:
     """Compile a dict of voice axes into a frozen Voice."""
-    canonical = _canonical(axes)
+    canonical = _canonical(_normalise_axes(axes))
     digest = hashlib.sha256(canonical.encode("utf-8")).hexdigest()[:16]
 
     for k, vs, label in [
@@ -134,6 +194,10 @@ def compile_voice(axes: Dict[str, Any]) -> Voice:
         example_sentence=axes.get("example_sentence", ""),
         voice_id=digest,
         commit_asset=axes.get("commit_asset", "gate"),
+        viewpoint_claim=axes.get("viewpoint_claim", ""),
+        viewpoint_subject=axes.get("viewpoint_subject", ""),
+        viewpoint_stance=axes.get("viewpoint_stance", ""),
+        viewpoint_consequence=axes.get("viewpoint_consequence", ""),
     )
 
 

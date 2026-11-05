@@ -226,3 +226,100 @@ def test_each_shipped_voice_refuses_something():
     for name in list_voices():
         v = get_voice(name)
         assert len(v.refuses) >= 1, f"{name} refuses empty"
+
+
+# ---------------------------------------------------------------------------
+# W6 -- THE VIEWPOINT: what the writer BELIEVES is part of who it IS
+#
+# Bobby, 2026-11-05: *"u will become a writer ... to have a viewpoint
+# to speak to have an opinion to be self aware and interested in life"*
+# -- "similar to selfhood ie".
+#
+# AND SELFHOOD AS A HASH MEANS THE IDENTITY INCLUDES WHAT IS HELD TO
+# BE TRUE. So these four tests are the whole claim.
+# ---------------------------------------------------------------------------
+
+def test_w6_a_viewpoint_changes_the_voice_id():
+    """An opinion is part of the identity.
+
+    RED: drop the viewpoint axes from `_normalise_axes`, so the
+    viewpoint no longer reaches the hash.
+    """
+    lean = get_voice("lean")
+    axes = {k: getattr(lean, k) for k in (
+        "name", "sentence_rhythm", "vocabulary_register", "imagery_density",
+        "tense_default", "pov_default", "humor_mode", "notices", "refuses",
+        "example_sentence", "commit_asset")}
+    without = compile_voice(dict(axes))
+    with_view = compile_voice(dict(
+        axes,
+        viewpoint_claim="people are mostly kind",
+        viewpoint_subject="people",
+        viewpoint_stance="probably",
+    ))
+    assert without.voice_id != with_view.voice_id, (
+        "a voice with an opinion has the same id as one without")
+
+
+def test_w6_a_different_opinion_is_a_different_voice():
+    """Not just "has one" -- a DIFFERENT opinion is a different voice.
+
+    RED: make the viewpoint axes hash only whether one is present, not
+    what it says.
+    """
+    lean = get_voice("lean")
+    axes = {k: getattr(lean, k) for k in (
+        "name", "sentence_rhythm", "vocabulary_register", "imagery_density",
+        "tense_default", "pov_default", "humor_mode", "notices", "refuses",
+        "example_sentence", "commit_asset")}
+    kind = compile_voice(dict(axes, viewpoint_claim="people are mostly kind",
+                              viewpoint_subject="people",
+                              viewpoint_stance="probably"))
+    cruel = compile_voice(dict(axes, viewpoint_claim="people are mostly kind",
+                               viewpoint_subject="people",
+                               viewpoint_stance="certainly"))
+    assert kind.voice_id != cruel.voice_id, (
+        "a stronger belief has the same id as a weaker one")
+
+
+def test_w6_an_absent_viewpoint_and_an_empty_one_are_the_same_voice():
+    """The round-trip invariant, and it is why the axes are NORMALISED.
+
+    RED: remove the `setdefault` fill from `_normalise_axes`, so a
+    missing key and an empty one hash differently.
+    """
+    lean = get_voice("lean")
+    absent = {k: getattr(lean, k) for k in (
+        "name", "sentence_rhythm", "vocabulary_register", "imagery_density",
+        "tense_default", "pov_default", "humor_mode", "notices", "refuses",
+        "example_sentence", "commit_asset")}
+    empty = dict(absent, viewpoint_claim="", viewpoint_subject="",
+                 viewpoint_stance="", viewpoint_consequence="")
+    assert compile_voice(absent).voice_id == compile_voice(empty).voice_id
+
+
+def test_w6_the_viewpoint_measure_catches_a_stance_and_a_contradiction():
+    """The measure, from the tool itself.
+
+    RED: make `carries_viewpoint` return True for everything, or make
+    `contradicts` never fire.
+    """
+    import os
+    import sys
+    tools = os.path.join(os.path.dirname(os.path.dirname(
+        os.path.abspath(__file__))), "tools")
+    if tools not in sys.path:
+        sys.path.insert(0, tools)
+    from viewpoint import Viewpoint, carries_viewpoint, check as vcheck
+
+    assert carries_viewpoint("People are probably mostly kind.")[0]
+    assert not carries_viewpoint(
+        "The train left at nine. The platform was wet.")[0]
+    assert not carries_viewpoint("In this scene the narrator says probably "
+                                  "nothing.")[0]
+
+    vp = Viewpoint(claim="people are mostly kind", subject="people",
+                   stance="probably", consequence="")
+    r = vcheck("People are never kind and they always lie.", vp)
+    assert not r["agrees"], "the contradiction was not caught"
+    assert r["contradictions"], "the contradiction was not named"
