@@ -107,9 +107,67 @@ _MODAL_RE = re.compile(r"(?<![A-Za-z0-9])(%s)(?![A-Za-z0-9])"
 
 #: THE CONTRADICTION MARKERS -- the words that turn a claim into an
 #: opposition, and so let two stances meet.
+#: THE OPPOSITION MARKERS, AS A LIST, and the regex is COMPILED FROM
+#: IT -- and not the other way round.
+#:
+#: **AND THE ORDER MATTERS, and it was got wrong once.** MEASURED
+#: 2026-11-06: the first version compiled the regex by hand and the
+#: word list was written out separately in `tools/opinion.py`, so there
+#: were TWO lists of the words that mean "no" -- and the mutation
+#: check caught it, because removing the markers from this file did
+#: not make the opinion register blind. **TWO LISTS OF THE MARKERS ARE
+#: TWO MEASURES**, and they drift.
+#:
+#: So the list is here, the regex is compiled from it, and everything
+#: that needs to know what "no" looks like -- the viewpoint check AND
+#: the opinion register -- reads THIS ONE.
+OPPOSITION_MARKERS: Tuple[str, ...] = (
+    "not", "never", "no longer", "isn't", "is not", "aren't", "are not",
+    "refuses", "refused", "rejects", "rejected",
+)
+
+#: THE NEGATION PARTICLES -- the words that mean "no" ON THEIR OWN.
+#: AND THEY ARE WHAT THE PARTICLE OF A MULTI-WORD MARKER IS.
+#:
+#: **AND THE PARTICLE IS NOT "SPLIT THE PHRASE AND TAKE EVERY WORD",
+#: and that was got wrong and the measure paid for it.** MEASURED
+#: 2026-11-06: the first version derived the word list by splitting
+#: every marker on spaces -- so "is not" contributed the word "is", and
+#: "is" was then treated as a negation. And so "here the argument of
+#: the level is stated in its plainest form" was read as a
+#: CONTRADICTION of the held opinion that the strongest version of a
+#: claim must be stated, because "is" sat next to "stated". **AN
+#: AUXILIARY IS NOT A NEGATION**, and a rule that cannot tell them
+#: apart reads every passive sentence as a denial.
+NEGATION_PARTICLES: Tuple[str, ...] = ("not", "never", "no")
+
+#: THE MARKERS AS SINGLE WORDS, and it is derived from the list, so it
+#: cannot fall out of step with it.
+#:
+#: AND THE DERIVATION IS: for each marker, the NEGATION PARTICLE it
+#: carries, and the marker itself when it carries none -- because "is
+#: not" negates through its "not" and "isn't" negates all by itself.
+OPPOSITION_WORDS: Tuple[str, ...] = tuple(sorted({
+    (next((p for p in NEGATION_PARTICLES
+           if re.search(r"(?<![A-Za-z0-9])%s(?![A-Za-z0-9])" % p, m)), m))
+    for m in OPPOSITION_MARKERS
+}))
+
 _OPPOSITION_RE = re.compile(
-    r"(?<![A-Za-z0-9])(not|never|no longer|isn't|is not|aren't|are not|"
-    r"refuses|refused|rejects|rejected)(?![A-Za-z0-9])", re.IGNORECASE)
+    r"(?<![A-Za-z0-9])(%s)(?![A-Za-z0-9])"
+    % "|".join(re.escape(m) for m in OPPOSITION_MARKERS), re.IGNORECASE)
+
+#: THE OPPOSITION MARKERS, PUBLISHED.
+#:
+#: AND THEY ARE PUBLISHED, NOT COPIED, because a second list of the
+#: words that mean "no" is a list that drifts, and a drifted list is a
+#: measure that measures two different things on two different days.
+#: MEASURED 2026-11-06: `tools/opinion.py` -- the persistent opinion
+#: register -- needs the same markers, and it imports them from here.
+#:
+#: **THE LIST IS THE INSTRUMENT.** A marker that is missing here is a
+#: contradiction that will be missed in every text, everywhere.
+OPPOSITION_RE = _OPPOSITION_RE
 
 #: THE SELF-REFERENCE MARKERS -- words that make a sentence ABOUT THE
 #: TEXT rather than about the world. And a sentence about the text

@@ -42,6 +42,15 @@ A voice is a named writing style, characterized by:
 | example_sentence | string | one sentence that captures the voice |
 | voice_id | string | sha256 of canonical(axes), 16 hex chars |
 | commit_asset | enum | `{gate, allow, forbid}` |
+| viewpoint_claim | string | the claim the writer holds about the world |
+| viewpoint_subject | string | what the claim is about (a `viewpoint.SUBJECTS` value) |
+| viewpoint_stance | string | how strongly it is held (`certainly`/`probably`/`arguably`/`perhaps`) |
+| viewpoint_consequence | string | what would change it -- the falsifier |
+
+The four viewpoint axes are NORMALISED before the hash: an absent axis
+and an empty one are the same voice. They are what carries an opinion
+into the identity, so a writer whose opinion changed is a different
+writer (`tools/opinion.py`).
 
 The schema is the source of truth in `tools/voice.py`. Shipped voices
 are the 4 listed in `voice.VOICES` (lean / gritty / lyric / didactic).
@@ -70,6 +79,19 @@ edition.diff(a, b) -> changes
 
 A naked voice (no `voice_id`) is refused with reason `no_voice`.
 
+## The writer's own state
+
+| path | what it is |
+|---|---|
+| `state/opinion_register.jsonl` | the writer's HELD OPINIONS, append-only, one JSON object per line, with a digest chain (`prev` + `digest`) so a rewritten event is detectable. An opinion carries its position, subject, stance, grounds, date, confidence, what would change it, and the words that express the claim. |
+| `tools/opinion.py` | the register, the measure of a text against it (agree / contradict / neither), and the revision with its recorded reason |
+| `tools/interest.py` | "interested in life", measured over the writer's own corpus against a null |
+| `tools/check_opinion.py` | the check, with four mutations that break the machinery and must go RED |
+
+The register is INSIDE the repository on purpose: R1 and R3 in
+`tests/test_the_checks_can_run.py` say a check must not read a file
+outside the repository and that the data it reads must be in it.
+
 ## Tests
 
 | # | Test | What it checks |
@@ -79,6 +101,12 @@ A naked voice (no `voice_id`) is refused with reason `no_voice`.
 | W3 | ids survive restart | Compile + serialize + deserialize -> all ids preserved. |
 | W4 | two different settings cannot share id | Vary primary axes -> different id. |
 | W5 | prompt without voice does not apply house | Naked prompt + gate -> refused, no fallback to default. |
+
+The opinion register and the interest measure are checked by
+`tests/test_opinion.py` (O1..O10) and by `tools/check_opinion.py`,
+whose four mutations -- the opposition markers removed, the clause
+split removed, the revision's reason requirement removed, and the
+history dropped -- each have to make the check go RED.
 
 ## Anti-patterns
 
