@@ -525,3 +525,121 @@ def test_o10h_the_two_tools_share_one_marker_list():
     assert set(OPPOSITION_WORDS) <= set(opinion.NEGATIONS)
     for extra in ("no", "nor", "neither", "without", "cannot"):
         assert extra in opinion.NEGATIONS
+
+
+# -- the POLARITY of a denial, and the claim predicate ---------------
+
+#: THE DENIAL OPINION, and it is the one the real register holds:
+#: "machines do not transform people; habits do not" -- a claim phrased
+#: as a denial, which is the shape rule 6 was written for.
+THE_DENIAL = opinion.Opinion(
+    key="machines_do_not_transform_people",
+    position="machines do not transform people; habits do not",
+    subject="technology",
+    stance="certainly",
+    grounds="the machinery is a tool and the tool is not the user",
+    held_on="2026-11-06",
+    confidence=0.7,
+    would_change="a machine that changes what a person wants",
+    claim_terms=("machines", "transform", "habits"),
+)
+
+
+def _denial_register(tmp_path) -> opinion.OpinionRegister:
+    reg = opinion.OpinionRegister(path=str(tmp_path / "denial.jsonl"))
+    reg.hold(THE_DENIAL)
+    return reg
+
+def test_o11_a_denial_opinion_is_contradicted_by_an_assertion(tmp_path):
+    """**THE EXACT OPPOSITE OF AN OPINION MUST NOT READ AS AGREEMENT.**
+
+    MEASURED 2026-11-06: the held opinion is "machines do not
+    transform people; habits do not" -- a DENIAL. And the text
+    "Machines transform people." -- its exact opposite -- read as
+    **agree=1, contradict=0**.
+
+    **THAT IS THE DEFECT THIS TEST IS FOR.** Rule 6 -- "the opinion's
+    own negation does not count against it" -- was right about the
+    MARKERS and silent about the TERMS. A denial's markers must not
+    count against it, but the opinion's TERMS are the CLAIM, and when
+    the opinion denies its claim then a text asserting that claim
+    contradicts it.
+    """
+    reg = _denial_register(tmp_path)
+    r = opinion.measure_text("Machines transform people.", reg)
+    assert r["contradict"] == 1, r
+    assert r["agree"] == 0, r
+
+
+def test_o11b_a_denial_opinion_agrees_with_the_same_denial(tmp_path):
+    """**AND THE SAME DENIAL IN THE SAME WORDS AGREES.**
+
+    MEASURED 2026-11-06: with the polarity rule in, "Machines do not
+    transform people." first read as a CONTRADICTION of the opinion it
+    repeats verbatim -- because the opinion's own marker "not" was
+    excluded from the clause's negation, so the clause looked like an
+    assertion.
+
+    **THE EXCLUSION IS ABOUT A MARKER THAT WOULD COUNT AGAINST THE
+    OPINION**, so a denying opinion does not exclude it.
+    """
+    reg = _denial_register(tmp_path)
+    r = opinion.measure_text("Machines do not transform people.", reg)
+    assert r["agree"] == 1, r
+    assert r["contradict"] == 0, r
+
+
+def test_o11c_a_denial_opinion_agrees_with_a_stronger_denial(tmp_path):
+    """AND A STRONGER DENIAL IS THE SAME POLARITY."""
+    reg = _denial_register(tmp_path)
+    r = opinion.measure_text("Machines never transform people.", reg)
+    assert r["agree"] == 1, r
+    assert r["contradict"] == 0, r
+
+
+def test_o11d_naming_the_subject_is_not_asserting_the_claim(tmp_path):
+    """**NAMING THE SUBJECT IS NOT ASSERTING THE CLAIM.**
+
+    MEASURED 2026-11-06: the first version of the polarity rule read
+    any clause carrying the term "machines" as an assertion, so "The
+    machines that keep us alive" contradicted "machines do not
+    transform people" -- and so did "Every one of those four absences
+    is a real difference between what these machines do". Both are
+    about something else.
+
+    So a clause that contradicts a denial has to be about the CLAIM --
+    the predicate, not the subject.
+    """
+    reg = _denial_register(tmp_path)
+    for clause in ("The machines that keep us alive",
+                   "Every one of those four absences is a real "
+                   "difference between what these machines do"):
+        r = opinion.measure_text(clause, reg)
+        assert r["contradict"] == 0, (clause, r)
+        assert r["agree"] == 0, (clause, r)
+
+
+def test_o11e_the_measure_still_finds_a_real_contradiction(tmp_path):
+    """**AND THE FIX DID NOT BLIND IT.** A clause that really does
+    assert the claim is still a contradiction."""
+    reg = _denial_register(tmp_path)
+    r = opinion.measure_text("These machines do genuinely transform "
+                             "language", reg)
+    assert r["contradict"] == 1, r
+
+
+def test_o11f_an_asserting_opinion_still_agrees_with_an_assertion(tmp_path):
+    """**AND AN ASSERTING OPINION IS NOT INVERTED BY THE FIX.** The
+    polarity rule must only touch opinions that DENY."""
+    reg = _register(tmp_path)
+    r = opinion.measure_text("People are mostly kind.", reg)
+    assert r["agree"] == 1, r
+    assert r["contradict"] == 0, r
+
+
+def test_o11g_an_asserting_opinion_is_still_contradicted_by_a_denial(tmp_path):
+    """AND AN ASSERTING OPINION IS STILL CONTRADICTED BY A DENIAL."""
+    reg = _register(tmp_path)
+    r = opinion.measure_text("People are not kind.", reg)
+    assert r["contradict"] == 1, r
+    assert r["agree"] == 0, r

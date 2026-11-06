@@ -893,6 +893,43 @@ def find_stances(text: str, opinion: Opinion) -> List[Stance]:
     # companion") is not contradicted by a denial in the same words.
     own_markers = [m.lower() for m in opposition_markers(opinion.position)]
 
+    # -- AND AN OPINION PHRASED AS A DENIAL INVERTS ITS OWN TERMS.
+    #
+    # MEASURED 2026-11-06, and this was a REAL DEFECT: the held
+    # opinion "machines do not transform people; habits do not" was
+    # matched by the text "Machines transform people." and read as an
+    # AGREEMENT -- agree=1, contradict=0.
+    #
+    # **THAT IS THE EXACT OPPOSITE OF THE OPINION, AND IT READ AS
+    # AGREE.**
+    #
+    # The cause is rule 6 -- "the opinion's own negation does not
+    # count against it" -- which was right about the MARKERS and
+    # silent about the TERMS. A denial's markers ("not", "never") must
+    # not count against it, or "a text that cannot answer back is not a
+    # companion" would be contradicted by every denial in the same
+    # words. But the opinion's TERMS are the CLAIM, and when the
+    # opinion denies its claim then a text ASSERTING that claim
+    # contradicts it.
+    #
+    # AND THE DISTINCTION IS THE POLARITY OF THE OPINION:
+    #
+    #   the opinion ASSERTS the terms   -> the text asserting them
+    #                                    AGREES
+    #   the opinion DENIES the terms    -> the text asserting them
+    #                                    CONTRADICTS
+    #
+    # SO THE MEASURE IS: a clause that carries the opinion's own terms
+    # WITHOUT a negation is an agreement with an ASSERTING opinion and a
+    # contradiction with a DENYING one. And the negation's own markers
+    # are excluded from the opinion's polarity, so a denial in the same
+    # words still agrees with a denial.
+    #
+    # AND THE POLARITY IS MEASURED FROM THE OPINION'S OWN MARKERS, not
+    # assumed. An opinion with no marker in it asserts; an opinion with
+    # a marker over its claim terms denies.
+    opinion_denies = _opinion_denies_its_terms(opinion, own_markers)
+
     for s in sentences(text or ""):
         for c in clauses(s):
             if not _mentions_subject(c, forms):
@@ -911,6 +948,7 @@ def find_stances(text: str, opinion: Opinion) -> List[Stance]:
                 if _negated_term(t, c):
                     negated.append(t)
                     continue
+
                 if not re.search(r"(?<![A-Za-z0-9])%s(?![A-Za-z0-9])"
                                  % re.escape(t), c.lower()):
                     continue
@@ -924,7 +962,28 @@ def find_stances(text: str, opinion: Opinion) -> List[Stance]:
                 # words away. **A CLAUSE THAT NEGATES ONE OF THE
                 # OPINION'S TERMS CONTRADICTS THE OPINION**, whichever
                 # term the sentence happens to mention first.
-                near = _negation_near(c, t, own_markers)
+                # AND THE OPINION'S OWN MARKERS ARE EXCLUDED FROM THE
+                # CLAUSE'S NEGATION -- BUT ONLY WHEN THE OPINION
+                # ASSERTS.
+                #
+                # MEASURED 2026-11-06: the opinion is "machines do not
+                # transform people; habits do not" -- a denial, whose own
+                # marker is "not". And the text "Machines do not
+                # transform people." is the SAME denial, but with the
+                # marker excluded the clause read as an ASSERTION of
+                # "machines", and the text contradicted the opinion it
+                # repeats verbatim.
+                #
+                # **THE EXCLUSION IS ABOUT A MARKER THAT WOULD COUNT
+                # AGAINST THE OPINION.** For an ASSERTING opinion, "not"
+                # in the text is a contradiction, so it must not be
+                # filtered out. For a DENYING opinion, "not" in the
+                # text is the SAME polarity, and it must be SEEN.
+                #
+                # SO: an asserting opinion excludes its own markers
+                # (the old rule), and a denying opinion does not.
+                near = _negation_near(c, t, own_markers if not opinion_denies
+                                      else None)
                 if near is None:
                     # AND A SCOPED TERM IS SKIPPED, and the search goes
                     # on to the next term. MEASURED: "the last chapter
@@ -939,6 +998,33 @@ def find_stances(text: str, opinion: Opinion) -> List[Stance]:
                 else:
                     plain.append(t)
             if negated:
+                # AND A CLAUSE THAT NEGATES THE OPINION'S OWN TERM
+                # CONTRADICTS IT -- UNLESS THE OPINION IS ITSELF A
+                # DENIAL, in which case the denial agrees.
+                #
+                # MEASURED 2026-11-06: the opinion is "machines do not
+                # transform people; habits do not" -- a denial. And the
+                # text "Machines do not transform people." must AGREE
+                # with it, not contradict it.
+                #
+                # SO THE VERDICT IS THE POLARITY OF THE OPINION AND
+                # THE CLAUSE COMBINED:
+                #
+                #   opinion ASSERTS, clause ASSERTS   -> agree
+                #   opinion ASSERTS, clause DENIES     -> contradict
+                #   opinion DENIES,  clause ASSERTS   -> contradict
+                #   opinion DENIES,  clause DENIES     -> agree
+                #
+                # **AND THAT IS TWO RULES, NOT FOUR**: a denial matches
+                # a denial and an assertion matches an assertion, and
+                # a mismatch contradicts.
+                if opinion_denies:
+                    out.append(Stance(
+                        verdict="agree", sentence=s, clause=c,
+                        term=negated[0],
+                        detail=("the opinion denies %r, and the clause "
+                                "denies it too" % negated[0])))
+                    continue
                 out.append(Stance(
                     verdict="contradict", sentence=s, clause=c,
                     term=negated[0],
@@ -948,11 +1034,116 @@ def find_stances(text: str, opinion: Opinion) -> List[Stance]:
             if not plain:
                 continue
             hit = plain[0]
+            if opinion_denies:
+                # AND THE CLAUSE MUST ASSERT THE CLAIM, NOT MERELY NAME
+                # THE SUBJECT.
+                #
+                # MEASURED 2026-11-06: the first version of this rule
+                # read a clause that carried the term "machines" as an
+                # assertion of the opinion's claim -- so "The machines
+                # that keep us alive" was read as contradicting "machines
+                # do not transform people", and "Every one of those four
+                # absences is a real difference between what these
+                # machines do" was too. **NAMING THE SUBJECT IS NOT
+                # ASSERTING THE CLAIM.**
+                #
+                # SO A CLAUSE THAT ASSERTS MUST CARRY A CLAIM VERB --
+                # one of the opinion's own terms that is a VERB, or a
+                # verb the opinion's own claim term is attached to.
+                # And the clause must actually be about the transform.
+                #
+                # AND THE TEST IS NARROW ON PURPOSE: the clause must
+                # carry the opinion's CLAIM term -- the one that is the
+                # predicate, not the one that is the subject. "machines
+                # do not transform people" claims that machines do not
+                # TRANSFORM people, so a clause that contradicts it must
+                # be about TRANSFORMING, and one that mentions only
+                # "machines" is about something else.
+                claim_terms = _claim_predicates(opinion)
+                if claim_terms and not any(
+                        re.search(r"(?<![A-Za-z0-9])%s(?![A-Za-z0-9])"
+                                  % re.escape(ct), c.lower())
+                        for ct in claim_terms):
+                    # AND THE CLAUSE IS ABOUT SOMETHING ELSE, so it
+                    # neither agrees nor contradicts.
+                    continue
+                out.append(Stance(
+                    verdict="contradict", sentence=s, clause=c, term=hit,
+                    detail=("the opinion denies %r, and the clause asserts "
+                            "it" % hit)))
+                continue
             out.append(Stance(
                 verdict="agree", sentence=s, clause=c, term=hit,
                 detail=("the clause carries the opinion's own claim "
                         "about %s" % opinion.subject)))
     return out
+
+
+def _claim_predicates(opinion: Opinion) -> List[str]:
+    """The opinion's CLAIM terms -- the ones that are the PREDICATE.
+
+    **AND A CLAIM TERM IS A PREDICATE IF IT IS A VERB.** MEASURED
+    2026-11-06: the opinion "machines do not transform people; habits
+    do not" has the terms ("machines", "transform", "habits"), and only
+    "transform" is the predicate -- "machines" and "habits" are the
+    subjects. So a clause that contradicts the opinion has to be about
+    TRANSFORMING, and a clause that only names "machines" is about
+    something else.
+
+    AND THE VERB LIST IS THE CANON VOCABULARY'S, and not a list written
+    here: the canon vocabulary holds 3,075 verbs and 8,231 nouns, and it
+    is DISJOINT by construction, so it says which of the two a word is.
+    """
+    try:
+        import json
+        path = os.path.join(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+            "..", "simself", "src", "constitutional", "canon_vocab.json")
+        path = os.path.normpath(path)
+        with open(path, encoding="utf-8") as fh:
+            data = json.load(fh)
+        verbs = set(data.get("verbs") or ())
+    except Exception:                                   # noqa: BLE001
+        verbs = set()
+    out = [t for t in opinion.terms() if t.lower() in verbs]
+    # AND IF THE VERB LIST IS NOT REACHABLE, FALL BACK TO EVERY TERM
+    # THAT IS NOT THE SUBJECT -- because a subject is the word that
+    # matches the opinion's subject forms.
+    if not out:
+        forms = set(subject_forms(opinion.subject))
+        out = [t for t in opinion.terms() if t.lower() not in forms]
+    return out
+
+
+def _opinion_denies_its_terms(opinion: Opinion,
+                               own_markers: List[str]) -> bool:
+    """Does this opinion DENY its own claim terms?
+
+    **AND IT IS MEASURED FROM THE OPINION'S OWN TEXT.** An opinion that
+    carries a negation marker over its claim terms is a denial; one
+    that does not is an assertion.
+
+    MEASURED 2026-11-06: the held opinion "machines do not transform
+    people; habits do not" has the terms ("machines", "transform",
+    "habits"), and the marker "not" sits over the clause that carries
+    them -- so it DENIES. And the text "Machines transform people." is
+    then a contradiction, not an agreement.
+    """
+    text = (opinion.position or "").lower()
+    for term in opinion.terms():
+        # AND THE OPINION'S OWN MARKERS ARE NOT EXCLUDED HERE, and that
+        # is the difference between this helper and the one the stance
+        # finder uses. MEASURED 2026-11-06: the stance finder excludes
+        # the opinion's own markers so that a denial does not count
+        # AGAINST the opinion -- correct there, and WRONG here, because
+        # here the question is "does the opinion deny its own claim",
+        # and the marker "not" in "machines do not transform people" IS
+        # the denial.
+        #
+        # So the polarity is read with the RAW negation test.
+        for _ in _negation_near(text, term.lower(), None):
+            return True
+    return False
 
 
 def measure_text(text: str, register: OpinionRegister) -> Dict[str, Any]:

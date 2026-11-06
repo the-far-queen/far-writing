@@ -20,7 +20,7 @@ requires the measure to behave DIFFERENTLY on them. A check that only
 runs on one text cannot tell a working instrument from one that
 agrees with everything.
 
-**AND THE MUTATIONS AT THE END ARE THE REAL TEST.** Four of them:
+**AND THE MUTATIONS AT THE END ARE THE REAL TEST.** Five of them:
 
   M1  the opposition markers are removed -- and the contradiction
       detection must stop working, because the markers ARE the
@@ -33,6 +33,9 @@ agrees with everything.
   M4  the register stops recording the superseded version -- and the
       history must lose its depth, because a register that cannot show
       what it believed before is not a history.
+  M5  the POLARITY of a denial is removed -- and the exact opposite of
+      a DENIAL must read as an AGREEMENT again, because the opposite
+      of an opinion must never read as agreement.
 
 **AND EACH MUTATION IS APPLIED TO A COPY, IN A TEMPORARY TREE, so the
 working tree is never modified** -- the same discipline
@@ -99,6 +102,28 @@ THE_NEITHER = (
 #: opinion -- position, subject, stance, grounds, date, confidence and
 #: what would change it -- because a register that accepts a partial
 #: opinion is a register that will hold half-formed beliefs.
+#: THE DENIAL OPINION -- a claim phrased as a denial, which is the
+#: shape rule 6 was written for.
+#:
+#: AND MEASURED 2026-11-06: the exact opposite of this opinion read as
+#: an AGREEMENT. "Machines transform people." against "machines do not
+#: transform people" scored agree=1, contradict=0 -- **the opposite of
+#: an opinion must not read as agreement**.
+THE_DENIAL: Dict[str, Any] = {
+    "key": "machines_do_not_transform_people",
+    "position": "machines do not transform people; habits do not",
+    "subject": "technology",
+    "stance": "certainly",
+    "grounds": "the machinery is a tool and the tool is not the user",
+    "held_on": "2026-11-06",
+    "confidence": 0.7,
+    "would_change": "a machine that changes what a person wants",
+    "claim_terms": ["machines", "transform", "habits"],
+}
+
+#: THE TEXT THAT ASSERTS WHAT THE DENIAL DENIES.
+THE_ASSERTS_THE_DENIAL = "Machines transform people.\n"
+
 THE_OPINION: Dict[str, Any] = {
     "key": "people_are_mostly_kind",
     "position": "people are mostly kind",
@@ -479,6 +504,51 @@ def main() -> int:
                   depth != len(reg.history("people_are_mostly_kind")),
                   "%d then %d" % (len(reg.history("people_are_mostly_kind")),
                                   depth))
+
+            # -- M5: THE POLARITY OF A DENIAL GOES -----------------------
+            fresh_tree()
+            # AND THE MUTATION IS ON THE POLARITY RULE, and not on the
+            # negation test. MEASURED 2026-11-06: the exact opposite of
+            # a DENIAL read as an AGREEMENT -- "Machines transform
+            # people" against the held opinion "machines do not
+            # transform people" scored agree=1, contradict=0.
+            #
+            # **THE OPPOSITE OF AN OPINION MUST NOT READ AS AGREEMENT**,
+            # and the mutation that removes the polarity rule must make
+            # the measure blind to that.
+            mutated("opinion.py",
+                    "    opinion_denies = _opinion_denies_its_terms("
+                    "opinion, own_markers)",
+                    "    opinion_denies = False")
+            for name in ("viewpoint", "voice"):
+                sys.modules.pop(name, None)
+            mm = load("opinion_mut5", os.path.join(mut_tools, "opinion.py"))
+            reg_m = mm.OpinionRegister(path=os.path.join(work, "r5.jsonl"))
+            reg_m.hold(mm.Opinion(**THE_DENIAL))
+            blind = mm.measure_text(THE_ASSERTS_THE_DENIAL, reg_m)
+            print("     M5  the polarity removed: the opposite of a "
+                  "denial scores agree=%s contradict=%s"
+                  % (blind.get("agree"), blind.get("contradict")))
+            check("M5 the opposite of a denial reads as an AGREEMENT",
+                  blind.get("agree", 0) >= 1
+                  and blind.get("contradict", 0) == 0,
+                  str({k: blind.get(k) for k in ("agree", "contradict")}))
+            # AND THE WORKING MEASURE, for the "distinguishable from"
+            # check. MEASURED: the working measure reads the same text
+            # as a CONTRADICTION, and the mutant reads it as an
+            # AGREEMENT.
+            reg_d = m.OpinionRegister(path=os.path.join(work, "r5w.jsonl"))
+            reg_d.hold(m.Opinion(**THE_DENIAL))
+            working = m.measure_text(THE_ASSERTS_THE_DENIAL, reg_d)
+            check("M5 and that is distinguishable from the working "
+                  "measure",
+                  blind.get("agree") != working.get("agree")
+                  or blind.get("contradict")
+                  != working.get("contradict"),
+                  "%s then %s" % ({k: working.get(k)
+                                   for k in ("agree", "contradict")},
+                                  {k: blind.get(k)
+                                   for k in ("agree", "contradict")}))
         finally:
             shutil.rmtree(work, ignore_errors=True)
 
