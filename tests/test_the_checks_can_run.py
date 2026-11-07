@@ -54,6 +54,7 @@ CHECK_FILES = (
     "tests/test_dedupe_authors.py",
     "tests/test_voice.py",
     "tests/test_opinion.py",
+    "tests/test_propose_opinions.py",
     "tests/test_the_commit_is_runnable.py",
     "tests/test_the_checks_can_run.py",
 )
@@ -71,6 +72,7 @@ TOOL_FILES = (
     "tools/interest.py",
     "tools/check_opinion.py",
     "tools/check_interest_numbers.py",
+    "tools/propose_opinions.py",
 )
 
 #: THE FILES THE CHECKS NEED, and they must all be TRACKED.
