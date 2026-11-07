@@ -47,6 +47,7 @@ import datetime
 import hashlib
 import json
 import os
+import re
 import sys
 import time
 from typing import Any, Dict, List, Optional, Sequence, Tuple
@@ -118,6 +119,51 @@ def _key_for(claim: str) -> str:
     return "candidate_%s" % digest
 
 
+def _claim_terms(cand: Dict[str, Any]) -> Tuple[str, ...]:
+    """The claim terms an admitted opinion carries, and they must be
+    WORDS OF THE CLAIM.
+
+    **AND THE CLUSTER'S TERMS ARE NOT THE CLAIM'S TERMS.** MEASURED
+    2026-11-07: the loop took `cand["terms"][:4]` and handed them to
+    the register. But a cluster's terms are the words the CLUSTER is
+    about -- and a cluster spans several sentences, so most of its
+    terms are words of the OTHER claims in the cluster, not of this
+    one. The register checks that every claim term is a word of the
+    position, and refuses the opinion when it is not:
+
+        the register refused 'And the reason it is addressed to every
+        species ': the opinion 'candidate_6970fdce' carries the term
+        'imperial', which is not a word of it
+
+    MEASURED, over the writer's own corpus with a decisions file
+    carrying every candidate: **21 candidates, 10 admitted, 11
+    refused** -- and every one of the 11 refusals was a term that was
+    not a word of the claim. So HALF the loop's admissions were being
+    thrown away by a rule the loop was breaking, and the reason was
+    pushed to the far end where the mistake was.
+
+    So the terms are FILTERED to the ones that are words of the
+    claim, and the position's own content words are used when the
+    filter leaves nothing -- because the position's words are always
+    words of the position.
+    """
+    claim = cand.get("claim") or ""
+    low = claim.lower()
+    keep = []
+    for t in (cand.get("terms") or []):
+        t = str(t)
+        if re.search(r"(?<![A-Za-z0-9])%s(?![A-Za-z0-9])" % re.escape(t.lower()),
+                     low):
+            keep.append(t)
+    if keep:
+        return tuple(keep[:4])
+    # AND THE FALLBACK IS THE POSITION'S OWN CONTENT WORDS, because
+    # the register's rule is that a term must be a word of the
+    # position, and these are.
+    derived = O.content_terms(claim)
+    return tuple(derived[:4])
+
+
 def run(decisions_path: str = DECISIONS_FILE,
         min_texts: int = 2) -> Dict[str, Any]:
     """ONE DAY of the writer's loop."""
@@ -147,7 +193,7 @@ def run(decisions_path: str = DECISIONS_FILE,
             held_on=datetime.date.today().isoformat(),
             confidence=float(decision["confidence"]),
             would_change=str(decision["would_change"]),
-            claim_terms=tuple(cand["terms"][:4]),
+            claim_terms=_claim_terms(cand),
         )
         try:
             reg = O.OpinionRegister(

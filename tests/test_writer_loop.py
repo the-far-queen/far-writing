@@ -20,6 +20,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -140,6 +141,136 @@ def test_a_candidate_with_no_decision_is_refused_by_name(tmp_path):
     payload = W.run(decisions_path=str(tmp_path / "nothing.json"))
     assert payload["admitted"] == 0, payload["admitted"]
     assert payload["refusal_reasons"], "the refusals were not named"
+
+
+# ---------------------------------------------------------------------------
+# 3b. a CONFIRMED candidate is ADMITTED, not refused by the register
+# ---------------------------------------------------------------------------
+
+def test_a_confirmed_candidate_is_admitted_and_not_refused(tmp_path):
+    """**AND A CONFIRMED CANDIDATE ACTUALLY GETS IN.**
+
+    MEASURED 2026-11-07: the loop handed the register the CLUSTER's
+    terms -- `cand["terms"][:4]` -- but a cluster's terms are the
+    words the cluster is about, and a cluster spans several
+    sentences, so most of them are words of the OTHER claims in the
+    cluster. The register refuses an opinion whose claim term is not
+    a word of its position, and it refused HALF the admissions:
+
+        candidates 21, admitted 10, refused 11
+        the register refused 'And the reason it is addressed to every
+        species ': the opinion 'candidate_6970fdce' carries the term
+        'imperial', which is not a word of it
+
+    So the loop was throwing away its own work, and the reason was
+    pushed to the far end where the mistake was.
+
+    **AND THE CHECK IS ON THE REAL CORPUS, with a decision for EVERY
+    candidate** -- because a check that only admits a hand-written
+    claim would not have seen this at all: the hand-written claim
+    "The writer is a voice." carries no cluster terms, so it took
+    the path that worked.
+    """
+    cands = [c for c in P.find_candidates() if c["n_texts"] >= 2]
+    assert cands, "the proposer found no candidate in the writer's corpus"
+    d = {"confirmed": [{
+        "claim": c["claim"],
+        "grounds": "asserted in %d of the writer's own texts" % c["n_texts"],
+        "confidence": 0.5,
+        "would_change": "a text that denies it",
+    } for c in cands]}
+    path = tmp_path / "confirmed.json"
+    path.write_text(json.dumps(d), encoding="utf-8")
+
+    # AND THE REGISTER IS A COPY, because the loop writes to it and
+    # the writer's real register is not a test scratchpad.
+    import shutil
+    state = tmp_path / "state"
+    shutil.copytree(os.path.join(REPO, "state"), str(state))
+    old_state = W.STATE
+    W.STATE = str(state)
+    try:
+        payload = W.run(decisions_path=str(path))
+    finally:
+        W.STATE = old_state
+
+    assert payload["admitted"] == payload["candidates"], (
+        "only %d of %d confirmed candidates were admitted -- the refusals "
+        "were: %s" % (payload["admitted"], payload["candidates"],
+                      payload["refusal_reasons"][:3]))
+    assert payload["refused"] == 0, payload["refusal_reasons"][:3]
+
+
+def test_the_claim_terms_are_words_of_the_claim():
+    """**AND EVERY CLAIM TERM IS A WORD OF THE POSITION.**
+
+    The register refuses an opinion whose claim term is not a word of
+    its own position -- a term that is about something else would carry
+    a contradiction against the wrong thing. So the terms the loop
+    hands over must pass that rule.
+    """
+    for c in P.find_candidates():
+        terms = W._claim_terms(c)
+        for t in terms:
+            assert re.search(r"(?<![A-Za-z0-9])%s(?![A-Za-z0-9])"
+                             % re.escape(t.lower()),
+                             c["claim"].lower()), (
+                "the term %r is not a word of the claim %r"
+                % (t, c["claim"][:60]))
+
+
+def test_the_loop_terms_fall_back_to_the_positions_own_words():
+    """**AND WHEN NO CLUSTER TERM IS A WORD OF THE CLAIM, THE POSITION'S
+    OWN CONTENT WORDS ARE USED.** Because those are always words of
+    the position."""
+    c = {"claim": "The writer is a voice, and the voice is measured.",
+         "terms": ["elephant", "giraffe"]}
+    terms = W._claim_terms(c)
+    assert terms, "no terms were derived at all"
+    for t in terms:
+        assert re.search(r"(?<![A-Za-z0-9])%s(?![A-Za-z0-9])"
+                         % re.escape(t.lower()), c["claim"].lower()), t
+
+
+def test_the_admitted_count_matches_the_register(tmp_path):
+    """**AND THE LOOP'S OWN COUNT MATCHES THE REGISTER'S OWN COUNT.**
+
+    A loop that says "21 admitted" while the register grew by 6 has
+    counted something that did not happen -- and the way it goes
+    wrong is by counting a REFUSAL as an admission.
+
+    MEASURED 2026-11-07: this check is what catches the mutation
+    where the register's refusal is counted as an admission. The loop
+    would report every candidate as held, and the register would hold
+    only the ones it actually accepted. So the two numbers must agree.
+    """
+    import shutil
+    cands = [c for c in P.find_candidates() if c["n_texts"] >= 2]
+    assert cands, "the proposer found no candidate in the writer's corpus"
+    d = {"confirmed": [{
+        "claim": c["claim"],
+        "grounds": "asserted in %d of the writer's own texts" % c["n_texts"],
+        "confidence": 0.5,
+        "would_change": "a text that denies it",
+    } for c in cands]}
+    path = tmp_path / "confirmed.json"
+    path.write_text(json.dumps(d), encoding="utf-8")
+
+    state = tmp_path / "state"
+    shutil.copytree(os.path.join(REPO, "state"), str(state))
+    old_state = W.STATE
+    W.STATE = str(state)
+    try:
+        payload = W.run(decisions_path=str(path))
+    finally:
+        W.STATE = old_state
+
+    grew = payload["register_after"] - payload["register_before"]
+    assert payload["admitted"] == grew, (
+        "the loop says it admitted %d opinions and the register grew by "
+        "%d -- so a refusal was counted as an admission"
+        % (payload["admitted"], grew))
+    assert payload["refused"] == payload["candidates"] - payload["admitted"]
 
 
 # ---------------------------------------------------------------------------

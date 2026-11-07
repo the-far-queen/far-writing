@@ -75,6 +75,7 @@ TOOL_FILES = (
     "tools/check_interest_numbers.py",
     "tools/propose_opinions.py",
     "tools/writer_loop.py",
+    "tools/mutation_check_writer_loop.py",
 )
 
 #: THE FILES THE CHECKS NEED, and they must all be TRACKED.
