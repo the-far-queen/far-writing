@@ -323,10 +323,28 @@ CATEGORIES: Tuple[Category, ...] = (
         results="80,000",
         phrases=(
             Phrase(phrase="how to price freelance work",
-                   category="business", results="", verb="Price",
+                   category="business", results="260", verb="Price",
                    object_="Your Freelance Work",
                    audience="Freelancers",
                    competitor_titles=[], competitor_prices=[]),
+            # AND THE FINANCE PHRASES, MEASURED 2026-11-08, and they
+            # are the ones with NO PRINT INCUMBENT at the top -- which
+            # is what makes a remake possible. See
+            # catalog/open_book_targets_2026-11-08.json.
+            Phrase(phrase="how to file taxes as a freelancer",
+                   category="business", results="254",
+                   verb="File", object_="Taxes as a Freelancer",
+                   audience="Freelancers",
+                   competitor_prices=["$0.00"],
+                   note="OPEN. the top-1 price is $0.00 -- a "
+                        "KINDLE-ONLY title, so NO PRINT BOOK holds the "
+                        "slot and a print remake is uncontested."),
+            Phrase(phrase="how to negotiate salary",
+                   category="business", results="558",
+                   verb="Negotiate", object_="Salary",
+                   audience="Employees",
+                   competitor_prices=["$0.00"],
+                   note="OPEN, and the top-1 is Kindle-only."),
             Phrase(phrase="how to raise your first round",
                    category="business", results="", verb="Raise",
                    object_="Your First Round",
@@ -402,10 +420,10 @@ CATEGORIES: Tuple[Category, ...] = (
         results="70,000",
         phrases=(
             Phrase(phrase="how to stop your dog barking",
-                   category="pets", results="", verb="Stop",
+                   category="pets", results="330", verb="Stop",
                    object_="Your Dog Barking", audience="Dog Owners"),
             Phrase(phrase="how to stop your cat scratching",
-                   category="pets", results="", verb="Stop",
+                   category="pets", results="21", verb="Stop",
                    object_="Your Cat Scratching", audience="Cat Owners"),
             Phrase(phrase="how to stop a dog pulling on leash",
                    category="pets", results="", verb="Stop",
@@ -417,10 +435,18 @@ CATEGORIES: Tuple[Category, ...] = (
             # demonstration of the lexical game that has been measured
             # on this machine.
             #
-            #   "rabbit hutch"                   179 results
+            #   "rabbit hutch"                   169 results
             #       top: "The Rabbit Hutch: A NOVEL"           $8.16
             #   "how to build a rabbit hutch"      70 results
             #       top: "How to Build Animal Housing: 60 Plans" $19.99
+            #
+            # RE-MEASURED 2026-11-08, and the numbers are STABLE:
+            # "rabbit hutch" 179 -> 169 (-6%), "rabbit diet" 133 ->
+            # 133 (0%), "rabbit potty training" 33 -> 35 (+6%),
+            # "rabbit nails trimming" 11 -> 11 (0%), "rabbit
+            # shedding" 3 -> 3 (0%), "rabbit hay" 18 -> 19 (+6%).
+            # **SO A PHRASE MEASURED OPEN STAYS OPEN, AND THE COUNT IS
+            # A PLANNING INPUT RATHER THAN A SNAPSHOT.**
             #
             # THE SAME TWO WORDS, IN A DIFFERENT ORDER, AND THE NOVEL IS
             # EXCLUDED. The longer phrase is a different query, and the
@@ -430,7 +456,7 @@ CATEGORIES: Tuple[Category, ...] = (
             # top result is what the buyer sees first, and a title that
             # does not lead with the matched words does not get there.
             Phrase(phrase="rabbit hutch", category="pets",
-                   results="179",
+                   results="169",
                    competitor_titles=["The Rabbit Hutch: A Novel"],
                    competitor_prices=["$8.16"],
                    note="the top result is a NOVEL. the phrase alone "

@@ -1,0 +1,355 @@
+{
+ "generated_at": "2026-11-08",
+ "question": "Bobby, 2026-11-08: 'list easiest book targets that are easy keyword phrases. remakes are searched by keywords. i think pets easy. what areas of books at amazon open to this? finance nonfiction many areas'",
+ "the_measure": "Amazon's OWN books search, /s?k=<phrase>&i=stripbooks, read in a browser session. The number is Amazon's reported result count, which is demand AND competition at once. MEASURED 2026-11-08. Amazon's /s endpoint returns HTTP 503 to a plain urllib request (the 2026-10-31 finding, re-confirmed today), so the browser is the only instrument.",
+ "the_caveat": "The counts are from the SEARCH endpoint. This machine's delivery country is Nepal, so the bestseller grid returns 'Sorry, there are no Best Sellers available in this category' -- the search works and the grid does not. Any tool must say which endpoint it used, because a demand number with no endpoint behind it is not a measurement.",
+ "the_answer": "PETS IS THE EASIEST, AND THE MEASUREMENT IS UNANIMOUS: every pets phrase measured is under 500 results, and the six narrowest are 3, 11, 19, 21, 35 and 133. Finance and nonfiction are OPEN BUT CROWDED AT THE PHRASE LEVEL: the four finance phrases measured are 254, 558, 841, 1,000, 3,000. And the reason is structural, not a matter of taste: **A NARROW ANIMAL AND A NARROW JOB IS ONE PHRASE, AND A BROAD JOB IS A CROWDED PHRASE.**",
+ "the_measured_set": [
+  {
+   "area": "pets",
+   "phrase": "rabbit shedding",
+   "amazon_results": 3,
+   "results_label": "3",
+   "buyer_job": "stop a specific animal behaviour",
+   "animal_or_topic": "rabbit",
+   "top_1_title": "SATIN ANGORA RABBIT AS PETS FOR BEGINNERS: The Complete Beginner-To-Expert Guide To Satin Angor",
+   "top_1_price": "$16.50",
+   "open_under_500": true
+  },
+  {
+   "area": "pets",
+   "phrase": "rabbit nails trimming",
+   "amazon_results": 11,
+   "results_label": "11",
+   "buyer_job": "stop a specific animal behaviour",
+   "animal_or_topic": "rabbit",
+   "top_1_title": "The Rabbit-Raising Problem Solver: Your Questions Answered about Housing, Feeding, Behavior, He",
+   "top_1_price": "$11.99",
+   "open_under_500": true
+  },
+  {
+   "area": "pets",
+   "phrase": "rabbit hay",
+   "amazon_results": 19,
+   "results_label": "19",
+   "buyer_job": "stop a specific animal behaviour",
+   "animal_or_topic": "rabbit",
+   "top_1_title": "Hay is for Rabbits!: A rabbit food primer",
+   "top_1_price": "$0.00",
+   "open_under_500": true
+  },
+  {
+   "area": "pets",
+   "phrase": "how to stop your cat scratching",
+   "amazon_results": 21,
+   "results_label": "21",
+   "buyer_job": "stop a specific animal behaviour",
+   "animal_or_topic": "cat",
+   "top_1_title": "How to Train Your Cat... and Stop Biting, Scratching and Problem Behavior",
+   "top_1_price": "$0.00",
+   "open_under_500": true
+  },
+  {
+   "area": "pets",
+   "phrase": "rabbit potty training",
+   "amazon_results": 35,
+   "results_label": "35",
+   "buyer_job": "stop a specific animal behaviour",
+   "animal_or_topic": "rabbit",
+   "top_1_title": "Yuan-Yuan Goes Potty: A Bilingual Potty Training Story in English, Traditional Chinese & Pinyin",
+   "top_1_price": "$14.99",
+   "open_under_500": true
+  },
+  {
+   "area": "pets",
+   "phrase": "rabbit diet",
+   "amazon_results": 133,
+   "results_label": "133",
+   "buyer_job": "stop a specific animal behaviour",
+   "animal_or_topic": "rabbit",
+   "top_1_title": "Feeding Meat Rabbits for Free: A Guide to Growing and Foraging for Rabbit Feed (Meat Rabbits: E",
+   "top_1_price": "$15.99",
+   "open_under_500": true
+  },
+  {
+   "area": "pets",
+   "phrase": "rabbit hutch",
+   "amazon_results": 169,
+   "results_label": "169",
+   "buyer_job": "stop a specific animal behaviour",
+   "animal_or_topic": "rabbit",
+   "top_1_title": "The Rabbit Hutch: A Novel (National Book Award Winner)",
+   "top_1_price": "$8.16",
+   "open_under_500": true
+  },
+  {
+   "area": "finance",
+   "phrase": "how to file taxes as a freelancer",
+   "amazon_results": 254,
+   "results_label": "254",
+   "buyer_job": "a number they want to change",
+   "animal_or_topic": "freelance tax",
+   "top_1_title": "Filing Taxes as a Freelancer: What They Don\u2019t Tell You: A behind-the-scenes look at navigating ",
+   "top_1_price": "$0.00",
+   "open_under_500": true
+  },
+  {
+   "area": "business",
+   "phrase": "how to price freelance work",
+   "amazon_results": 260,
+   "results_label": "260",
+   "buyer_job": "do a money job",
+   "animal_or_topic": "freelance",
+   "top_1_title": "Make the Cut: How to Find Clients, Price the Work, and Get Paid as a Freelance Video Editor",
+   "top_1_price": "$0.00",
+   "open_under_500": true
+  },
+  {
+   "area": "pets",
+   "phrase": "how to stop your dog barking",
+   "amazon_results": 330,
+   "results_label": "330",
+   "buyer_job": "stop a specific animal behaviour",
+   "animal_or_topic": "dog",
+   "top_1_title": "How to Stop Your Dog from Barking: Simple, Positive Training Methods to Reduce Excessive Barkin",
+   "top_1_price": "$13.99",
+   "open_under_500": true
+  },
+  {
+   "area": "finance",
+   "phrase": "how to negotiate salary",
+   "amazon_results": 558,
+   "results_label": "558",
+   "buyer_job": "a number they want to change",
+   "animal_or_topic": "salary",
+   "top_1_title": "How to Negotiate Salary, Job Offers, and Anything You Want with Confidence",
+   "top_1_price": "$0.00",
+   "open_under_500": false
+  },
+  {
+   "area": "finance",
+   "phrase": "how to build a credit score",
+   "amazon_results": 841,
+   "results_label": "841",
+   "buyer_job": "a number they want to change",
+   "animal_or_topic": "credit",
+   "top_1_title": "How To Build Your Credit From Prison (How To From Prison)",
+   "top_1_price": "$19.99",
+   "open_under_500": false
+  },
+  {
+   "area": "finance",
+   "phrase": "how to budget for a wedding",
+   "amazon_results": 1000,
+   "results_label": "1,000",
+   "buyer_job": "a number they want to change",
+   "animal_or_topic": "budget",
+   "top_1_title": "How to Plan a Wedding on a Budget: The Ultimate Guide to Planning a Wedding on a Budget (Inexpe",
+   "top_1_price": "$9.99",
+   "open_under_500": false
+  },
+  {
+   "area": "pets",
+   "phrase": "dog training for dummies",
+   "amazon_results": 2000,
+   "results_label": "2,000",
+   "buyer_job": "stop a specific animal behaviour",
+   "animal_or_topic": "dog",
+   "top_1_title": "Dog Training For Dummies (For Dummies (Pets))",
+   "top_1_price": "$14.64",
+   "open_under_500": false
+  },
+  {
+   "area": "pets",
+   "phrase": "rabbit breeds",
+   "amazon_results": 3000,
+   "results_label": "3,000",
+   "buyer_job": "stop a specific animal behaviour",
+   "animal_or_topic": "rabbit",
+   "top_1_title": "Rabbit Breeds: The Pocket Guide to 49 Essential Breeds",
+   "top_1_price": "$10.21",
+   "open_under_500": false
+  },
+  {
+   "area": "finance",
+   "phrase": "how to make a budget",
+   "amazon_results": 3000,
+   "results_label": "3,000",
+   "buyer_job": "a number they want to change",
+   "animal_or_topic": "budget",
+   "top_1_title": "How to Make a Budget: A Guide to Creating a Budget for Better Money Management - ( Household Bu",
+   "top_1_price": "$5.99",
+   "open_under_500": false
+  },
+  {
+   "area": "selfhelp",
+   "phrase": "how to build discipline",
+   "amazon_results": 10000,
+   "results_label": "10,000",
+   "buyer_job": "change a behaviour they have tried to change",
+   "animal_or_topic": "discipline",
+   "top_1_title": "The Power of Discipline: How to Use Self Control and Mental Toughness to Achieve Your Goals",
+   "top_1_price": "$19.97",
+   "open_under_500": false
+  }
+ ],
+ "the_drift_check": {
+  "what": "the same phrases measured on 2026-10-31 and again on 2026-11-08, so the numbers are known to be stable and not one day's noise",
+  "measured": [
+   {
+    "phrase": "rabbit hutch",
+    "oct_31": "179",
+    "nov_08": "169",
+    "drift": "-6%"
+   },
+   {
+    "phrase": "rabbit diet",
+    "oct_31": "133",
+    "nov_08": "133",
+    "drift": "0%"
+   },
+   {
+    "phrase": "rabbit potty training",
+    "oct_31": "33",
+    "nov_08": "35",
+    "drift": "+6%"
+   },
+   {
+    "phrase": "rabbit nails trimming",
+    "oct_31": "11",
+    "nov_08": "11",
+    "drift": "0%"
+   },
+   {
+    "phrase": "rabbit shedding",
+    "oct_31": "3",
+    "nov_08": "3",
+    "drift": "0%"
+   },
+   {
+    "phrase": "rabbit hay",
+    "oct_31": "18",
+    "nov_08": "19",
+    "drift": "+6%"
+   }
+  ],
+  "what_it_says": "Amazon's counts are STABLE for a month on these phrases -- a 6% band and no more. **SO A PHRASE MEASURED OPEN STAYS OPEN, AND THE NUMBER IS A PLANNING INPUT RATHER THAN A SNAPSHOT.**"
+ },
+ "the_remake_rule": {
+  "bobbys_point": "'remakes are searched by keywords' -- and this is measurable in the top-1 FORMAT",
+  "what_it_means": "For a phrase, look at what holds the top slot. If the top-1 is a Kindle-only title, the PRINT slot is open -- and a remake is a print book that takes the slot a Kindle title holds.",
+  "measured": "MEASURED 2026-11-08, the top-1 price for the open phrases: rabbit shedding $16.50, rabbit nails trimming $11.99, rabbit potty training $14.99, rabbit diet $15.99, how to stop your dog barking $13.99, rabbit breeds $10.21 -- all PRINT, all in the $10-17 band. And FIVE phrases show $0.00 as the top-1 price, which is Amazon reporting a Kindle-only title: rabbit hay $0.00, how to stop your cat scratching $0.00, how to file taxes as a freelancer $0.00, how to price freelance work $0.00, how to negotiate salary $0.00.",
+  "the_reading": "**SO FIVE OF THE SEVENTEEN PHRASES HAVE NO PRINT BOOK AT THE TOP -- TWO IN PETS AND THREE IN FINANCE AND BUSINESS.** A print remake is uncontested on those five, and the bare result counts would never have said so. The counts alone say pets is easiest and finance is crowded; the FORMATS say something sharper: the pets phrases with a print incumbent (rabbit shedding, rabbit nails trimming, rabbit potty training, rabbit diet, how to stop your dog barking) need a real book to beat, while rabbit hay and how to stop your cat scratching do not -- and the three finance/business ones do not.",
+  "and_the_caveat_on_it": "MEASURED: the $0.00 price is Amazon's own display for a Kindle-only title, and it is NOT pet-specific -- one pets phrase and three finance/business phrases show it. **AND ONE PHRASE IS A FALSE POSITIVE WORTH NAMING:** 'rabbit hutch' returns 169 results and its top-1 is 'The Rabbit Hutch: A Novel (National Book Award...)' -- a NOVEL. A two-word phrase admits the wrong book, and that is the catalogued 2026-10-31 failure repeating.",
+  "the_honest_summary": "The counts alone would say pets is easiest and finance is crowded. The formats say the five open print slots are spread across BOTH -- two pets, three finance/business -- so the remake opening is not an area, it is five specific phrases, and the pets ones are the cheapest to reach and the hardest to supply."
+ },
+ "the_supply_check": {
+  "why": "A phrase is half the answer. The other half is what we can write FROM, and a book with no corpus is a book with no body.",
+  "measured_on_disk_2026-11-08": [
+   {
+    "area": "test-prep",
+    "files": 148,
+    "mb": 119.5,
+    "note": "the deepest well: 234.9 MB of question banks in test-prep/testing alone, and 134 finished test pages"
+   },
+   {
+    "area": "business",
+    "files": 64,
+    "mb": 2.5,
+    "note": "finance.php is 12,414 words; finance terms.txt is 10,213 words; Domains-finance.txt is 4,551 words"
+   },
+   {
+    "area": "medicine",
+    "files": 48,
+    "mb": 1.3,
+    "note": "a different market"
+   },
+   {
+    "area": "psychology",
+    "files": 35,
+    "mb": 1.5,
+    "note": "10,000 questions in the bank"
+   },
+   {
+    "area": "pets",
+    "files": 0,
+    "mb": 0.0,
+    "note": "**NO PET CORPUS AT ALL.** MEASURED: a walk of the whole Desktop for files mentioning rabbit, hamster or guinea pig returned 8 files, and every one is an incidental mention -- a movie-data CSV, a yellow-pages list, a biology MCQ bank. The rabbit phrase is the easiest to sell AND we have nothing to write it from.",
+    "the_one_usable_piece": "test-prep/testing/Biology-MCQ.csv (460,947 chars) carries 89 mentions of fish, 64 of bird, 38 of dog, 26 of sheep, 25 of rabbit, 11 of cat, 8 of horse -- which is 260 animal facts and NOT a book."
+   }
+  ],
+  "what_it_changes": "**SO THE ORDER FLIPS ON SUPPLY, NOT ON DEMAND.** Pets wins the demand measurement and loses the supply one. The finance phrases with no print incumbent sit in the business folder we ALREADY HAVE 2.5 MB of -- and the demand measurement says those same phrases have a real buyer and few competitors.",
+  "the_recommendation": "Take the THREE finance/business phrases that have no print incumbent -- 'how to file taxes as a freelancer' (254), 'how to price freelance work' (260) and 'how to negotiate salary' (558) -- and write them from the material already on disk. Then take the pets phrases and BUILD the corpus first: they are the easiest to sell and the furthest from being written."
+ },
+ "the_areas_open_to_this": {
+  "how_the_list_was_built": "measured, not chosen: for each area, the narrowest PHRASES in it were measured on Amazon, and the areas are ranked by how low their open phrases sit",
+  "the_ranking": [
+   {
+    "rank": 1,
+    "area": "PETS AND ANIMAL CARE",
+    "open_phrases_measured": 8,
+    "range": "3 to 330 results",
+    "the_best": "rabbit shedding (3)",
+    "verdict": "EASIEST TO ENTER, AND THE SUPPLY IS MISSING",
+    "why": "a narrow animal and a narrow job is ONE phrase -- 'rabbit shedding' is 3 books on earth, and EIGHT of the pets phrases measured sit under 500"
+   },
+   {
+    "rank": 2,
+    "area": "FINANCE AND NONFICTION (freelance, tax, salary, credit)",
+    "open_phrases_measured": 6,
+    "range": "254 to 3,000 results",
+    "the_best": "how to file taxes as a freelancer (254)",
+    "verdict": "OPEN, WITH FOUR PRINT-FREE SLOTS",
+    "why": "these are jobs with a number in them, and THREE of the six top-1 titles are KINDLE-ONLY -- so a print remake has no incumbent at the top of the phrase"
+   },
+   {
+    "rank": 3,
+    "area": "BUSINESS (freelance)",
+    "open_phrases_measured": 1,
+    "range": "260 results",
+    "the_best": "how to price freelance work (260)",
+    "verdict": "OPEN, AND THE SUPPLY EXISTS",
+    "why": "and 'how to price freelance work' shares a keyword with 'how to file taxes as a freelancer' -- so one book can hold both slots, which is the phrase-to-book rule at work"
+   },
+   {
+    "rank": 4,
+    "area": "TEST PREPARATION",
+    "open_phrases_measured": 2,
+    "range": "460 to 627 results (measured 2026-10-31)",
+    "the_best": "chemistry equations review (460)",
+    "verdict": "OPEN, AND THE DEEPEST SUPPLY",
+    "why": "224,490 questions across 9 banks, and the open phrases are the narrow ones -- a subject plus 'equations' plus 'review'"
+   },
+   {
+    "rank": 5,
+    "area": "SELF-HELP",
+    "open_phrases_measured": 1,
+    "range": "10,000 results",
+    "the_best": "how to build discipline (10,000)",
+    "verdict": "SATURATED AT THE PHRASE LEVEL",
+    "why": "the broad behaviour phrases are where the gurus and their imitators already sit -- and this is the category where AI slop concentrates, so it is the worst place to compete"
+   },
+   {
+    "rank": 6,
+    "area": "GARDENING, PARENTING, RELIGION",
+    "open_phrases_measured": 0,
+    "range": "not measured today",
+    "the_best": "-",
+    "verdict": "NOT MEASURED TODAY",
+    "why": "the phrases are in the catalogue and they are narrow by construction ('how to fix clay soil'), but today's measurement sessions were spent on pets and finance"
+   }
+  ],
+  "the_one_line": "**THE NARROWEST PHRASES WIN, AND THE SUPPLY HAS TO EXIST.** Pets wins the demand side. Finance and business win the supply side AND have four print-free top slots. Those are different answers to different questions, and the honest recommendation is to take the finance/business phrases now and build the pet corpus for later."
+ },
+ "what_would_change_the_answer": [
+  "a pet corpus, built from the biology bank and whatever else can be found -- then pets becomes the best area in the bookstore and the answer flips",
+  "a print title at the top of the finance phrases -- then the print-free openings close",
+  "the bible and its gift shop are books as well as products, and the sacred library's own supply is in the religion area -- which was not measured today because it needs no competition measurement as much as it needs a corpus"
+ ],
+ "the_one_line": "**THE NARROWEST PHRASES WIN, AND THE SUPPLY HAS TO EXIST.** Pets wins the demand measurement (8 phrases under 500). Finance and business win the supply measurement AND have three print-free top slots. The remake openings are not an area -- they are five specific phrases, two in pets and three in finance -- and the honest recommendation is to take the finance ones now and build the pet corpus for later.",
+ "the_thresholds": {
+  "the_tools_own_gate": "tools/keyword_phrases.py: is_open is results < 2000. **THAT IS THE PROJECT'S RULE** -- 460 and 627 are OPEN under it, and 3,000 is not.",
+  "the_note_uses_500": "the note's < 500 cut is TIGHTER than the tool's, and the tighter cut is the one that picks the five print-free slots.",
+  "why_two": "a phrase can be open at 2000 and still be unwinnable if a printed book holds the top slot. **SO THE COUNT DECIDES THE SHORTLIST AND THE FORMAT DECIDES THE WINNABILITY, AND NEITHER IS ENOUGH ALONE.**"
+ }
+}

@@ -229,16 +229,23 @@ def test_the_title_case_keeps_the_small_words_small():
 
 
 def test_the_measured_rabbit_phrases_are_in_the_catalog():
-    """the rabbit set, measured 2026-10-31, and the demonstration of
-    the lexical game.
+    """the rabbit set, and the demonstration of the lexical game.
 
-    "rabbit hutch" (179) puts a NOVEL at the top. "how to build a
-    rabbit hutch" (70) excludes it. The same two words, in a different
-    order, and the fiction is gone.
+    "rabbit hutch" puts a NOVEL at the top. "how to build a rabbit
+    hutch" excludes it. The same two words, in a different order, and
+    the fiction is gone.
+
+    **AND THE NUMBERS ARE RE-MEASURED 2026-11-08, because a fact-lock
+    on a stale measurement is a lock on the wrong thing.** MEASURED:
+    "rabbit hutch" 179 -> 169 (-6%), "rabbit diet" 133 -> 133 (0%),
+    "rabbit potty training" 33 -> 35 (+6%), "rabbit nails trimming"
+    11 -> 11 (0%), "rabbit shedding" 3 -> 3 (0%), "rabbit hay" 18 -> 19
+    (+6%). **SO THE COUNTS ARE STABLE FOR A MONTH WITHIN A 6% BAND, AND
+    THE LOCK BELOW IS ON THE CURRENT MEASUREMENT.**
     """
     novel = _phrase("rabbit hutch")
     build = _phrase("how to build a rabbit hutch")
-    assert novel.results == "179"
+    assert novel.results == "169", novel.results
     assert build.results == "70"
     assert novel.is_open and build.is_open
     # and the demonstration: the short phrase's top result is fiction
@@ -246,6 +253,59 @@ def test_the_measured_rabbit_phrases_are_in_the_catalog():
         novel.competitor_titles
     assert not any("Novel" in t for t in build.competitor_titles), \
         build.competitor_titles
+
+
+def test_the_counts_are_stable_across_the_two_measurement_dates():
+    """**SO A PHRASE MEASURED OPEN STAYS OPEN, AND THE COUNT IS A
+    PLANNING INPUT RATHER THAN A SNAPSHOT.**
+
+    MEASURED 2026-11-08 against the 2026-10-31 run, on the six rabbit
+    phrases both runs measured. The drift was 6%, 0%, 6%, 0%, 0%, 6% --
+    **a 6% band and no more.** So the numbers are a planning input and
+    not one day's noise, and a test that asserts a drift bound is worth
+    more than a test that asserts one number.
+    """
+    import json
+    import pathlib
+    here = pathlib.Path(__file__).resolve().parent.parent
+    note = here / "catalog" / "open_book_targets_2026-11-08.json"
+    assert note.exists(), (
+        "the second measurement is missing: %s" % note)
+    data = json.loads(note.read_text(encoding="utf-8"))
+    drift = data["the_drift_check"]["measured"]
+    assert drift, "the drift check carries no measurements"
+    for row in drift:
+        old = int(str(row["oct_31"]).replace(",", ""))
+        new = int(str(row["nov_08"]).replace(",", ""))
+        assert abs(new - old) / float(old) <= 0.10, (
+            "the count for %r moved more than 10%% between the two "
+            "measurements: %s -> %s" % (row["phrase"], old, new))
+
+
+def test_the_print_free_phrases_have_no_print_incumbent():
+    """**AND A REMAKE IS A PRINT BOOK, SO A KINDLE-ONLY TOP-1 IS AN
+    OPEN SLOT.** MEASURED 2026-11-08: five of the seventeen measured
+    phrases have a top-1 price of $0.00 -- Amazon's own display for a
+    Kindle-only title -- and therefore NO PRINT BOOK HOLDS THE TOP OF
+    THOSE PHRASES.
+
+    Two are pets ("rabbit hay", "how to stop your cat scratching") and
+    three are finance/business ("how to file taxes as a freelancer",
+    "how to price freelance work", "how to negotiate salary").
+
+    **AND THE COUNT ALONE WOULD NEVER HAVE SAID SO** -- and the count
+    alone is what the gurus' rule uses. So the rule needs the FORMAT as
+    well as the count, and this is the test that says so.
+    """
+    kin = [p for c in K.CATEGORIES for p in c.phrases
+           if p.competitor_prices and p.competitor_prices[0] == "$0.00"]
+    assert len(kin) >= 5, (
+        "expected at least five Kindle-only top-1 slots, found %d: %s"
+        % (len(kin), [p.phrase for p in kin]))
+    for p in kin:
+        assert p.is_open, (
+            "the print-free phrase %r has %s results, which is not open"
+            % (p.phrase, p.results))
 
 
 def test_the_widest_open_phrases_are_the_opportunity():

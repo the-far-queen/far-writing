@@ -104,8 +104,8 @@
       "keywordable": "YES. the job has a name and the name is typed. nobody searches 'business insights'; they search 'how to price my freelance work'.",
       "skipped_because": "",
       "results": "80,000",
-      "phrases": 4,
-      "open_phrases": 0
+      "phrases": 6,
+      "open_phrases": 3
     },
     {
       "key": "self_help",
@@ -135,7 +135,7 @@
       "skipped_because": "",
       "results": "70,000",
       "phrases": 15,
-      "open_phrases": 11
+      "open_phrases": 13
     },
     {
       "key": "parenting",
@@ -403,7 +403,7 @@
     {
       "phrase": "how to price freelance work",
       "category": "business",
-      "results": "",
+      "results": "260",
       "competitor_titles": [],
       "competitor_prices": [],
       "subject": "",
@@ -413,7 +413,41 @@
       "audience": "Freelancers",
       "supply": 0,
       "note": "",
-      "is_open": false
+      "is_open": true
+    },
+    {
+      "phrase": "how to file taxes as a freelancer",
+      "category": "business",
+      "results": "254",
+      "competitor_titles": [],
+      "competitor_prices": [
+        "$0.00"
+      ],
+      "subject": "",
+      "verb": "File",
+      "object_": "Taxes as a Freelancer",
+      "qualifier": "",
+      "audience": "Freelancers",
+      "supply": 0,
+      "note": "OPEN. the top-1 price is $0.00 -- a KINDLE-ONLY title, so NO PRINT BOOK holds the slot and a print remake is uncontested.",
+      "is_open": true
+    },
+    {
+      "phrase": "how to negotiate salary",
+      "category": "business",
+      "results": "558",
+      "competitor_titles": [],
+      "competitor_prices": [
+        "$0.00"
+      ],
+      "subject": "",
+      "verb": "Negotiate",
+      "object_": "Salary",
+      "qualifier": "",
+      "audience": "Employees",
+      "supply": 0,
+      "note": "OPEN, and the top-1 is Kindle-only.",
+      "is_open": true
     },
     {
       "phrase": "how to raise your first round",
@@ -568,7 +602,7 @@
     {
       "phrase": "how to stop your dog barking",
       "category": "pets",
-      "results": "",
+      "results": "330",
       "competitor_titles": [],
       "competitor_prices": [],
       "subject": "",
@@ -578,12 +612,12 @@
       "audience": "Dog Owners",
       "supply": 0,
       "note": "",
-      "is_open": false
+      "is_open": true
     },
     {
       "phrase": "how to stop your cat scratching",
       "category": "pets",
-      "results": "",
+      "results": "21",
       "competitor_titles": [],
       "competitor_prices": [],
       "subject": "",
@@ -593,7 +627,7 @@
       "audience": "Cat Owners",
       "supply": 0,
       "note": "",
-      "is_open": false
+      "is_open": true
     },
     {
       "phrase": "how to stop a dog pulling on leash",
@@ -613,7 +647,7 @@
     {
       "phrase": "rabbit hutch",
       "category": "pets",
-      "results": "179",
+      "results": "169",
       "competitor_titles": [
         "The Rabbit Hutch: A Novel"
       ],
